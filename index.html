@@ -1,0 +1,253 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>아산시 교통약자이동지원센터 노동조합 공식 앱 · 설치 안내</title>
+<meta name="description" content="건의함(비밀글), 조합 소식, 업계·정책 뉴스를 한곳에서 확인하세요. (v2.3)">
+
+<!-- 카카오톡·메신저 링크 미리보기 -->
+<meta property="og:title" content="아산시 교통약자이동지원센터 노동조합 공식 앱">
+<meta property="og:description" content="건의함(비밀글), 조합 소식, 업계·정책 뉴스를 한곳에서 확인하세요. (v2.3)">
+<meta property="og:image" content="https://chlrhkdwns12-boop.github.io/asan-union-download/icon.png">
+<meta property="og:image:width" content="1024">
+<meta property="og:image:height" content="1024">
+<meta property="og:image:alt" content="기아 카니발 앱 아이콘 — 아산교통약자노조">
+<meta property="og:url" content="https://chlrhkdwns12-boop.github.io/asan-union-download/">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="아산교통약자노조">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="아산시 교통약자이동지원센터 노동조합 공식 앱">
+<meta name="twitter:description" content="건의함(비밀글), 조합 소식, 업계·정책 뉴스를 한곳에서 확인하세요. (v2.3)">
+<meta name="twitter:image" content="https://chlrhkdwns12-boop.github.io/asan-union-download/icon.png">
+
+<link rel="icon" type="image/png" href="icon.png">
+<link rel="apple-touch-icon" href="icon.png">
+<meta name="theme-color" content="#D8E6FF">
+<style>
+  :root{
+    --ink:#0F172A; --ink-soft:#3C4552; --sub:#6B7686; --muted:#8B95A1;
+    --blue:#1B64F2; --blue-bright:#2F7BFA; --blue-light:#5C9BFF; --blue-deep:#0F53DC; --blue-press:#0B47C4;
+    --blue-ink:#14326B; --blue-tint:#EAF0FE; --blue-tint-soft:#F2F6FE;
+    --glass:rgba(255,255,255,.92); --glass-stroke:rgba(255,255,255,.95);
+    --shadow:0 18px 44px -18px rgba(27,100,242,.45);
+  }
+  *{box-sizing:border-box; -webkit-tap-highlight-color:transparent}
+  html,body{margin:0; padding:0}
+  body{
+    min-height:100vh; color:var(--ink);
+    font-family:-apple-system,BlinkMacSystemFont,"Apple SD Gothic Neo","Pretendard","Malgun Gothic",system-ui,"Segoe UI",Roboto,sans-serif;
+    background:#EAF1FF;
+    background:
+      radial-gradient(1200px 700px at 12% -8%, #D8E6FF 0%, rgba(216,230,255,0) 62%),
+      radial-gradient(900px 640px at 92% 4%, #E7DDFF 0%, rgba(231,221,255,0) 58%),
+      radial-gradient(800px 600px at 50% 108%, #D6F2FF 0%, rgba(214,242,255,0) 60%),
+      linear-gradient(180deg,#EAF1FF 0%,#EEF3FF 46%,#F6F8FF 100%);
+    background-attachment:fixed;
+    -webkit-font-smoothing:antialiased;
+    overflow-x:hidden;
+  }
+  /* 오로라 블롭 */
+  .aurora{position:fixed; inset:0; pointer-events:none; z-index:0; overflow:hidden}
+  .aurora span{
+    position:absolute; display:block; border-radius:50%; filter:blur(46px); opacity:.72;
+    animation:drift 18s ease-in-out infinite alternate;
+  }
+  .aurora .a1{width:340px;height:340px; left:-90px; top:-70px; background:#BBD4FF}
+  .aurora .a2{width:300px;height:300px; right:-100px; top:90px; background:#E7D4FF; animation-delay:-6s}
+  .aurora .a3{width:260px;height:260px; left:-60px; bottom:120px; background:#C9F0FF; animation-delay:-11s}
+  .aurora .a4{width:240px;height:240px; right:-70px; bottom:-40px; background:#FFDCF0; animation-delay:-3s}
+  @keyframes drift{
+    from{transform:translate3d(0,0,0) scale(1)}
+    to{transform:translate3d(14px,-18px,0) scale(1.08)}
+  }
+
+  .wrap{
+    position:relative; z-index:1;
+    max-width:460px; margin:0 auto; padding:36px 20px 44px;
+    padding-top:max(36px, env(safe-area-inset-top));
+    padding-bottom:max(44px, env(safe-area-inset-bottom));
+  }
+
+  /* 히어로 */
+  .hero{text-align:center; animation:rise .7s cubic-bezier(.2,.8,.3,1) both}
+  .icon-shell{
+    position:relative; width:148px; height:148px; margin:6px auto 18px;
+    border-radius:34px;
+    background:linear-gradient(160deg,#E8F0FF,#F7FAFF);
+    border:1px solid var(--glass-stroke);
+    box-shadow:0 24px 48px -18px rgba(27,100,242,.55), inset 0 1px 0 #fff;
+    display:grid; place-items:center;
+    animation:float 6.5s ease-in-out infinite;
+  }
+  .icon-shell::after{
+    content:""; position:absolute; inset:-14px; border-radius:44px; z-index:-1;
+    background:radial-gradient(circle at 50% 50%, rgba(92,155,255,.38), rgba(92,155,255,0) 70%);
+    animation:breath 4.8s ease-in-out infinite;
+  }
+  .icon-shell img{width:118px; height:118px; border-radius:26px; display:block}
+  @keyframes float{0%,100%{transform:translateY(0)}50%{transform:translateY(-7px)}}
+  @keyframes breath{0%,100%{opacity:.55; transform:scale(.97)}50%{opacity:.95; transform:scale(1.04)}}
+
+  .eyebrow{
+    display:inline-block; margin:0 0 10px; padding:6px 12px; border-radius:999px;
+    font-size:12px; font-weight:700; letter-spacing:-.01em; color:var(--blue-ink);
+    background:rgba(255,255,255,.8); border:1px solid rgba(27,100,242,.14);
+  }
+  h1{
+    margin:0; font-size:26px; line-height:1.32; letter-spacing:-.03em; font-weight:800;
+    color:var(--ink);
+  }
+  h1 .accent{
+    background:linear-gradient(100deg,#1B64F2,#5C9BFF 55%,#8B79FF);
+    -webkit-background-clip:text; background-clip:text; color:transparent;
+  }
+  .lede{margin:10px 4px 0; font-size:14.5px; line-height:1.62; color:var(--sub)}
+
+  /* 카드 */
+  .card{
+    margin-top:22px; padding:20px 18px; border-radius:24px;
+    background:var(--glass); border:1px solid var(--glass-stroke);
+    box-shadow:var(--shadow), inset 0 1px 0 #fff;
+    backdrop-filter:blur(14px); -webkit-backdrop-filter:blur(14px);
+    animation:rise .8s cubic-bezier(.2,.8,.3,1) both;
+  }
+  .card + .card{margin-top:14px}
+  .card:nth-of-type(1){animation-delay:.08s}
+  .card:nth-of-type(2){animation-delay:.16s}
+  .card:nth-of-type(3){animation-delay:.24s}
+  @keyframes rise{from{opacity:0; transform:translateY(16px) perspective(900px) rotateX(4deg)}to{opacity:1; transform:none}}
+
+  .spec{display:flex; align-items:center; gap:12px}
+  .spec .meta{flex:1; min-width:0; text-align:left}
+  .spec .name{font-size:16.5px; font-weight:800; letter-spacing:-.02em; display:flex; align-items:center; gap:7px; flex-wrap:wrap}
+  .version{
+    font-size:11.5px; font-weight:800; color:#fff; padding:3px 8px; border-radius:999px;
+    background:linear-gradient(180deg,var(--blue-bright),var(--blue)); box-shadow:0 4px 10px -4px rgba(27,100,242,.8);
+  }
+  .spec .sub{margin-top:3px; font-size:12.5px; color:var(--muted); letter-spacing:-.01em}
+  .spec .mini{
+    width:56px; height:56px; border-radius:15px; display:block; flex:none;
+    box-shadow:0 10px 20px -10px rgba(27,100,242,.6);
+  }
+
+  /* 다운로드 버튼 */
+  .cta{
+    position:relative; overflow:hidden; display:flex; align-items:center; justify-content:center; gap:9px;
+    width:100%; margin-top:16px; padding:17px 18px; border:0; border-radius:18px;
+    font-family:inherit; font-size:16.5px; font-weight:800; letter-spacing:-.02em; color:#fff; text-decoration:none;
+    background:linear-gradient(180deg,var(--blue-bright) 0%,var(--blue) 58%,var(--blue-deep) 100%);
+    box-shadow:0 14px 26px -10px rgba(27,100,242,.85), inset 0 1px 0 rgba(255,255,255,.35);
+    transition:transform .16s cubic-bezier(.2,.8,.3,1), box-shadow .16s ease, filter .16s ease;
+  }
+  .cta::after{
+    content:""; position:absolute; top:-60%; left:-30%; width:45%; height:220%;
+    background:linear-gradient(90deg,rgba(255,255,255,0),rgba(255,255,255,.5),rgba(255,255,255,0));
+    transform:rotate(18deg); animation:sheen 3.6s ease-in-out infinite;
+  }
+  @keyframes sheen{0%{left:-45%}55%{left:120%}100%{left:120%}}
+  .cta:active{transform:translateY(2px) scale(.994); box-shadow:0 6px 14px -8px rgba(27,100,242,.9)}
+  .cta svg{width:20px; height:20px; flex:none}
+  .cta-text{line-height:1.2}
+  .cta-text small{display:block; font-size:11.5px; font-weight:600; opacity:.85; letter-spacing:0}
+
+  .ghost{
+    display:flex; align-items:center; justify-content:center; gap:6px;
+    margin-top:12px; padding:12px; border-radius:14px; text-decoration:none;
+    font-size:13.5px; font-weight:700; color:var(--blue-deep);
+    background:var(--blue-tint-soft); border:1px solid rgba(27,100,242,.16);
+    transition:background .16s ease, transform .16s ease;
+  }
+  .ghost:active{transform:translateY(1px); background:var(--blue-tint)}
+  .note{margin:12px 2px 0; font-size:12px; line-height:1.6; color:var(--muted); text-align:center}
+
+  /* 설치 방법 */
+  h2{margin:0 0 14px; font-size:14px; font-weight:800; letter-spacing:-.01em; color:var(--ink); display:flex; align-items:center; gap:8px}
+  h2::before{content:""; width:4px; height:14px; border-radius:2px; background:linear-gradient(180deg,var(--blue-bright),#8B79FF)}
+  ol.steps{margin:0; padding:0; list-style:none; counter-reset:s}
+  ol.steps li{
+    position:relative; counter-increment:s; padding:11px 0 11px 38px; font-size:13.8px; line-height:1.58; color:var(--ink-soft);
+  }
+  ol.steps li + li{border-top:1px solid rgba(15,23,42,.07)}
+  ol.steps li::before{
+    content:counter(s); position:absolute; left:0; top:10px;
+    width:25px; height:25px; border-radius:9px; display:grid; place-items:center;
+    font-size:12.5px; font-weight:800; color:var(--blue-deep);
+    background:linear-gradient(180deg,#fff,var(--blue-tint)); border:1px solid rgba(27,100,242,.18);
+    box-shadow:0 4px 10px -6px rgba(27,100,242,.7);
+  }
+  ol.steps b{color:var(--ink); font-weight:800}
+
+  /* 기능 */
+  .chips{display:flex; flex-wrap:wrap; gap:8px; margin-top:2px}
+  .chip{
+    font-size:12.5px; font-weight:700; color:var(--blue-ink); padding:8px 12px; border-radius:999px;
+    background:linear-gradient(180deg,#fff,var(--blue-tint-soft)); border:1px solid rgba(27,100,242,.14);
+  }
+
+  footer{margin-top:26px; text-align:center; font-size:11.5px; line-height:1.7; color:var(--muted)}
+  footer b{color:var(--sub); font-weight:700}
+
+  @media (prefers-reduced-motion: reduce){
+    *,*::before,*::after{animation:none !important; transition:none !important}
+  }
+</style>
+</head>
+<body>
+<div class="aurora" aria-hidden="true"><span class="a1"></span><span class="a2"></span><span class="a3"></span><span class="a4"></span></div>
+
+<main class="wrap">
+  <section class="hero">
+    <div class="icon-shell"><img src="icon.png" alt="아산교통약자노조 앱 아이콘"></div>
+    <p class="eyebrow">노동조합 공식 앱 · 조합원 배포</p>
+    <h1>아산시 교통약자이동지원센터<br><span class="accent">노동조합 공식 앱</span></h1>
+    <p class="lede">건의함(비밀글), 조합 소식, 업계·정책 뉴스를<br>한곳에서 확인하세요.</p>
+  </section>
+
+  <section class="card" aria-label="앱 정보와 내려받기">
+    <div class="spec">
+      <img class="mini" src="icon.png" alt="">
+      <div class="meta">
+        <div class="name">아산교통약자노조 <span class="version">v2.3</span></div>
+        <div class="sub">안드로이드 앱 · APK · 약 10MB</div>
+      </div>
+    </div>
+
+    <a class="cta" href="https://drive.google.com/uc?export=download&amp;id=1PhYDATRyjfQ1S8n6pl13NqHP9QIUmPAP" rel="noopener">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.1" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+        <path d="M12 3v11"/><path d="m7.5 10 4.5 4.5L16.5 10"/><path d="M4.5 18.5h15"/>
+      </svg>
+      <span class="cta-text">앱 내려받기<small>APK 바로 다운로드</small></span>
+    </a>
+
+    <a class="ghost" href="https://drive.google.com/file/d/1PhYDATRyjfQ1S8n6pl13NqHP9QIUmPAP/view?usp=drivesdk" rel="noopener">드라이브에서 보기</a>
+
+    <p class="note">내려받기가 막히면 '드라이브에서 보기'로 들어가<br>오른쪽 위 <b>⋮ → 다운로드</b>를 눌러 주세요.</p>
+  </section>
+
+  <section class="card" aria-label="설치 방법">
+    <h2>설치 방법</h2>
+    <ol class="steps">
+      <li>위의 <b>‘앱 내려받기’</b>를 눌러 APK 파일을 받습니다.</li>
+      <li>내려받은 파일을 열고 <b>‘설치’</b>를 누릅니다. (휴대폰이 막으면 <b>‘출처를 알 수 없는 앱’ 허용</b>만 한 번 켜 주세요.)</li>
+      <li>홈 화면의 <b>‘아산교통약자노조’</b> 아이콘으로 실행하고 로그인합니다.</li>
+    </ol>
+  </section>
+
+  <section class="card" aria-label="주요 기능">
+    <h2>이런 것을 할 수 있어요</h2>
+    <div class="chips">
+      <span class="chip">건의함 · 비밀글</span>
+      <span class="chip">조합 소식</span>
+      <span class="chip">업계·정책 뉴스</span>
+      <span class="chip">알림</span>
+    </div>
+  </section>
+
+  <footer>
+    <b>아산시 교통약자이동지원센터 노동조합</b><br>
+    배포 v2.3 · 설치 파일은 구글 드라이브에서 내려받습니다.
+  </footer>
+</main>
+</body>
+</html>
