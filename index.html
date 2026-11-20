@@ -169,6 +169,18 @@
   .ghost:active{transform:translateY(1px); background:var(--blue-tint)}
   .note{margin:12px 2px 0; font-size:12px; line-height:1.6; color:var(--muted); text-align:center}
 
+  /* 설치 중 보안 창 안내 — 접지 않고 처음부터 펼쳐 보이게 둔다(조합원이 설치 단계에서 막히는 곳) */
+  .guard{
+    display:flex; align-items:flex-start; gap:10px;
+    margin-top:12px; padding:13px 14px; border-radius:16px; text-align:left;
+    background:linear-gradient(180deg,#FFF7EA 0%,#FFF1DE 100%);
+    border:1px solid rgba(240,160,32,.45);
+    box-shadow:0 10px 20px -14px rgba(240,160,32,.85), inset 0 1px 0 #fff;
+  }
+  .guard svg{width:19px; height:19px; flex:none; margin-top:1px; color:#B26A05}
+  .guard p{margin:0; font-size:13px; line-height:1.62; letter-spacing:-.01em; font-weight:600; color:#7A4E06}
+  .guard b{font-weight:800; color:#5E3C04}
+
   /* 설치 방법 */
   h2{margin:0 0 14px; font-size:14px; font-weight:800; letter-spacing:-.01em; color:var(--ink); display:flex; align-items:center; gap:8px}
   h2::before{content:""; width:4px; height:14px; border-radius:2px; background:linear-gradient(180deg,var(--blue-bright),#8B79FF)}
@@ -233,6 +245,13 @@
       </svg>
       <span class="cta-text">앱 내려받기<small>APK 바로 다운로드</small></span>
     </a>
+
+    <div class="guard" role="note" aria-label="설치 중 보안 창이 뜰 때">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+        <path d="M12 3l7 3v6c0 4.4-3 7.6-7 9-4-1.4-7-4.6-7-9V6l7-3z"/><path d="M12 8.5v4"/><path d="M12 16h.01"/>
+      </svg>
+      <p>설치 중 <b>“유해한 앱 차단됨”</b> 보안 창이 뜨면 → <b>[세부정보]</b> 누르고 → <b>[무시하고 설치(검사 없이 설치)]</b>를 눌러 주세요.</p>
+    </div>
 
     <a class="ghost" href="https://github.com/chlrhkdwns12-boop/asan-union-download/releases" rel="noopener">이전 버전 보기</a>
 
