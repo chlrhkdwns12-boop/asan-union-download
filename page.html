@@ -197,9 +197,16 @@
     box-shadow:0 6px 12px -6px rgba(27,100,242,.95);
   }
   .install-guide .tx{min-width:0}
-  .install-guide .tx b{display:block; font-size:14.5px; line-height:1.42; font-weight:800; letter-spacing:-.02em; color:var(--ink)}
+  .install-guide .tx b{display:block; font-size:15px; line-height:1.48; font-weight:800; letter-spacing:-.02em; color:var(--ink)}
+  /* 어르신이 가장 헷갈리는 두 동작 — 큰 글씨 + 노랑/파랑 배지로 강조 */
+  .kw{
+    display:inline-block; margin:2px 1px; padding:1px 7px; border-radius:8px;
+    font-weight:800; font-size:1.1em; letter-spacing:-.02em; line-height:1.42; vertical-align:baseline; white-space:nowrap;
+  }
+  .kw-y{color:#5E3C04; background:linear-gradient(180deg,#FFF0AE,#FFDD6E); box-shadow:inset 0 -1px 0 rgba(196,140,0,.4), 0 3px 8px -5px rgba(196,140,0,.95)}
+  .kw-b{color:#fff; background:linear-gradient(180deg,var(--blue-bright),var(--blue-deep)); box-shadow:0 4px 10px -5px rgba(27,100,242,.95)}
   .install-guide .tx b em{font-style:normal; color:var(--blue-deep)}
-  .install-guide .tx span{display:block; margin-top:3px; font-size:13px; line-height:1.56; letter-spacing:-.01em; color:var(--ink-soft)}
+  .install-guide .tx span{display:block; margin-top:3px; font-size:13.4px; line-height:1.56; letter-spacing:-.01em; color:var(--ink-soft)}
   .install-guide .ig-tip{
     display:flex; align-items:center; gap:6px; margin:11px 0 0; padding:9px 11px; border-radius:12px;
     font-size:12.5px; line-height:1.5; font-weight:700; color:#7A4E06;
@@ -240,9 +247,10 @@
     box-shadow:0 6px 12px -6px rgba(27,100,242,.95);
   }
   .mg-steps .tx{min-width:0}
-  .mg-steps .tx b{display:block; font-size:15.5px; line-height:1.42; font-weight:800; letter-spacing:-.02em; color:var(--ink)}
+  .mg-steps .tx b{display:block; font-size:16px; line-height:1.52; font-weight:800; letter-spacing:-.02em; color:var(--ink)}
+  .mg-steps .kw{font-size:1.06em}
   .mg-steps .tx b em{font-style:normal; color:var(--blue-deep)}
-  .mg-steps .tx span{display:block; margin-top:3px; font-size:13.2px; line-height:1.55; letter-spacing:-.01em; color:var(--ink-soft)}
+  .mg-steps .tx span{display:block; margin-top:4px; font-size:13.8px; line-height:1.55; letter-spacing:-.01em; color:var(--ink-soft)}
   .mg-actions{margin-top:16px; display:grid; gap:9px}
   .mg-go{
     position:relative; overflow:hidden; display:flex; align-items:center; justify-content:center; gap:8px;
@@ -349,21 +357,21 @@
         <li>
           <span class="num" aria-hidden="true">1</span>
           <div class="tx">
-            <b>「무시하고 다운로드」 · 「무시하고 설치」 누르기 <em>(2번)</em></b>
+            <b><span class="kw kw-y">무시하고 다운로드</span> · <span class="kw kw-y">무시하고 설치</span> 누르기 <em>(2번)</em></b>
             <span>다운로드·설치할 때 나오는 확인창에서 「무시하고 다운로드(또는 설치)」를 눌러 주세요.</span>
           </div>
         </li>
         <li>
           <span class="num" aria-hidden="true">2</span>
           <div class="tx">
-            <b>「세부정보」 누르기</b>
+            <b>보안 검사 창이 뜨면 <span class="kw kw-b">세부정보</span> 누르기</b>
             <span>보안 검사 창이 뜨면 아래쪽 작은 글씨 「세부정보」를 눌러 주세요.</span>
           </div>
         </li>
         <li>
           <span class="num" aria-hidden="true">3</span>
           <div class="tx">
-            <b>「검사 없이 설치」 누르기</b>
+            <b><span class="kw kw-b">검사 없이 설치</span> 누르기</b>
             <span>펼쳐진 화면에서 「검사 없이 설치」를 누르면 설치가 완료됩니다!</span>
           </div>
         </li>
@@ -424,21 +432,21 @@
       <li>
         <span class="num" aria-hidden="true">1</span>
         <div class="tx">
-          <b>「무시하고 다운로드 / 무시하고 설치」 누르기 <em>(총 2번 나와요)</em></b>
+          <b><span class="kw kw-y">무시하고 다운로드</span> · <span class="kw kw-y">무시하고 설치</span> 누르기 <em>(총 2번 나와요)</em></b>
           <span>내려받을 때와 설치할 때 한 번씩, 확인창이 나오면 「무시하고…」를 눌러 주세요.</span>
         </div>
       </li>
       <li>
         <span class="num" aria-hidden="true">2</span>
         <div class="tx">
-          <b>보안 검사 창이 뜨면 <em>「세부정보」</em> 누르기</b>
+          <b>보안 검사 창이 뜨면 <span class="kw kw-b">세부정보</span> 누르기</b>
           <span>창 아래쪽 작은 글씨 「세부정보」를 눌러 주세요.</span>
         </div>
       </li>
       <li>
         <span class="num" aria-hidden="true">3</span>
         <div class="tx">
-          <b><em>「검사 없이 설치」</em> 누르면 설치 완료!</b>
+          <b><span class="kw kw-b">검사 없이 설치</span> 누르면 설치 완료!</b>
           <span>펼쳐진 화면에서 누르면 설치가 끝납니다.</span>
         </div>
       </li>
