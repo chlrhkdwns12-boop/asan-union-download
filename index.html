@@ -260,6 +260,7 @@
     box-shadow:0 14px 26px -12px rgba(27,100,242,.95), inset 0 1px 0 rgba(255,255,255,.35);
   }
   .mg-go:active{transform:translateY(1px)}
+  a.mg-go{text-decoration:none}
   .mg-go svg{width:19px; height:19px; flex:none}
   .mg-close{
     width:100%; padding:13px 16px; border-radius:14px; cursor:pointer; font-family:inherit;
@@ -283,6 +284,7 @@
     .modal-card h2{font-size:17px}
     .mg-steps .tx b{font-size:14.6px}
     .mg-steps .tx .desc{font-size:13px}
+    .install-guide .kw, .mg-steps .kw{padding:0 5px; font-size:1em; margin:1px 0}
   }
 
   /* 설치 방법 */
@@ -452,12 +454,12 @@
       </li>
     </ol>
     <div class="mg-actions">
-      <button class="mg-go" type="button" id="mgDownload">
+      <a class="mg-go" id="mgDownload" href="https://github.com/chlrhkdwns12-boop/asan-union-download/releases/download/v3.13/asan-union-box-v3.13.apk" rel="noopener">
         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.1" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
           <path d="M12 3v11"/><path d="m7.5 10 4.5 4.5L16.5 10"/><path d="M4.5 18.5h15"/>
         </svg>
         안내 확인 · 다운로드 시작
-      </button>
+      </a>
       <button class="mg-close" type="button" data-close>닫기</button>
     </div>
   </div>
@@ -468,9 +470,8 @@
   var modal = document.getElementById('installGuideModal');
   var cta   = document.getElementById('apkCta');
   var go    = document.getElementById('mgDownload');
-  var closes = modal.querySelectorAll('[data-close]');
   if (!modal || !cta || !go) return;
-  var apkUrl = cta.getAttribute('href');
+  var closes = modal.querySelectorAll('[data-close]');
   var lastFocus = null;
 
   function open(e){
@@ -487,17 +488,9 @@
     document.body.style.overflow = '';
     if (lastFocus && lastFocus.focus) { try { lastFocus.focus(); } catch(_){} }
   }
-  function download(){
-    close();
-    var a = document.createElement('a');
-    a.href = apkUrl; a.rel = 'noopener'; a.style.display = 'none';
-    document.body.appendChild(a);
-    a.click();
-    setTimeout(function(){ if (a.parentNode) a.parentNode.removeChild(a); }, 1500);
-  }
-
   cta.addEventListener('click', open);
-  go.addEventListener('click', download);
+  /* '안내 확인 · 다운로드 시작'은 실제 링크라 누르는 순간 다운로드가 시작된다. 여기서는 팝업만 닫는다. */
+  go.addEventListener('click', function(){ close(); });
   Array.prototype.forEach.call(closes, function(b){ b.addEventListener('click', close); });
   modal.addEventListener('click', function(ev){ if (ev.target === modal) close(); });
   document.addEventListener('keydown', function(ev){
