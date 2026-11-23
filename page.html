@@ -169,17 +169,113 @@
   .ghost:active{transform:translateY(1px); background:var(--blue-tint)}
   .note{margin:12px 2px 0; font-size:12px; line-height:1.6; color:var(--muted); text-align:center}
 
-  /* 설치 중 보안 창 안내 — 접지 않고 처음부터 펼쳐 보이게 둔다(조합원이 설치 단계에서 막히는 곳) */
-  .guard{
-    display:flex; align-items:flex-start; gap:10px;
-    margin-top:12px; padding:13px 14px; border-radius:16px; text-align:left;
-    background:linear-gradient(180deg,#FFF7EA 0%,#FFF1DE 100%);
-    border:1px solid rgba(240,160,32,.45);
-    box-shadow:0 10px 20px -14px rgba(240,160,32,.85), inset 0 1px 0 #fff;
+  /* 처음 설치할 때 3단계 안내 — 다운로드 버튼 바로 아래, 접지 않고 펼쳐 둔다(조합원이 설치 단계에서 막히는 곳) */
+  .install-guide{
+    margin-top:14px; padding:16px 15px 15px; border-radius:20px; text-align:left;
+    background:linear-gradient(180deg,#F8FBFF 0%,#E9F0FE 100%);
+    border:1.5px solid rgba(27,100,242,.32);
+    box-shadow:0 14px 26px -18px rgba(27,100,242,.9), inset 0 1px 0 #fff;
   }
-  .guard svg{width:19px; height:19px; flex:none; margin-top:1px; color:#B26A05}
-  .guard p{margin:0; font-size:13px; line-height:1.62; letter-spacing:-.01em; font-weight:600; color:#7A4E06}
-  .guard b{font-weight:800; color:#5E3C04}
+  .install-guide h3{
+    margin:0; font-size:16.5px; line-height:1.34; font-weight:800; letter-spacing:-.03em; color:var(--blue-deep);
+  }
+  .install-guide h3 span{font-size:13px; font-weight:800; color:#A6600A; white-space:nowrap}
+  .install-guide .ig-sub{
+    margin:7px 0 0; font-size:13.2px; line-height:1.6; letter-spacing:-.01em; font-weight:600; color:var(--ink-soft);
+  }
+  .install-guide .ig-sub b{color:var(--blue-deep); font-weight:800}
+  .install-guide ol{margin:12px 0 0; padding:0; list-style:none; display:grid; gap:8px}
+  .install-guide li{
+    display:flex; align-items:flex-start; gap:10px; padding:11px 12px; border-radius:14px;
+    background:#fff; border:1px solid rgba(27,100,242,.16);
+    box-shadow:0 8px 16px -14px rgba(27,100,242,.95);
+  }
+  .install-guide .num{
+    flex:none; width:28px; height:28px; border-radius:50%; display:grid; place-items:center;
+    font-size:14px; font-weight:800; color:#fff; line-height:1;
+    background:linear-gradient(180deg,var(--blue-bright),var(--blue-deep));
+    box-shadow:0 6px 12px -6px rgba(27,100,242,.95);
+  }
+  .install-guide .tx{min-width:0}
+  .install-guide .tx b{display:block; font-size:14.5px; line-height:1.42; font-weight:800; letter-spacing:-.02em; color:var(--ink)}
+  .install-guide .tx b em{font-style:normal; color:var(--blue-deep)}
+  .install-guide .tx span{display:block; margin-top:3px; font-size:13px; line-height:1.56; letter-spacing:-.01em; color:var(--ink-soft)}
+  .install-guide .ig-tip{
+    display:flex; align-items:center; gap:6px; margin:11px 0 0; padding:9px 11px; border-radius:12px;
+    font-size:12.5px; line-height:1.5; font-weight:700; color:#7A4E06;
+    background:#FFF7EA; border:1px solid rgba(240,160,32,.42);
+  }
+  .install-guide .ig-tip svg{width:15px; height:15px; flex:none; color:#B26A05}
+  /* 설치 안내 팝업 — 다운로드 버튼을 누르면 안드로이드 경고창보다 먼저 뜬다 */
+  .modal{
+    position:fixed; inset:0; z-index:80; display:flex; align-items:flex-end; justify-content:center;
+    background:rgba(9,18,38,.58);
+    opacity:0; visibility:hidden; transition:opacity .2s ease, visibility .2s ease;
+  }
+  .modal.is-open{opacity:1; visibility:visible}
+  .modal-card{
+    width:100%; max-width:460px; max-height:91vh; overflow-y:auto; -webkit-overflow-scrolling:touch;
+    padding:22px 19px calc(18px + env(safe-area-inset-bottom));
+    border-radius:26px 26px 0 0; background:#fff; text-align:left;
+    box-shadow:0 -20px 50px -14px rgba(9,18,38,.5), inset 0 1px 0 #fff;
+    transform:translateY(22px); transition:transform .28s cubic-bezier(.2,.8,.3,1);
+  }
+  .modal.is-open .modal-card{transform:none}
+  .modal-card h2{
+    margin:0; font-size:19px; line-height:1.36; font-weight:800; letter-spacing:-.03em; color:var(--ink);
+    display:block;
+  }
+  .modal-card h2::before{display:none}
+  .modal-card h2 .mg-accent{color:var(--blue-deep)}
+  .mg-sub{margin:8px 0 0; font-size:13.5px; line-height:1.6; font-weight:600; letter-spacing:-.01em; color:var(--ink-soft)}
+  .mg-steps{margin:15px 0 0; padding:0; list-style:none; display:grid; gap:9px}
+  .mg-steps li{
+    display:flex; align-items:flex-start; gap:11px; padding:12px 13px; border-radius:15px;
+    background:linear-gradient(180deg,#F8FBFF,#EEF3FF); border:1px solid rgba(27,100,242,.18);
+  }
+  .mg-steps .num{
+    flex:none; width:30px; height:30px; border-radius:50%; display:grid; place-items:center;
+    font-size:15px; font-weight:800; color:#fff; line-height:1;
+    background:linear-gradient(180deg,var(--blue-bright),var(--blue-deep));
+    box-shadow:0 6px 12px -6px rgba(27,100,242,.95);
+  }
+  .mg-steps .tx{min-width:0}
+  .mg-steps .tx b{display:block; font-size:15.5px; line-height:1.42; font-weight:800; letter-spacing:-.02em; color:var(--ink)}
+  .mg-steps .tx b em{font-style:normal; color:var(--blue-deep)}
+  .mg-steps .tx span{display:block; margin-top:3px; font-size:13.2px; line-height:1.55; letter-spacing:-.01em; color:var(--ink-soft)}
+  .mg-actions{margin-top:16px; display:grid; gap:9px}
+  .mg-go{
+    position:relative; overflow:hidden; display:flex; align-items:center; justify-content:center; gap:8px;
+    width:100%; padding:17px 16px; border:0; border-radius:16px; cursor:pointer;
+    font-family:inherit; font-size:16.5px; font-weight:800; letter-spacing:-.02em; color:#fff;
+    background:linear-gradient(180deg,var(--blue-bright) 0%,var(--blue) 58%,var(--blue-deep) 100%);
+    box-shadow:0 14px 26px -12px rgba(27,100,242,.95), inset 0 1px 0 rgba(255,255,255,.35);
+  }
+  .mg-go:active{transform:translateY(1px)}
+  .mg-go svg{width:19px; height:19px; flex:none}
+  .mg-close{
+    width:100%; padding:13px 16px; border-radius:14px; cursor:pointer; font-family:inherit;
+    font-size:14.5px; font-weight:700; letter-spacing:-.01em; color:var(--ink-soft);
+    background:#F1F4FA; border:1px solid rgba(15,23,42,.08);
+  }
+  .mg-close:active{background:#E7ECF7}
+  @media (min-width:520px){
+    .modal{align-items:center; padding:20px}
+    .modal-card{border-radius:26px; transform:translateY(10px) scale(.97)}
+  }
+  @media (max-width:380px){
+    .install-guide{padding:14px 12px 13px}
+    .install-guide h3{font-size:15.5px}
+    .install-guide h3 span{font-size:12.3px}
+    .install-guide li{padding:10px; gap:8px}
+    .install-guide .num{width:25px; height:25px; font-size:13px}
+    .install-guide .tx b{font-size:13.8px}
+    .install-guide .tx span{font-size:12.5px}
+    .modal-card{padding:18px 15px calc(16px + env(safe-area-inset-bottom))}
+    .modal-card h2{font-size:17px}
+    .mg-steps .tx b{font-size:14.6px}
+    .mg-steps .tx span{font-size:12.6px}
+  }
 
   /* 설치 방법 */
   h2{margin:0 0 14px; font-size:14px; font-weight:800; letter-spacing:-.01em; color:var(--ink); display:flex; align-items:center; gap:8px}
@@ -239,19 +335,46 @@
       </div>
     </div>
 
-    <a class="cta" href="https://github.com/chlrhkdwns12-boop/asan-union-download/releases/download/v3.13/asan-union-box-v3.13.apk" rel="noopener">
+    <a class="cta" id="apkCta" href="https://github.com/chlrhkdwns12-boop/asan-union-download/releases/download/v3.13/asan-union-box-v3.13.apk" rel="noopener" aria-haspopup="dialog" aria-controls="installGuideModal">
       <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.1" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
         <path d="M12 3v11"/><path d="m7.5 10 4.5 4.5L16.5 10"/><path d="M4.5 18.5h15"/>
       </svg>
       <span class="cta-text">앱 내려받기<small>APK 바로 다운로드</small></span>
     </a>
 
-    <div class="guard" role="note" aria-label="설치 중 보안 창이 뜰 때">
-      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
-        <path d="M12 3l7 3v6c0 4.4-3 7.6-7 9-4-1.4-7-4.6-7-9V6l7-3z"/><path d="M12 8.5v4"/><path d="M12 16h.01"/>
-      </svg>
-      <p>설치 중 <b>“유해한 앱 차단됨”</b> 보안 창이 뜨면 → <b>[세부정보]</b> 누르고 → <b>[무시하고 설치(검사 없이 설치)]</b>를 눌러 주세요.</p>
-    </div>
+    <section class="install-guide" aria-label="처음 설치할 때 안내 3단계">
+      <h3>📱 처음 설치할 때 안내 <span>(경고창이 떠도 괜찮아요)</span></h3>
+      <p class="ig-sub">스토어 대신 직접 받는 노조 공식 앱이라 안드로이드가 안내창을 띄웁니다. 아래 순서대로 <b>3번만</b> 누르시면 안전하게 설치돼요.</p>
+      <ol>
+        <li>
+          <span class="num" aria-hidden="true">1</span>
+          <div class="tx">
+            <b>「무시하고 다운로드」 · 「무시하고 설치」 누르기 <em>(2번)</em></b>
+            <span>다운로드·설치할 때 나오는 확인창에서 「무시하고 다운로드(또는 설치)」를 눌러 주세요.</span>
+          </div>
+        </li>
+        <li>
+          <span class="num" aria-hidden="true">2</span>
+          <div class="tx">
+            <b>「세부정보」 누르기</b>
+            <span>보안 검사 창이 뜨면 아래쪽 작은 글씨 「세부정보」를 눌러 주세요.</span>
+          </div>
+        </li>
+        <li>
+          <span class="num" aria-hidden="true">3</span>
+          <div class="tx">
+            <b>「검사 없이 설치」 누르기</b>
+            <span>펼쳐진 화면에서 「검사 없이 설치」를 누르면 설치가 완료됩니다!</span>
+          </div>
+        </li>
+      </ol>
+      <p class="ig-tip">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+          <path d="M12 3l7 3v6c0 4.4-3 7.6-7 9-4-1.4-7-4.6-7-9V6l7-3z"/><path d="M9.5 12.2l1.8 1.8 3.4-3.6"/>
+        </svg>
+        <span>노조가 직접 배포하는 공식 앱이라 안심하셔도 됩니다. ‘무시’는 위험하다는 뜻이 아니라, 스토어를 거치지 않았다는 안내일 뿐이에요.</span>
+      </p>
+    </section>
 
     <a class="ghost" href="https://github.com/chlrhkdwns12-boop/asan-union-download/releases" rel="noopener">이전 버전 보기</a>
 
@@ -291,5 +414,88 @@
     배포 v3.13 · 설치 파일은 GitHub Releases에서 내려받습니다.
   </footer>
 </main>
+
+<!-- 설치 안내 팝업: 다운로드 버튼을 누르면 안드로이드 경고창보다 먼저 뜬다 -->
+<div class="modal" id="installGuideModal" role="dialog" aria-modal="true" aria-labelledby="mgTitle" aria-describedby="mgDesc" aria-hidden="true">
+  <div class="modal-card" role="document">
+    <h2 id="mgTitle">⚠️ 설치 중 경고창이 떠도 <span class="mg-accent">걱정하지 마세요!</span></h2>
+    <p class="mg-sub" id="mgDesc">스토어 대신 노조가 직접 배포하는 공식 앱이라 안드로이드가 안내창을 띄웁니다. 아래 <b>3단계</b>대로만 누르시면 됩니다.</p>
+    <ol class="mg-steps">
+      <li>
+        <span class="num" aria-hidden="true">1</span>
+        <div class="tx">
+          <b>「무시하고 다운로드 / 무시하고 설치」 누르기 <em>(총 2번 나와요)</em></b>
+          <span>내려받을 때와 설치할 때 한 번씩, 확인창이 나오면 「무시하고…」를 눌러 주세요.</span>
+        </div>
+      </li>
+      <li>
+        <span class="num" aria-hidden="true">2</span>
+        <div class="tx">
+          <b>보안 검사 창이 뜨면 <em>「세부정보」</em> 누르기</b>
+          <span>창 아래쪽 작은 글씨 「세부정보」를 눌러 주세요.</span>
+        </div>
+      </li>
+      <li>
+        <span class="num" aria-hidden="true">3</span>
+        <div class="tx">
+          <b><em>「검사 없이 설치」</em> 누르면 설치 완료!</b>
+          <span>펼쳐진 화면에서 누르면 설치가 끝납니다.</span>
+        </div>
+      </li>
+    </ol>
+    <div class="mg-actions">
+      <button class="mg-go" type="button" id="mgDownload">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.1" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+          <path d="M12 3v11"/><path d="m7.5 10 4.5 4.5L16.5 10"/><path d="M4.5 18.5h15"/>
+        </svg>
+        안내 확인 · 다운로드 시작
+      </button>
+      <button class="mg-close" type="button" data-close>닫기</button>
+    </div>
+  </div>
+</div>
+
+<script>
+(function(){
+  var modal = document.getElementById('installGuideModal');
+  var cta   = document.getElementById('apkCta');
+  var go    = document.getElementById('mgDownload');
+  var closes = modal.querySelectorAll('[data-close]');
+  if (!modal || !cta || !go) return;
+  var apkUrl = cta.getAttribute('href');
+  var lastFocus = null;
+
+  function open(e){
+    if (e) e.preventDefault();
+    lastFocus = document.activeElement;
+    modal.classList.add('is-open');
+    modal.setAttribute('aria-hidden','false');
+    document.body.style.overflow = 'hidden';
+    setTimeout(function(){ try { go.focus(); } catch(_){} }, 80);
+  }
+  function close(){
+    modal.classList.remove('is-open');
+    modal.setAttribute('aria-hidden','true');
+    document.body.style.overflow = '';
+    if (lastFocus && lastFocus.focus) { try { lastFocus.focus(); } catch(_){} }
+  }
+  function download(){
+    close();
+    var a = document.createElement('a');
+    a.href = apkUrl; a.rel = 'noopener'; a.style.display = 'none';
+    document.body.appendChild(a);
+    a.click();
+    setTimeout(function(){ if (a.parentNode) a.parentNode.removeChild(a); }, 1500);
+  }
+
+  cta.addEventListener('click', open);
+  go.addEventListener('click', download);
+  Array.prototype.forEach.call(closes, function(b){ b.addEventListener('click', close); });
+  modal.addEventListener('click', function(ev){ if (ev.target === modal) close(); });
+  document.addEventListener('keydown', function(ev){
+    if (ev.key === 'Escape' && modal.classList.contains('is-open')) close();
+  });
+})();
+</script>
 </body>
 </html>
