@@ -321,6 +321,16 @@
   @media (prefers-reduced-motion: reduce){
     *,*::before,*::after{animation:none !important; transition:none !important}
   }
+
+  /* 아이폰(PWA) 안내 */
+  .ios .ios-lead{margin:0 0 14px; font-size:13.5px; line-height:1.65; color:var(--ink-soft)}
+  .ios .ios-lead b{color:var(--blue-ink)}
+  .ios .ios-cta{margin-top:2px}
+  .ios .ios-share{display:flex; align-items:center; justify-content:center; width:100%; margin-top:10px; padding:13px 16px; border-radius:16px; font-size:14px; font-weight:700; color:var(--blue); background:#fff; border:1px solid rgba(27,100,242,.18); box-shadow:0 10px 24px -18px rgba(20,52,120,.6); cursor:pointer}
+  .ios .ios-steps{display:flex; gap:8px; margin:14px 0 0; padding:0; list-style:none}
+  .ios .ios-steps li{flex:1; padding:11px 8px; border-radius:14px; background:var(--blue-tint-soft); font-size:11.5px; color:var(--ink-soft); text-align:center; line-height:1.45}
+  .ios .ios-steps b{display:grid; place-items:center; width:20px; height:20px; margin:0 auto 5px; border-radius:50%; background:#fff; color:var(--blue); font-size:11px}
+  .ios .note{margin:12px 0 0}
 </style>
 </head>
 <body>
@@ -393,6 +403,24 @@
     <a class="ghost" href="https://github.com/chlrhkdwns12-boop/asan-union-download/releases" rel="noopener">이전 버전 보기</a>
 
     <p class="note">파일이 바로 내려받아집니다(약 44.6MB).<br>로그인이나 광고 화면 없이 GitHub 저장소에서 바로 전송됩니다.</p>
+  </section>
+
+  <section class="card ios" aria-label="아이폰에서 쓰기">
+    <h2>📱 아이폰으로 바로 쓰기</h2>
+    <p class="ios-lead">아이폰은 설치 파일이 필요 없어요. <b>사파리</b>로 열고 <b>공유 → 홈 화면에 추가</b>만 누르면 앱처럼 설치됩니다.</p>
+    <a class="cta ios-cta" id="iosCta" href="app/">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.1" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+        <rect x="6.5" y="2.5" width="11" height="19" rx="2.6"/><path d="M10.5 5.5h3"/>
+      </svg>
+      <span class="cta-text">아이폰 앱 열기<small>홈 화면에 추가하면 앱처럼 실행</small></span>
+    </a>
+    <button class="ghost ios-share" id="iosShare" type="button">카카오톡으로 링크 보내기</button>
+    <ol class="ios-steps">
+      <li><b>1</b> 사파리로 열기</li>
+      <li><b>2</b> 아래 공유 단추(□↑)</li>
+      <li><b>3</b> 「홈 화면에 추가」</li>
+    </ol>
+    <p class="note">이름만 적으면 바로 들어갈 수 있어요 · 무료 · 용량 없음</p>
   </section>
 
   <section class="card" aria-label="설치 방법">
@@ -501,6 +529,24 @@
     if (ev.key === 'Escape' && modal.classList.contains('is-open')) close();
   });
 })();
+</script>
+<script>
+  /* 아이폰 앱 링크 공유 — 카카오톡으로 한 번에 */
+  (function () {
+    var share = document.getElementById('iosShare');
+    if (!share) return;
+    var url = 'https://chlrhkdwns12-boop.github.io/asan-union-download/app/';
+    share.addEventListener('click', function () {
+      var text = '아산 교통약자 이동지원센터 노동조합 공식 앱\n사파리로 열고 「홈 화면에 추가」를 누르면 앱처럼 설치됩니다.';
+      if (navigator.share) {
+        navigator.share({ title: '아산 교통약자 이동지원센터 노동조합', text: text, url: url }).catch(function () {});
+        return;
+      }
+      (navigator.clipboard ? navigator.clipboard.writeText(url) : Promise.reject())
+        .then(function () { share.textContent = '링크를 복사했어요 · 카카오톡에 붙여 넣으세요'; })
+        .catch(function () { window.prompt('아래 주소를 복사해 카카오톡으로 보내세요', url); });
+    });
+  })();
 </script>
 </body>
 </html>

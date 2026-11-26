@@ -1,0 +1,1384 @@
+<!doctype html><html lang="ko"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>2026 급여 계산기</title><meta name="theme-color" content="#123d3b"><link rel="manifest" href="data:application/manifest+json;base64,eyJuYW1lIjogIjIwMjYg6riJ7Jes6rOE7IKw6riwIiwgInNob3J0X25hbWUiOiAi6riJ7Jes6rOE7IKw6riwIiwgImlkIjogIi4vIiwgInN0YXJ0X3VybCI6ICIuLyIsICJzY29wZSI6ICIuLyIsICJkaXNwbGF5IjogInN0YW5kYWxvbmUiLCAiYmFja2dyb3VuZF9jb2xvciI6ICIjZjBmNWY1IiwgInRoZW1lX2NvbG9yIjogIiMxMjNkM2IiLCAiaWNvbnMiOiBbeyJzcmMiOiAiZGF0YTppbWFnZS9wbmc7YmFzZTY0LGlWQk9SdzBLR2dvQUFBQU5TVWhFVWdBQUFNQUFBQURBQ0FJQUFBRGR2dnRRQUFBT3BVbEVRVlI0bk8zZGJZeGMxWG5BOGVjNTU5eTU4N1k3dTR2eEc4Rkw3Yld4RnhQYk9KRUprYkloUk1FT0pvNlNEMENpUkVuYjBMUWliWlNvcVdnRFNpaU5FalZWcXpTZ3RBMENWRkNiUUJDbWlRUlZKQU9LVzRKeE1DYTJnZHJHYnJ6T2V1M2QyZG1kMlptNTk1N3o1TU5neDlqZW1mRWU3RG5IZm43YVQzNlpQVHY3dnk5ejc3bjNZdCtHRzRDeDJSS2RIZ0R6R3dmRXJIQkF6QW9IeEt4d1FNd0tCOFNzY0VETUNnZkVySEJBekFvSHhLeHdRTXdLQjhTc2NFRE1DZ2ZFckhCQXpBb0h4S3h3UU13S0I4U3NjRURNQ2dmRXJIQkF6QW9IeEt4d1FNd0tCOFNzY0VETUNnZkVySEJBekFvSHhLeHdRTXdLQjhTc2NFRE1DZ2ZFckhCQXpJcnE5QURPamhBQ0FRQ3gwd001WjRnTUVSRjFlaHp0OGlNZ1JCUkNhSzNMMDlOYWEyTk1wMGQwVGpSK3pFd1lwbElwSXZMaXgvUWdJQ2xsSE1lbDhsUSttN3RtY0hEbDBxWHZ2V3BsUkRGZVFPc2hJZ293K08zNDBhM2JmdlhHd1FPSFJrWlNRWkRQWmhPdE96MjBGdER4bTJ4S0tVdVRVejJGcmsvZHRQR1Q2MjljMnQrZmdmQkMzWEV6QUFiTThQaVI1N2UvOUc4L2Ztem5hNjhYdXJvUTBlVXRtdE1CTmVwNS8zdlczSFBIbjYvOWd5c3JFTmVvYm9qQTRUZlVEZ0pDS0lJc3BDZVR5ajg4K09BRGp6MHVoRkJLT2JzNWN6Y2dLZVd4OGVJdEd6ZmNmK2ZkQmt4WlR3c2h4UVcwMlpvSkVXbGpwQkJ6TWYvSTg4L2M4YzE3dzFSS0N1SG1lc2pScllFVVlySmN2bVhqaHZ2dXZHdmExQ3VtcHFTNkdPb0JBRVJVVWdMaWNGSzY5UU0zZnYvdXJ4dUg5NFJjREVnS01WV3ByQmxjY2QrZGQ5Vk1aTkJJNGVJNHp5a0VTQ2sxR2s5OFp1akd2L3JpRjhZbkpwU1VuUjdVR1RqM2kwSEVST3RNT3YxM1gvMHlBU1dRWENRcm5qTlNTbzBrVTMvOHNVL2VjTjM3U2xObDRkNkM1TjZBaEppcVRIOWkvVWZXTFY1WjFsVXBYRnpzemh0RUpBR2hDdS80N0tlVmtnN3VCamtYa0RFbVRBV2YrTWlISXpJWDBwR2VXWk5DVEZIbDJxdFhyYnh5YWExZWQyMTk3TmFCUklGWWk2SkZDeGRjdFd4cEZXc1NXL2Z0NEVKNVZ0cFpTTFF4UFRLOGJzM3FGM2ZzekdVeVR1MVR1eFVRSWtaeC9PN2xWM2JKYk1WVW0yL3lHeDkzVXpJUWdBUUU0TmFpMlFaQ3dJZ1NJbXIrS1FFUk5kRHF3UlhwTURTT0xURE9CUlRIOGVEQWtqU29LYUltYjZvbUUyTFFLOU1qVVRGT0VrODNkb1pvWHJaWG9KaWtpa0F4MDgrQWlCSG9GUU1EbVhUYXRTT0tiZ1VFQUloWWo2TG1TNWsycGlEeSs0dkQ5Mi9lL01LZTNkTzFtbkQxT0ZzVGlHaU1XZEhmZjl2UURadld2cjlFRlVMQ0dkYWpDQkJGRVJHNXRxZzRGeEMwMmkzUVpIcEU3c21YZm5IWFF3K01UaFJ6NlF3aUFwR0hXekJBeEdkMzdIaCs1ODduaGw3NTI4LzlZVUs2eVUvaFdqb05MZ2JVQkJHRkdPd2JQM3pYd3crVUtwVTVoUjczejFjM1ExVEk1UURnZ2FkL05yaTQvM05ENjZmTXRJTUhlNXJ3YWF3QVlJekpRL3IrLzlvOE9sN3N5bVRpSkNHdkFXaGppT2lTUXZjL1AvSEUwVm9wRUFGNXRTMzJLU0FpQ21Rd1VpdStzSHQzTHBOT0hOdWRuRFZEcEpRYW5aajQzOTI3TXVEYzU2em1mQW9JQUJBd3BxUlNxN201UXpCckNCZ25TYVZhRmI3dHlua1dFQUFnb0d0SFk5OFJqZm1zblI3RldmTnZ4TXdwSEJDendnRXhLeHdRczhJQk1Tc2NFTFBDQVRFckhCQ3p3Z0V4S3h3UXM4SUJNU3NjRUxQQ0FURXJIQkN6d2dFeEsxNEc1TmVrei9iNStIUDVGeEFpcG9LZzA2TjQ1MGtoQXFXOEs4aW5nQkF4MHRHQ3NHL3RzbVdWYXUyQ3VlY0xJaVk2NmUzcXVuWndzQW8xditaYmV2WTdFRUxVTWY3Q1RSdTdjN2xhRkNrcGZYcXp6MFFJSVlVY0wwMStmc09HeS9Kekl1UFp6VU05Q3dnUnA2bSs5ckpsWDd2bE5tTk1xVnoyNnhxR1V5RGlkSzAyUGpXNVlkMjFmN0wrNWlyVi9hb0h2THV3RUFBa2lxS1orcU1QZlhUVndKSi9mUHl4bmZ2M1Y5Mjc2VWxiRUkweHk5NTErUzFEMTMvK3d4dHFGR2swTTEzYTdDei9BZ0lBSWNRa1ZWWXRXdkxJVjc2K2QzeTRIa1ZDSUhpM0prSTB4bHd4ZjM0WFpDZWhBZ2plMVFPZUJnUUFBa1dWSXFCNmY5OWNBWUw4eXdjQUFBRnJFRTJZc3I4ZkNId05DQUFFSWlEV0tmYXluZU1Fb3IvMWdOY0JOYUIzdTUwWEZvL2JaeTdnZ0pnVkRvaFo0WUNZRmU5M29odmVxWHUwdG55ZGRyNVJteWZWTDR5OWYrOERNa1NJS052clI1T1o2WGlkSVpMWTF1ZHBBdEJrem5qc3UvRW9xa0MwbkN4QWpSc2RtVlkzK0hXZjN3RVJRQWFEQkV3bGFlc3NVcGRNRzZBWWtsTWFRc0FzQmhXcXgxbzNmeDBpQ3FUTVlWaUg1SlNqbHdZb2k2RkVNVkl0dGh5S01lYVNYQ0hFWUlxbXZWNFZlUndRQVVrUSswcEh0eDdlZTZSU2F2VkVMU1NnZ2Q2NTcxdTRwQytkMDBENCs3L0F4T2lYUmc5c1AzS2dybU5FTWVNRDdSQ0pUQ2lEdGZPdVdEMzNjaVVrNFZ2L2tvaFNxUDd2eUtGLy9kbFBuMzFsUi9QQklHS2NKSU5YWFBIRmozNXMzWW9WTWZsNm4ydndOeUFpQ2pIWVB6bjYwSzZ0U2tpRmd0cTRXK3YyM3g3WVd4eTlmZFZRUmdVR0NBQU1VUmFEcHcrK3VuVjRiMWNxM2M2M3JpWEo1cjB2SDZ0T2JWcThacG9pZ1VoRUFhaFNwZktwYjkwN2ZPeG9JWmNuSXBqNTdBb1JDTVJmdlBycWxwZC85YU83dnpHMGJOV2txZmg0ZXpMdytWTVlhakpiaC9jcWxHa1pJS0pFRksyKzhtRjZzbDdkTnZKbUFNb1FFVUFLMWFGcThkZkhobnZDckVUUjhoVUVva1RSRTJaL2ZXejRVTFdZUWtVQWhpaUQ0Y00vZjNwa2JHeGViNThVUWttcHBKcnBLMUJLQ2xISTVWSXErTUZUbStzNjl2RTBhb092QVVuRWlxa2ZxVXdxSVRRWmFMSzhuOFFRQ2NUZlRJMFRFQUlRa1FKeHVEeFJUV0pFYVBPTUxBRWhRaldKRDVjbkZBZ2lRZ0FONXFYWFgxZEtKVnEzZVlQZlJPc3dGZXcrZUhDc1hsSkMrVGdoR3Z3TkNBQVFVQ0xPNGwxWGIzOElrSnI1SVJWTnYvdXByNU1LenZvV3owUVVLQ1hhZUNpUnN6d2VPclMzMW1uNXYyYTk0Si82T3JOYWhYaTY0am5CNzRCWXgzRkF6QW9IeEt4d1FNd0tCOFNzY0VETWl0OEJ6ZTd3N1RrNjZEdTc4MW4rbmdWcjhEZ2dBdEJFczNqN0UzcmJnOGJNckE3Rk5NNWduUHduMGRrLys3ZHhWdFhUYTVJYWZBMUlrOG1MY0ZGM1g2UzFGQUlCRUxEbGwwRFVSQU85OHhDUUdyOC8wSXU2Ky9KQnFuR1dvNDNYQVlGb2lQSkJhbEYzWHd3YUVRbEFncmgrOWVvb2pwV1U3WnhRUThSQXlrcTE5dDdseStlR1BiRnZsOFNmNE92WmVBQkFoT3N1RzNpamVHUTZqaFNLZGg0ZEg4WEpnbnpobXJuOUVTU05HV0V4NlhsaDl6WHorcmY4LzJ0cEZRQmcwMW1IamIraVdoSmZ2Mmo1dkxDN2NUWmVJRmFvZHV2UWgzNjBaY3V1QTIvbTA1a1dxeFFpUkp4TWtreVkrdE9iTjZGQThQYmhpNzRHaElnUkpBdHloZHZmUGZRL2gvY05sNHZIRzVyeGZ4RFI4a3NXdkdkK2Z5REVpZmxBQXJGRzhkRGx5eGZtZTM4NXNyOFdSNGhpNXRNYlNHVFNRV3JkL01WTGUrZlZLRzVVaUlpYWREcVYrbysvdWZ1Um4vLzMwOXRlbEVJMEd3cGlGTWRyQmdadVgzL3o0b1VMeTFEemRDNEgrQnNRQUNCZ0FuUnBwdXZqUzlaRWtMU3pBVWhCRUVOeThteXl4Z3NSMEZWOUM2L3NtNi9CdEp3VExVRW9FSFZJM3ZZYWlBbm8zbHorYTV0dSs3Tk5IMjg1RWdMS1FWcURxWktmZDRZNHp1T0FBQUFCSWtnYUQyQnZaMGUwU3RGTVY3SldLVWFFeHI1UmN3bm9tUFRwdi9YR05PZjY4ZFZTcTZIanBKbEc5UDd4blg0SEJBQkVnSWh0UHF1V2dKcnM0Z2pBZGlaMkVZQ2VZUnRIYjAzemtDMWZCQUZqSkVNRUhGQUg4YVQ2anZNNElKNVU3d0pmQStKSjlZN3djdEFBd0pQcUhlRnJRRHlwM2hHK0JnUThxZDROSGc4ZGVGSzlBL3dPaUhVY0I4U3NjRURNQ2dmRXJIQkF6QW9IeEt6NEhSQlBxdTg0andQaVNmVXU4RFVnbmxUdkNGL1B4Z05QcW5lRHJ3SHhwSHBIK0JvUThLUjZOM2djRVBDa2VnZjRIUkR3cFBwTzh6c2dubFRmY1I0SHhKUHFYZUJyUUR5cDNoRmVEaG9BZUZLOUkzd05pQ2ZWTzhMWGdJQW4xYnZCNDZFRFQ2cDNnTjhCc1k3amdKZ1ZEb2haNFlDWUZRNklXZUdBbUJXL0ErSko5UjNuY1VBOHFkNEZMZ2JVenR0NUVVNnFkN015RjgvR0s5SFd1WVdMYlZKOW0yL0xlZVpjUUloWUtwY1RNczFQVUY5c2srb1JzRlF1YTJPVWxFNnRpckJ2d3cyZEhzUHZDY1RwV20zRndKS2Yvc3NQa3RQbURaNk9BRklnRWRCcVVqMEFBSVNnRWpDem5sUVBBQVFVZ01wQVdJWnF5NUdjUEttKzVjWXIwWHFPNlA3N0h6OTB6L2Z1dTdTdkw5RnRUSDA2WDl6YUJ5S2lNSlVhSGhrNU9ISTRoTkMwMnJ0dFRLcXZVd3p3MW16bjVsOVZpczVZRHdCVUtVN0F0SHdkQUVqQVZDayswMkF3cG1UQ2xBbW81UmNBVEpucDZUYnFBUUFoTU1Ma2xUMnZ6ZUtFLzdubVdFQUFTcW5Sc2VLV0YzNlpnY0NZMXJzR0NETmRaM0VHWXVaLzJ1U3ZUdnVPTU5PbEZJZ28yNTVZS0lSbzU1SU1JZ29oZkhQczhBc3Y3OGhrTXUyOEorZVRXd0VCZ0RFbWwway8vSk1ueCtxbEFLVnJDOXo1bDJpZHg5VERQM2x5ZEt3WUtPWGEyK0ZjUUVTVVRxZjNIVHo0N1IvKzhCS1JjMnA3Zi83Rk9wbWpDcy91MmY3ZzQwLzBGcnExZSsrR2N3RUJnTmE2TzU5LzVNbW5IbjN1bWJtcUVDZW43cTVlSkdLZGRNbnNvZUxvWDMvM24weXI2NDA2eGNXQUFBQVFBNlh1dU9mZS8zeittUVdxWUl6UmptMzd6eWtpaXBPa1R4YU9Ub3pmK3BkZjJiTnZYeTZiZFczdnA4R3RqL0VuRTBJa2lkWTYrZVpmZk9rekd6Y3BrSk9tMGpnRTUrYXkrSTR3eGdCQ1NxUzZJUDNpRzd1Kyt0M3Y3SHA5YjAraE8zRjFOZXh1UUhEOFJPTjRxWFRUQnovdzVVOS85cG9WS3hVSURhWUc5WFl1WXZjSXZuV2RwTXhBaWdDR0owZi9mZk5UMzMvMFVSM3JiRGJqNEs3UENVNEgxS0NrbkppYXltVFM2NjYrK29QWHJodGNNbkRWd0JLdnIrWThIUkVFS0krV2lpKy91bWZiS3p1ZjI3N3Q0UERobnU1dUlZU2JXNjRUUEFnSUFLUVEycGhLdFJyRmNUNmJuVlBvMGREaVhJZGZDRWlBcUVYMUkyTmpTc3BNbUU2SEtTOCtnVHAzTHV5TUdudlFYYm1jUU5UR2pFMldMcHgyamlNQUljU2x2YjFFWklpOHFBZDhDYWpCSEYrYkI4cW5ZWjhWWDdvNXdjdmZCQitlZG9lcng0R1lKemdnWm9VRFlsWTRJR2FGQTJKV09DQm1oUU5pVmpnZ1pvVURZbFk0SUdhRkEySldPQ0JtaFFOaVZqZ2dab1VEWWxZNElHYUZBMkpXT0NCbWhRTmlWamdnWm9VRFlsWTRJR2FGQTJKV09DQm1oUU5pVmpnZ1pvVURZbFk0SUdhRkEySldPQ0JtaFFOaVZqZ2dadVYzWlNwbUtpQUJUTnNBQUFBQVNVVk9SSzVDWUlJPSIsICJzaXplcyI6ICIxOTJ4MTkyIiwgInR5cGUiOiAiaW1hZ2UvcG5nIiwgInB1cnBvc2UiOiAiYW55IG1hc2thYmxlIn0sIHsic3JjIjogImRhdGE6aW1hZ2UvcG5nO2Jhc2U2NCxpVkJPUncwS0dnb0FBQUFOU1VoRVVnQUFBZ0FBQUFJQUNBSUFBQUI3R2tPdEFBQUxhRWxFUVZSNG5PM2R3VzBWeXhaQVVmTkZCQTZFQ1JJSk1FQXdJUXNJZ0RnSUFHZkJCSWtVa0pnUTBSOFlJZXM5NmNtKzJGMm5lcThWd08wenFLcGQ3WXN1ejY3ZnZyNENvT2QvcXdjQVlBMEJBSWdTQUlBb0FRQ0lFZ0NBS0FFQWlCSUFnQ2dCQUlnU0FJQW9BUUNJRWdDQUtBRUFpQklBZ0NnQkFJZ1NBSUFvQVFDSUVnQ0FLQUVBaUJJQWdDZ0JBSWdTQUlBb0FRQ0lFZ0NBS0FFQWlCSUFnQ2dCQUlnU0FJQW9BUUNJRWdDQUtBRUFpQklBZ0NnQkFJZ1NBSUFvQVFDSUVnQ0FLQUVBaUJJQWdDZ0JBSWdTQUlBb0FRQ0lFZ0NBS0FFQWlCSUFnQ2dCQUlnU0FJQW9BUUNJRWdDQUtBRUFpQklBZ0NnQkFJZ1NBSUFvQVFDSUVnQ0FLQUVBaUJJQWdDZ0JBSWdTQUlBb0FRQ0lFZ0NBS0FFQWlCSUFnQ2dCQUlnU0FJQW9BUUNJRWdDQUtBRUFpQklBZ0NnQkFJZ1NBSUFvQVFDSUVnQ0FLQUVBaUJJQWdDZ0JBSWdTQUlBb0FRQ0lFZ0NBS0FFQWlCSUFnQ2dCQUlnU0FJQW9BUUNJRWdDQUtBRUFpQklBZ0NnQkFJZ1NBSUFvQVFDSUVnQ0FLQUVBaUJJQWdDZ0JBSWdTQUlBb0FRQ0lFZ0NBS0FFQWlIcStlZ0NlMEs5dlgxZVB3Qm04ZVBkKzlRZzhpV2ZYYjErdm5vSEg1TkRuU1luQm1RakFTVGozT1pnU25JQUFiTS9SejBJeXNEVUIySmlqbnlGa1lGUCtGZEN1blA3TVlUVnV5aHZBZm13Mnh2SXFzQmR2QUp0eCtqT1o5YmtYQWRpSjNjVjhWdWxHQkdBYjloVzdzRlozSVFCN3NLUFlpeFc3QlFIWWdMM0VqcXpiK1FSZ09ydUlmVm05d3duQWFQWVB1N09HSnhNQWdDZ0JtTXZWaVhPd2tzY1NnS0hzR2M3RWVwNUpBQUNpQkdBaTF5WE94Nm9lU0FBQW9nUmdIQmNsenNyYW5rWUFBS0lFQUNCS0FHYnhqc3k1V2VHakNBQkFsQUFBUkFrQVFKUUFET0xQb3hSWTUzTUlBRUNVQUFCRUNRQkExUFBWQTdEWXk0OGZWby9BU2orLzNLd2VnV1VFSU1xNXo2MC9LMEVKZ3Z3SnFNanB6NzlaRlVIZUFGcHNjdjdEN2ZMd0t0RGhEU0RFNmM5OVdDY2RBbEJoVjNOL1ZrdUVBQUJFQ1VDQ0N4MFBaYzBVQ01ENTJjbGN4c281UFFFQWlCSUFnQ2dCT0Rsdjhmd042K2ZjQkFBZ1NnQUFvZ1FBSUVvQUFLSUVBQ0JLQUFDaUJBQWdTZ0FBb2dRQUlFb0FBS0lFQUNCS0FBQ2lCQUFnU2dBQW9nUUFJRW9BQUtJRUFDQktBQUNpQkFBZ1NnQUFvZ1FBSUVvQUFLSUVBQ0JLQUFDaUJBQWdTZ0FBb2dRQUlFb0FBS0lFQUNCS0FBQ2lCQUFnU2dBQW9nUUFJRW9BQUtJRUFDQktBQUNpQkFBZ1NnQUFvZ1FBSUVvQUFLSUVBQ0JLQUFDaUJBQWdTZ0FBb2dRQUlFb0FBS0lFQUNCS0FBQ2lCQUFnU2dBQW9nUUFJRW9BQUtJRTRPUitmcmxaUFFJYnMzN09UUUFBb2dRQUlFb0F6czliUEpleGNrNVBBQkxzWkI3S21pa1FBSUFvQWFod29lUCtySllJQVFpeHE3a1A2NlRqK2VvQk9OVHQzbjc1OGNQcVFaakkwVi9qRGFESVB1ZmZySW9nYndCUmYzYTd0NEU0NTM2WkFOVFovNURsVDBBQVVRSUFFQ1VBQUZFQ0FCQWxBQUJSQWdBUUpRQUFVUUlBRUNVQUFGRUNBQkFsQUFCUkFnQVFKUUFBVVFJQUVDVUFBRkVDQUJBbEFBQlJBZ0FRSlFBQVVRSUFFQ1VBQUZFQ0FCQWxBQUJSQWdBUUpRQUFVUUlBRUNVQUFGRUNBQkQxZlBVQURQTDV4L2ZEbnZYcDFadkgvY0N0aDMvNThjUGpmdUIvK1BubDVyQm5NZHl6NjdldlY4L0FiNysrZlYzMTZDTlB6N3NlNVNUZGV2Z2pqLzY3MW1iZ3hidjNDNS9PSHdJd3lKSUFyRG85NzdyNEpOMTYrRlZILzEyck1pQUFRL2dPSUczQ0FYcDE2UmhiRHovaDlMOGFNd2FyQ0FCQWxBQjBEYmxCMzNyb01Gc1BQK3JlUFdvWURpWUFBRkVDRURYcUJuM3IvaU50UGZ6QUcvZkFrVGlHQUFCRUNRQkFsQUFBUkFrQVFKUUFBRVFKQUVDVUFBQkVDUUJBbEFBQVJBa0FRSlFBQUVRSkFFQ1VBQUJFQ1FCQWxBQUFSQWtBUUpRQUFFUUpBRUNVQUFCRUNRQkFsQUFBUkFrQVFKUUFBRVFKQUVDVUFBQkVDUUJBbEFBQVJBa0FRSlFBQUVRSkFFQ1VBRVI5ZXZWbTlRai9kUCtSdGg3KzU1ZWJKNTNrQWdOSDRoZ0NBQkFsQUYyajd0RVBIV2JyNFVmZHVFY053OEVFQUNCS0FOS0czS012RzJQcjRZZmN1NGVNd1NyUHJ0KytYajBEdi8zNjluWFZvei8vK0w3a3VZOXlpRzg5L011UEgvNytReTZ3OXVoLzhlNzl3cWZ6aHdBTXNqQUF0NDQ4U1IvOS9yNzE4RWRtWU1LdFh3Q0dFSUJCbGdjQWppRUFRL2dPQUNCS0FBQ2lCQUFnU2dBQW9nUUFJRW9BQUtJRUFDQktBQUNpQkFBZ1NnQUFvcDZ2SG9CQnR2NDVuYTJIci8wV0VFUDRMYUJCL0Jyb1piWWUzcStCc3BBQURMSWtBS3RPejdzdVBrbTNIbjdWMFgvWHFnd0l3QkMrQTBpYmNJQmVYVHJHMXNOUE9QMnZ4b3pCS2dJQUVDVUFYVU51MExjZU9zeld3NCs2ZDQ4YWhvTUpBRUNVQUVTTnVrSGZ1djlJV3c4LzhNWTljQ1NPSVFBQVVRSUFFQ1VBQUZFQ0FCQWxBQUJSQWdBUUpRQUFVUUlBRUNVQUFGRUNBQkFsQUFCUkFnQVFKUUFBVVFJQUVDVUFBRkVDQUJBbEFBQlJBZ0FRSlFBQVVRSUFFQ1VBQUZFQ0FCQWxBQUJSQWdBUUpRQUFVUUlBRUNVQUFGRUNBQkFsQUFCUkFnQVFKUUJSbjE2OVdUM0NQOTEvcEsySC8vbmw1a2tudWNEQWtUaUdBQUJFQ1VEWHFIdjBRNGZaZXZoUk4rNVJ3M0F3QVFDSUVvQzBJZmZveThiWWV2Z2g5KzRoWTdES3MrdTNyMWZQd0crL3ZuMWQ5ZWpQUDc0dmVlNmpIT0piRC8veTQ0ZS8vNUFMckQzNlg3eDd2L0RwL0NFQWd5d013SzBqVDlKSHY3OXZQZnlSR1podzZ4ZUFJUVJna09VQmdHTUl3QkMrQXdDSUVnQ0FLQUVBaUJJQWdDZ0JBSWdTQUlBb0FRQ0lFZ0NBS0FFQWlCSUFnS2pucXdkZ2tLMS9UbWZyNFd1L0JjUVFmZ3RvRUw4R2VwbXRoL2Ryb0N3a0FJTXNDY0NxMC9PdWkwL1NyWWRmZGZUZnRTb0RBakNFN3dEU0poeWdWNWVPc2ZYd0UwNy9xekZqc0lvQUFFUUpRTmVRRy9TdGh3Nno5ZkNqN3Qyamh1RmdBZ0FRSlFCUm8yN1F0KzQvMHRiREQ3eHhEeHlKWXdnQVFKUUFBRVFKQUVDVUFBQkVDUUJBbEFBQVJBa0FRSlFBQUVRSkFFQ1VBQUJFQ1FCQWxBQUFSQWtBUUpRQUFFUUpBRUNVQUFCRUNRQkFsQUFBUkFrQVFKUUFBRVFKQUVDVUFBQkVDUUJBbEFBQVJBa0FRSlFBQUVRSkFFQ1VBQUJFQ1FCQWxBQUFSQWxBMUtkWGIxYVA4RS8zSDJucjRYOSt1WG5TU1M0d2NDU09JUUFBVVFMUU5lb2UvZEJodGg1KzFJMTcxREFjVEFBQW9nUWdiY2c5K3JJeHRoNSt5TDE3eUJpczh1ejY3ZXZWTS9EYnIyOWZWejM2ODQvdlM1NzdLSWY0MXNPLy9Qamg3ei9rQW11UC9oZnYzaTk4T244SXdDQUxBM0RyeUpQMDBlL3ZXdzkvWkFZbTNQb0ZZQWdCbUdWNUErQ3BPZjNuOEIwQVFKUUFBRVFKQUVDVUFNeml6Nk9jbXhVK2lnQUFSQWtBUUpRQWpPTWRtYk95dHFjUkFJQW9BWmpJUlluenNhb0hFZ0NBS0FFWXluV0pNN0dlWnhLQXVld1p6c0ZLSGtzQUFLSUVZRFJYSjNabkRVOG1BTlBaUCt6TDZoMU9BRFpnRjdFajYzWStBZGlEdmNSZXJOZ3RDTUEyN0NoMllhM3VRZ0IyWWw4eG4xVzZFUUhZak4zRlpOYm5YdnluOEx2eTM4Y3ppcU4vUjk0QWRtVy9NWWZWdUNsdkFOdnpLc0JDanY2dENjQkp5QUFIYy9TZmdBQ2NqUkx3cEp6N1p5SUFaeVlHUEFxSC9sa0pBRUNVZndVRUVDVUFBRkVDQUJBbEFBQlJBZ0FRSlFBQVVRSUFFQ1VBQUZFQ0FCQWxBQUJSQWdBUUpRQUFVUUlBRUNVQUFGRUNBQkFsQUFCUkFnQVFKUUFBVVFJQUVDVUFBRkVDQUJBbEFBQlJBZ0FRSlFBQVVRSUFFQ1VBQUZFQ0FCQWxBQUJSQWdBUUpRQUFVUUlBRUNVQUFGRUNBQkFsQUFCUkFnQVFKUUFBVVFJQUVDVUFBRkVDQUJBbEFBQlJBZ0FRSlFBQVVRSUFFQ1VBQUZFQ0FCQWxBQUJSQWdBUUpRQUFVUUlBRUNVQUFGRUNBQkFsQUFCUkFnQVFKUUFBVVFJQUVDVUFBRkVDQUJBbEFBQlJBZ0FRSlFBQVVRSUFFQ1VBQUZFQ0FCQWxBQUJSQWdBUUpRQUFVUUlBRUNVQUFGRUNBQkFsQUFCUkFnQVFKUUFBVVFJQUVDVUFBRkVDQUJBbEFBQlJBZ0FRSlFBQVVRSUFFQ1VBQUZFQ0FCQWxBQUJSQWdBUUpRQUFVUUlBRUNVQUFGRUNBQkFsQUFCUkFnQVFKUUFBVVFJQUVDVUFBRkVDQUJBbEFBQlJBZ0FROVg5NWtCazBzOVJreHdBQUFBQkpSVTVFcmtKZ2dnPT0iLCAic2l6ZXMiOiAiNTEyeDUxMiIsICJ0eXBlIjogImltYWdlL3BuZyIsICJwdXJwb3NlIjogImFueSBtYXNrYWJsZSJ9XX0="><link rel="icon" href="data:image/png;base64,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"><link rel="apple-touch-icon" href="data:image/png;base64,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">
+<style>
+:root {
+  color-scheme: light;
+  --ink: #172e29;
+  --muted: #52675f;
+  --line: #dce8e2;
+  --accent: #006653;
+  --deep: #103e34;
+  --mint: #e8f6ee;
+}
+* { box-sizing: border-box; }
+body {
+  margin: 0;
+  background: #f0f6f2;
+  color: var(--ink);
+  font: 16px/1.5 system-ui, "Noto Sans KR", sans-serif;
+}
+main { max-width: 600px; margin: auto; padding: 16px 14px 106px; }
+header {
+  padding: 18px 19px;
+  background: linear-gradient(116deg, #103d33, #176454);
+  color: #fff;
+  border-radius: 19px;
+}
+h1 { margin: 0; font-size: clamp(24px, 6vw, 30px); letter-spacing: -.046em; }
+h2 { margin: 0 0 9px; font-size: 18px; letter-spacing: -.028em; }
+.panel {
+  margin: 10px 0;
+  padding: 13px 15px;
+  border: 1px solid #dee9e2;
+  border-radius: 17px;
+  background: #fff;
+  box-shadow: 0 2px 9px #16453808;
+}
+.grid, .basics { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 8px 10px; }
+.span { grid-column: 1/-1; }
+label { display: block; min-width: 0; font-weight: 670; font-size: 13px; color: #30483f; }
+input, select {
+  display: block;
+  width: 100%;
+  min-height: 44px;
+  margin: 3px 0 0;
+  padding: 7px 9px;
+  border: 1px solid #b9d0c5;
+  border-radius: 9px;
+  background: #f7fbf8;
+  color: var(--ink);
+  font: inherit;
+  font-size: 16px;
+}
+input { font-variant-numeric: tabular-nums; }
+label:not(:first-child) { margin-top: 0; }
+.panel > label { margin-top: 8px; }
+input:focus, select:focus, button:focus-visible, summary:focus-visible, a:focus-visible {
+  outline: 2px solid #0b8068;
+  outline-offset: 2px;
+}
+button {
+  cursor: pointer;
+  padding: 7px 11px;
+  border: 1px solid #a4c5b9;
+  border-radius: 10px;
+  background: var(--mint);
+  color: var(--accent);
+  font: inherit;
+  font-size: 13px;
+  font-weight: 700;
+}
+[hidden] { display: none !important; }
+details { margin-top: 8px; }
+summary { padding: 5px 0; cursor: pointer; color: var(--accent); font-size: 14px; font-weight: 720; }
+details[open] summary { margin-bottom: 6px; }
+p { margin: 6px 0 0; color: var(--muted); font-size: 13px; line-height: 1.46; }
+.note { margin-top: 4px; }
+dl { margin: 0; }
+dl div { display: flex; justify-content: space-between; align-items: center; gap: 8px; border-bottom: 1px solid var(--line); padding: 6px 0; }
+dl div:last-child { border-bottom: 0; }
+dt { font-size: 14px; }
+dd { margin: 0; color: var(--ink); text-align: right; font-weight: 730; white-space: nowrap; font-variant-numeric: tabular-nums; }
+dl .major { margin-top: 5px; padding: 7px 10px; border: 0; border-radius: 9px; background: var(--mint); color: var(--accent); font-weight: 750; }
+dl .major dd { color: var(--accent); }
+dl .detail-title { margin-top: 8px; padding: 7px 8px 4px; border-bottom: 0; background: #f7fbf8; border-radius: 8px; }
+dl .detail-title dt { color: var(--accent); font-weight: 800; }
+dl .detail-title dd { display: none; }
+dl .subtotal { padding: 7px 8px; font-weight: 800; background: #f8faf9; border-radius: 8px; }
+dl .subtotal dd { color: var(--deep); }
+.output-row { padding-top: 4px; }
+.output-row .major { padding: 8px 11px; }
+#hourlyOut { font-size: clamp(20px, 5.5vw, 26px); font-weight: 830; letter-spacing: -.035em; }
+.dock {
+  position: fixed;
+  inset: auto 0 0;
+  z-index: 2;
+  background: var(--deep);
+  color: #fff;
+  padding: 9px 16px calc(9px + env(safe-area-inset-bottom));
+  box-shadow: 0 -5px 18px #103e3426;
+}
+.dock-inner { max-width: 570px; margin: auto; display: flex; justify-content: space-between; align-items: center; gap: 12px; }
+.dock strong { font-size: 14px; }
+.dock output { font-size: clamp(21px, 6vw, 31px); font-weight: 850; letter-spacing: -.03em; white-space: nowrap; font-variant-numeric: tabular-nums; }
+.dock small, .dock a { display: block; color: #b9e9d8; font-size: 11px; line-height: 1.4; }
+.dock a { text-underline-offset: 2px; }
+@media (max-width: 350px) {
+  main { padding-inline: 10px; }
+  .panel { padding-inline: 11px; }
+  .grid, .basics { gap: 7px 8px; }
+}
+@media (max-width: 300px) {
+  .grid, .basics { grid-template-columns: 1fr; }
+}
+#verifyResult{margin:10px 0;color:#124c43;font-size:.88rem}#verifyResult ul{padding-left:1.2rem;margin:.35rem 0}#verifyPayroll{margin-top:8px}
+.page-switch{display:flex;gap:5px;margin:10px 0 0;padding:4px;background:#e0eeea;border-radius:14px}.page-switch button{flex:1;background:transparent;color:#264b46;border:0;border-radius:11px;min-height:40px}.page-switch button[aria-pressed=true]{background:#fff;color:#075e52;box-shadow:0 1px 4px #123d3b18}.page-next{width:100%;min-height:44px}#payPages{touch-action:pan-y pinch-zoom}
+
+/* The header and result dock are the visual anchors for both pages. */
+body {
+  background:
+    radial-gradient(ellipse at 100% 0%, #c9eee2 0%, transparent 36rem),
+    radial-gradient(ellipse at 0% 22rem, #e5ede3 0%, transparent 26rem),
+    linear-gradient(165deg, #f6faf6, #e9f4ee);
+  min-height: 100vh;
+}
+main { padding-top: clamp(14px, 4vw, 25px); }
+header {
+  position: relative;
+  isolation: isolate;
+  overflow: hidden;
+  padding: clamp(23px, 6vw, 35px) clamp(20px, 5.5vw, 34px);
+  border: 1px solid #ffffff29;
+  border-radius: 23px;
+  background:
+    radial-gradient(ellipse at 93% 10%, #387f68, transparent 58%),
+    linear-gradient(122deg, #0b342c 8%, #155947 90%);
+  box-shadow: 0 13px 27px #194a3738, inset 0 1px #ffffff2c;
+}
+header::before, header::after {
+  content: "";
+  position: absolute;
+  pointer-events: none;
+  z-index: -1;
+  border: 1px solid #c5fce345;
+  border-radius: 50%;
+}
+header::before { width: 13rem; height: 13rem; right: -6rem; top: -6.7rem; box-shadow: 0 0 0 15px #c5fce313, 0 0 0 30px #c5fce30c; }
+header::after { width: 8rem; height: 8rem; right: -1.5rem; top: -4rem; }
+h1 { font-weight: 840; text-shadow: 0 2px 8px #001e1857; }
+.page-switch {
+  gap: 6px;
+  margin-top: 15px;
+  padding: 5px;
+  background: linear-gradient(135deg, #e7f2ec, #cfe5dc);
+  box-shadow: inset 0 1px 4px #3e78671f, 0 1px #ffffffc0;
+  border: 1px solid #d1e3d9;
+  border-radius: 15px;
+}
+.page-switch button { min-height: 44px; font-size: 14px; }
+.page-switch button[aria-pressed="true"] {
+  background: linear-gradient(165deg, #fff, #edf8f2);
+  color: #105647;
+  box-shadow: 0 3px 9px #285c482c, inset 0 0 0 1px #ffffffab;
+}
+.panel {
+  margin: 13px 0;
+  padding: 15px 16px;
+  border-color: #dce9e1;
+  border-radius: 19px;
+  background: linear-gradient(148deg, #fff, #f9fcfa);
+  box-shadow: 0 10px 23px #2e635016, 0 2px 4px #2e635013, inset 0 1px #fff;
+}
+.panel h2 { letter-spacing: -.035em; }
+#taxPage .panel {
+  background: linear-gradient(140deg, #fff, #f6fbfa);
+  border-color: #d6e9e2;
+  box-shadow: 0 10px 23px #215a5119, 0 2px 4px #215a5110;
+}
+input, select { background: linear-gradient(180deg, #fff, #f1f8f4); box-shadow: inset 0 1px 3px #2358490a; }
+details.panel > summary { padding-block: 8px; }
+dl .major {
+  padding: 9px 11px;
+  background: linear-gradient(112deg, #e2f7eb, #f3fbf6);
+  box-shadow: inset 0 0 0 1px #cceadd;
+}
+.output-row .major {
+  margin-top: 7px;
+  padding: 9px 11px;
+  background: radial-gradient(ellipse at 100% 0%, #31816a, transparent 65%), linear-gradient(118deg, #124639, #1b5d4c);
+  color: #e6fff2;
+  box-shadow: 0 5px 12px #154d3e30, inset 0 1px #ffffff2e;
+}
+.output-row .major dd { color: #fff; }
+.page-next {
+  background: linear-gradient(115deg, #155341, #23745c);
+  color: #fff;
+  border-color: #175d48;
+  border-radius: 13px;
+  box-shadow: 0 5px 14px #1c5b4938, inset 0 1px #ffffff38;
+}
+.dock {
+  border-top: 1px solid #ffffff29;
+  background: radial-gradient(ellipse at 88% 0%, #286b57 0%, transparent 64%), #103e34;
+  box-shadow: 0 -9px 27px #1644362c, inset 0 1px #ffffff12;
+}
+.dock output { color: #f5fff9; text-shadow: 0 2px 7px #05281f65; }
+@media (max-width: 350px) {
+  .panel { padding-inline: 11px; }
+  .dock { padding-inline: 11px; }
+  .dock-inner { gap: 7px; }
+}
+@media (hover: hover) {
+  .page-switch button:hover { color: #005a48; }
+  .page-next:hover { background: linear-gradient(115deg, #104536, #1e644f); }
+}
+
+#statementError:not(:empty){color:#902e26}
+.slip-actions{display:flex;justify-content:space-between;margin:14px 0 10px}.slip-actions button{min-height:40px}
+.payslip{background:white;color:#202839;border:1px solid #c4cbd6;padding:clamp(9px,2.8vw,22px);border-radius:3px;box-shadow:0 3px 16px #18243a12;font-family:"Noto Serif KR","Batang",serif}
+.payslip h2{text-align:center;color:#202e4a;font-size:clamp(20px,4.6vw,28px);margin:12px 0 18px;outline:0}
+.payslip .form-number,.payslip .slip-note{color:#525d6a;font-size:.76rem}
+.payslip label{font:inherit;color:inherit}.slip-meta{display:flex;justify-content:flex-end;margin-bottom:4px}.slip-meta label{display:flex;align-items:center;gap:4px;font-size:.85rem}
+.payslip input{font:inherit;color:inherit;box-shadow:none;border:0;background:#f8fafc;border-radius:1px;min-height:30px;height:30px;margin:0;text-align:center;padding:3px;min-width:0}
+.payslip input::placeholder{color:#667383}.payslip input[type=date]{width:auto}
+.payslip table{width:100%;border-collapse:collapse;table-layout:fixed;font-size:clamp(12px,2.5vw,15px);line-height:1.35;font-variant-numeric:tabular-nums}
+.payslip th,.payslip td{border:1px solid #8c96a6;padding:5px 3px;text-align:center;vertical-align:middle;overflow-wrap:anywhere}
+.payslip tbody th,.payslip .person th{font-weight:400}.person{margin-bottom:15px}.person th{width:15%}
+.payslip .amt{text-align:right;white-space:nowrap;letter-spacing:-.025em}.payslip .band,.slip-hours thead{background:#dce0ec;color:#172337}
+.payslip .no-line{border:0}.payslip .deposit>*{border-top:2px solid #405576;border-bottom:2px solid #405576}
+.payslip .deposit td:first-child{font-size:.82em}.payslip .deposit .amt{font-weight:700}
+.payslip .slip-hours{margin:24px 0 0 auto;width:min(100%,340px);border:2px solid #405576}
+.slip-hours tfoot tr:first-child>*{background:#e5e8f0;font-weight:700}.payslip .slip-note{margin:8px 0 0;text-align:right}
+@media(max-width:450px){.payslip{padding:11px 5px}.payslip td,.payslip th{padding:5px 1px}.payslip .amt{font-size:clamp(11px,3vw,13px)}}
+@media print{
+ @page{size:A4 portrait;margin:14mm}
+ body:has(#slipPage:not([hidden])){background:white}
+ body:has(#slipPage:not([hidden])) main{padding:0;max-width:none}
+ body:has(#slipPage:not([hidden])) :is(main>header,.page-switch,.slip-actions,.dock){display:none!important}
+ .payslip{border:0;box-shadow:none;padding:0;print-color-adjust:exact;-webkit-print-color-adjust:exact}
+ .payslip table{font-size:11pt}.payslip input{background:transparent}.payslip input::placeholder{color:transparent}
+ .payslip th,.payslip td{padding:4pt}.slip-note{font-size:9pt}.payslip h2{margin:16pt 0}
+}
+
+/* 신규 UI (기존 급여·세액 계산식과 분리) */
+.draft-bar{display:flex;align-items:center;justify-content:space-between;gap:8px;margin:9px 2px 0;font-size:12px;color:#48685f}
+.draft-bar button{padding:5px 9px;min-height:32px;border-color:#c3d7ca;background:#f4faf6;color:#235a4b;font-size:12px}
+#draftStatus{line-height:1.35}
+.hours-optional{margin:9px 0 3px;padding:8px 10px;border:1px solid #dcece2;border-radius:11px;background:#fbfefc}
+.hours-optional>summary{font-weight:700}
+.hours-grid{display:grid;grid-template-columns:1fr 1fr;gap:9px;margin-top:9px}
+.hours-grid label{font-size:12px}
+.hours-grid input{margin-top:3px;font-size:15px;min-height:38px}
+.hours-actions{display:flex;align-items:center;gap:7px;flex-wrap:wrap;margin-top:10px}
+.hours-actions button{min-height:39px}
+.hours-out{font-weight:750;color:#134a3c}
+#hoursFeedback{margin-top:6px;color:#47695e}
+@media(max-width:340px){.hours-grid{grid-template-columns:1fr}}
+@media print{
+  @page{size:A4 portrait;margin:10mm}
+  .draft-bar{display:none!important}
+  body:has(#slipPage:not([hidden])){min-height:0!important;height:auto!important;margin:0!important;padding:0!important}
+  body:has(#slipPage:not([hidden])) main{min-height:0!important;padding:0!important}
+  .payslip{padding:0!important}
+  .payslip h2{margin:7pt 0 9pt;font-size:18pt}
+  .slip-meta{margin:0 0 2pt}
+  .person{margin-bottom:7pt}
+  .payslip table{font-size:9pt;line-height:1.12}
+  .payslip th,.payslip td{padding:2pt}
+  .payslip .slip-hours{margin-top:7pt;width:min(100%,260px)}
+  .payslip .slip-note{margin-top:4pt;font-size:8pt}
+  .payslip input{outline:0!important;box-shadow:none!important;border:0!important}
+}
+</style></head><body><main>
+<header><h1>2026 급여 계산기</h1>
+</header>
+<nav class="page-switch" aria-label="계산 페이지"><button id="payTab" type="button" aria-controls="payPage" aria-pressed="true">시급·급여</button><button id="taxTab" type="button" aria-controls="taxPage" aria-pressed="false">세금·실수령</button><button id="slipTab" type="button" aria-controls="slipPage" aria-pressed="false">급여명세서</button></nav>
+<div class="draft-bar"><span id="draftStatus" role="status" aria-live="polite">입력값 보관 상태 확인 중</span><button type="button" id="clearDraft">입력 초기화</button></div>
+<div id="payPages"><div id="payPage">
+<section class="panel"><h2>1. 통상시급 계산</h2><div class="basics">
+<div><label for="step">호봉(군호봉 포함)</label><select id="step"></select></div>
+<div><label for="tenure">실제 근속(군경력 제외)</label><select id="tenure"></select></div>
+<div id="contractRow" class="span"><label for="contractType">촉탁직 여부</label><select id="contractType"><option value="0" selected>아니오</option><option value="1">예</option></select><p class="note">촉탁직은 선택한 호봉 기본급을 적용하고, 연차 15일·정근수당·근속가산금 미적용으로 계산합니다.</p></div>
+<div><label for="treatment">처우개선비</label><select id="treatment"><option value="50000">5만 원</option><option value="70000" selected>7만 원</option><option value="100000">10만 원</option></select></div>
+
+</div><dl class="output-row"><div class="major"><dt>통상시급</dt><dd id="hourlyOut" aria-live="polite"></dd></div><div><dt>올해 연차 기준 일수</dt><dd><output id="annualOut"></output></dd></div></dl>
+</section>
+<section class="panel"><h2>2. 이번 달 급여</h2>
+<div><label for="familyAllowance">가족수당</label><select id="familyAllowance"><option value="0">0원</option><option value="10000">10,000원</option><option value="20000">20,000원</option><option value="30000">30,000원</option><option value="40000">40,000원</option><option value="50000">50,000원</option><option value="60000">60,000원</option><option value="70000">70,000원</option><option value="80000">80,000원</option><option value="90000">90,000원</option><option value="100000">100,000원</option><option value="110000">110,000원</option><option value="120000">120,000원</option><option value="130000">130,000원</option><option value="140000">140,000원</option><option value="150000">150,000원</option></select></div>
+<label for="weighted">근무표 환산시간</label><input id="weighted" type="number" min="0" step="any" inputmode="decimal" placeholder="예: 132.25">
+<p class="note">개인 근무표 맨 아래의 환산시간을 그대로 입력하세요.</p>
+<details class="hours-optional" id="hoursBreakdown"><summary>근무시간 세부 입력 (선택)</summary>
+<p class="note">명세서의 시간대별 근무시간을 채울 때만 사용하세요. 입력 후 ‘환산시간 적용’을 누르면 위 계산용 환산시간에도 반영됩니다.</p>
+<div class="hours-grid"><label for="detailHours0">평일 · 주간 (1.5배)<input id="detailHours0" type="number" min="0" step="any" inputmode="decimal" placeholder="0"></label><label for="detailHours1">평일 · 일부심야 (0.5배)<input id="detailHours1" type="number" min="0" step="any" inputmode="decimal" placeholder="0"></label><label for="detailHours2">평일 · 주간심야 (0.5배)<input id="detailHours2" type="number" min="0" step="any" inputmode="decimal" placeholder="0"></label><label for="detailHours3">휴일 · 주간 (1.5배)<input id="detailHours3" type="number" min="0" step="any" inputmode="decimal" placeholder="0"></label><label for="detailHours4">휴일 · 심야 (2.0배)<input id="detailHours4" type="number" min="0" step="any" inputmode="decimal" placeholder="0"></label><label for="detailHours5">특별휴일 · 주간 (2.0배)<input id="detailHours5" type="number" min="0" step="any" inputmode="decimal" placeholder="0"></label><label for="detailHours6">특별휴일 · 심야 (2.5배)<input id="detailHours6" type="number" min="0" step="any" inputmode="decimal" placeholder="0"></label></div>
+<div class="hours-actions"><span class="hours-out" id="hoursWeightedPreview">환산 합계: 0시간</span><button type="button" id="applyDetailHours">환산시간 적용</button><button type="button" id="clearDetailHours">시간만 지우기</button></div>
+<p class="note" id="hoursFeedback" role="status" aria-live="polite"></p>
+</details>
+<div class="grid" style="margin-top:12px">
+<label>급여월<select id="payMonth"></select></label>
+<label>명절 상여금 지급<select id="bonusPaid"><option value="0">X · 미지급</option><option value="1">O · 지급</option></select></label>
+<label>연차수당 지급 일수<select id="leave"><option value="">0일</option><option value="0.5">0.5일</option><option value="1">1일</option><option value="1.5">1.5일</option><option value="2">2일</option><option value="2.5">2.5일</option><option value="3">3일</option><option value="3.5">3.5일</option><option value="4">4일</option><option value="4.5">4.5일</option><option value="5">5일</option><option value="5.5">5.5일</option><option value="6">6일</option><option value="6.5">6.5일</option><option value="7">7일</option><option value="7.5">7.5일</option><option value="8">8일</option><option value="8.5">8.5일</option><option value="9">9일</option><option value="9.5">9.5일</option><option value="10">10일</option></select></label>
+</div>
+<label for="regularPayment">정근수당</label>
+<input id="regularPayment" type="text" readonly aria-describedby="regularHelp">
+<p id="regularHelp" class="note">실제 근속 1년 이상이면 1월·7월 급여에 호봉별 정근수당을 자동 합산합니다. 근속가산금 대상자는 가산금도 포함됩니다.</p>
+</section>
+<section class="panel"><h2>급여 요약</h2><dl><div class="major"><dt>세전 총지급액</dt><dd id="grossOut"></dd></div></dl><details><summary>세부 계산 내역</summary><dl class="pay-detail"><div class="detail-title"><dt>통상임금 기본항목</dt><dd></dd></div><div><dt>기본급</dt><dd id="baseOut"></dd></div><div><dt>급량비 지원</dt><dd id="mealOut"></dd></div><div><dt>교통비 지원</dt><dd id="transportOut"></dd></div><div><dt>처우개선비</dt><dd id="treatmentOut"></dd></div><div><dt>민원수당</dt><dd id="complaintsOut"></dd></div><div><dt>직무보조비</dt><dd id="dutyOut"></dd></div><div class="subtotal"><dt>통상임금 기본항목 합계</dt><dd id="monthlyOut"></dd></div><div class="detail-title"><dt>통상시급 산정 반영액</dt><dd></dd></div><div><dt>상여금 월할액</dt><dd id="bonusMonthlyOut"></dd></div><div><dt>정근수당 월할액</dt><dd id="regularMonthlyOut"></dd></div><div><dt>근속가산금 월할액</dt><dd id="extraMonthlyOut"></dd></div><div class="major"><dt>시급 산정용 월 통상임금 합계</dt><dd id="wageBaseOut"></dd></div><div><dt>통상시급</dt><dd id="hourlyDetailOut"></dd></div><div class="detail-title"><dt>이번 달 추가 지급</dt><dd></dd></div><div><dt>가족수당</dt><dd id="familyOut"></dd></div><div><dt>연장·특근 환산시간</dt><dd id="hoursOut"></dd></div><div><dt>연장·특근 수당</dt><dd id="otOut"></dd></div><div><dt>정근수당 실제 지급액</dt><dd id="regularPaidOut"></dd></div><div><dt>명절 상여금</dt><dd id="bonusPaidOut"></dd></div><div><dt>연차수당</dt><dd id="leaveOut"></dd></div><div class="detail-title"><dt>세금 계산 기준</dt><dd></dd></div><div><dt>비과세 반영액</dt><dd id="nonTaxableOut"></dd></div><div><dt>세액표 적용금액</dt><dd id="taxBaseOut"></dd></div></dl><p>센터 계산 기준으로 식대 16만 원과 연장·특근수당 중 최대 20만 원을 비과세로 반영합니다.</p></details></section>
+<button id="nextPayPage" class="page-next" type="button">세금·실수령 보기 →</button></div><div id="taxPage" hidden><section class="panel"><h2>3. <span id="taxMonthText"></span> 소득세</h2><div class="grid">
+<label>공제대상 가족 수(본인 포함)<select id="dependents"></select></label>
+<label>공제대상 자녀 수(8세 이상 20세 이하)<select id="children"></select></label>
+</div><dl><div><dt>소득세</dt><dd id="incomeOut"></dd></div><div><dt>지방소득세</dt><dd id="localOut"></dd></div></dl></section><section class="panel"><h2>개인 공제</h2><details id="personalDeductions"><summary>국민연금·건강보험 등 입력</summary><div class="grid">
+<label>국민연금<input id="pension" type="number" min="0" step="1" inputmode="numeric" placeholder="0"></label>
+<label>건강보험<input id="health" type="number" min="0" step="1" inputmode="numeric" placeholder="0"></label>
+<label>장기요양보험<input id="care" type="number" min="0" step="1" inputmode="numeric" placeholder="0"></label>
+<label>고용보험<input id="employment" type="number" min="0" step="1" inputmode="numeric" placeholder="0"></label>
+<label>조합비 (고정)<input id="union" type="text" value="30,000원" readonly></label>
+<label>기타 공제·정산<input id="adjustment" type="number" step="1" inputmode="numeric" placeholder="0"></label>
+</div>
+<p>빈칸은 0원으로 계산합니다.</p></details><dl><div><dt>전체 공제 합계</dt><dd id="deductionOut"></dd></div></dl></section><details class="panel"><summary>명세서로 계산 확인</summary><p>기존 입력값을 바꾸지 않고 10월 명세서 두 건을 대조합니다.</p><button id="verifyPayroll" type="button">검산 시작</button><div id="verifyResult" aria-live="polite"></div></details><p id="statementError" role="alert" tabindex="-1"></p><button type="button" class="page-next" id="completePayroll">완료 · 급여명세서 보기</button></div><section id="slipPage" hidden aria-labelledby="slipTitle">
+<div class="slip-actions"><button id="editSlip" type="button">입력 수정</button><button id="printSlip" type="button">인쇄 · PDF 저장</button></div>
+<article class="payslip">
+<p class="form-number">[별지 제17호의2서식]</p>
+<h2 id="slipTitle" tabindex="-1"><span id="slip-month"></span> 정기 급여 명세서</h2>
+<div class="slip-meta"><label>지급일 <input id="slipDate" aria-label="지급일" type="date"></label></div>
+<table class="person" aria-label="직원 정보"><tbody>
+<tr><th><label for="slipName">성명</label></th><td><input id="slipName" placeholder="성명 입력" maxlength="25"></td><th rowspan="2"><label for="slipNumber">사번</label></th><td rowspan="2"><input id="slipNumber" placeholder="사번 입력" maxlength="24"></td></tr>
+<tr><th><label for="slipPosition">직급</label></th><td><input id="slipPosition" placeholder="직급 입력" maxlength="25"></td></tr>
+</tbody></table>
+<table class="slip-money" aria-label="급여 지급 및 공제 세부 내역">
+<colgroup><col style="width:13%"><col style="width:26%"><col style="width:21%"><col style="width:20%"><col style="width:20%"></colgroup>
+<thead><tr><th colspan="5" class="band">세부 내역</th></tr><tr><th colspan="3">지 급</th><th colspan="2">공 제</th></tr>
+<tr><th colspan="2">임금 항목</th><th>지급금액</th><th>공제항목</th><th>공제금액</th></tr></thead><tbody><tr><th rowspan="7" scope="rowgroup">통상임금<br>기본항목</th><th scope="row">기본급 (<span id="slip-step"></span>)</th><td class="amt" id="slip-base"></td><th scope="row">국민연금</th><td class="amt" id="slip-pension"></td></tr><tr><th scope="row">급량비 지원</th><td class="amt" id="slip-meal"></td><th scope="row">건강보험</th><td class="amt" id="slip-health"></td></tr><tr><th scope="row">교통비 지원</th><td class="amt" id="slip-transport"></td><th scope="row">장기요양보험</th><td class="amt" id="slip-care"></td></tr><tr><th scope="row">처우개선비</th><td class="amt" id="slip-treatment"></td><th scope="row">고용보험</th><td class="amt" id="slip-employment"></td></tr><tr><th scope="row">민원수당</th><td class="amt" id="slip-complaints"></td><th scope="row">노동조합비</th><td class="amt" id="slip-union"></td></tr><tr><th scope="row">직무보조비</th><td class="amt" id="slip-duty"></td><th scope="row">기타 공제·정산</th><td class="amt" id="slip-adjustment"></td></tr><tr><th scope="row">명절상여금</th><td class="amt" id="slip-bonus"></td><th scope="row"></th><td></td></tr><tr><th rowspan="5" scope="rowgroup">통상임금<br>기본항목 외</th><th scope="row">가족수당</th><td class="amt" id="slip-family"></td><th scope="row"></th><td></td></tr><tr><th scope="row">시간 외 (연장) 근로수당</th><td class="amt" id="slip-overtime"></td><th scope="row"></th><td></td></tr><tr><th scope="row">정근수당</th><td class="amt" id="slip-regular"></td><th scope="row"></th><td></td></tr><tr><th scope="row"></th><td></td><th scope="row">원천 소득세</th><td class="amt" id="slip-income"></td></tr><tr><th scope="row">연차수당 (지급 <span id="slip-leave-days"></span>)</th><td class="amt" id="slip-leave"></td><th scope="row">지방 소득세</th><td class="amt" id="slip-local"></td></tr></tbody>
+<tfoot><tr class="band"><th colspan="2">지급액 계 (공제 전)</th><td class="amt" id="slip-gross"></td><th>공제액 계</th><td class="amt" id="slip-deductions"></td></tr>
+<tr><td colspan="3" class="no-line"></td><th>공제후 급여총액</th><td class="amt" id="slip-net"></td></tr>
+<tr class="deposit"><td colspan="3">처우개선비, 연차수당: 총 <strong id="slip-separate"></strong>원 별도 입금</td><th>순 급여 입금액</th><td class="amt" id="slip-deposit"></td></tr></tfoot></table>
+<table class="slip-hours" aria-label="시간 외 근로 시간">
+<thead><tr><th>구분</th><th colspan="2">시간 외 근로 시간</th><th>비중</th><th>합계</th></tr></thead>
+<tbody><tr><th rowspan="3">평일</th><th>주간</th><td id="slip-hour-input-0"></td><td>1.5</td><td></td></tr><tr><th>일부심야</th><td id="slip-hour-input-1"></td><td>0.5</td><td></td></tr><tr><th>주간심야</th><td id="slip-hour-input-2"></td><td>0.5</td><td></td></tr><tr><th rowspan="2">휴일</th><th>주간</th><td id="slip-hour-input-3"></td><td>1.5</td><td></td></tr><tr><th>심야</th><td id="slip-hour-input-4"></td><td>2.0</td><td></td></tr><tr><th rowspan="2">특별휴일</th><th>주간</th><td id="slip-hour-input-5"></td><td>2.0</td><td></td></tr><tr><th>심야</th><td id="slip-hour-input-6"></td><td>2.5</td><td></td></tr></tbody>
+<tfoot><tr><th colspan="2">순 시간의 합</th><td id="slip-plain-hours"></td><th>비중 합</th><td id="slip-hours"></td></tr>
+<tr><td colspan="2" class="no-line"></td><th>통상 시급</th><td colspan="2" id="slip-hourly"></td></tr></tfoot></table>
+<p class="slip-note" id="slip-hours-note">근무표 환산시간은 ‘비중 합’에 표시됩니다. 세부시간은 선택 입력입니다.</p></article></section></div></main><aside class="dock" id="resultDock"><div class="dock-inner"><div><strong>예상 실수령액</strong><a id="netNote" href="#personalDeductions">공제 입력</a></div><output id="netOut" aria-live="polite"></output></div></aside><script>
+// 소득세법 시행령 별표 2 (2026-02-27 개정)
+// https://law.go.kr/LSW/flDownload.do?flSeq=162006783
+// 각 행: [월급여 하한(천원), 가족 1~11명 세액(원)..., 월급여 상한(천원)]
+const PAYROLL_TAX_ROWS = [
+  [770,0,0,0,0,0,0,0,0,0,0,0,775],
+  [775,0,0,0,0,0,0,0,0,0,0,0,780],
+  [780,0,0,0,0,0,0,0,0,0,0,0,785],
+  [785,0,0,0,0,0,0,0,0,0,0,0,790],
+  [790,0,0,0,0,0,0,0,0,0,0,0,795],
+  [795,0,0,0,0,0,0,0,0,0,0,0,800],
+  [800,0,0,0,0,0,0,0,0,0,0,0,805],
+  [805,0,0,0,0,0,0,0,0,0,0,0,810],
+  [810,0,0,0,0,0,0,0,0,0,0,0,815],
+  [815,0,0,0,0,0,0,0,0,0,0,0,820],
+  [820,0,0,0,0,0,0,0,0,0,0,0,825],
+  [825,0,0,0,0,0,0,0,0,0,0,0,830],
+  [830,0,0,0,0,0,0,0,0,0,0,0,835],
+  [835,0,0,0,0,0,0,0,0,0,0,0,840],
+  [840,0,0,0,0,0,0,0,0,0,0,0,845],
+  [845,0,0,0,0,0,0,0,0,0,0,0,850],
+  [850,0,0,0,0,0,0,0,0,0,0,0,855],
+  [855,0,0,0,0,0,0,0,0,0,0,0,860],
+  [860,0,0,0,0,0,0,0,0,0,0,0,865],
+  [865,0,0,0,0,0,0,0,0,0,0,0,870],
+  [870,0,0,0,0,0,0,0,0,0,0,0,875],
+  [875,0,0,0,0,0,0,0,0,0,0,0,880],
+  [880,0,0,0,0,0,0,0,0,0,0,0,885],
+  [885,0,0,0,0,0,0,0,0,0,0,0,890],
+  [890,0,0,0,0,0,0,0,0,0,0,0,895],
+  [895,0,0,0,0,0,0,0,0,0,0,0,900],
+  [900,0,0,0,0,0,0,0,0,0,0,0,905],
+  [905,0,0,0,0,0,0,0,0,0,0,0,910],
+  [910,0,0,0,0,0,0,0,0,0,0,0,915],
+  [915,0,0,0,0,0,0,0,0,0,0,0,920],
+  [920,0,0,0,0,0,0,0,0,0,0,0,925],
+  [925,0,0,0,0,0,0,0,0,0,0,0,930],
+  [930,0,0,0,0,0,0,0,0,0,0,0,935],
+  [935,0,0,0,0,0,0,0,0,0,0,0,940],
+  [940,0,0,0,0,0,0,0,0,0,0,0,945],
+  [945,0,0,0,0,0,0,0,0,0,0,0,950],
+  [950,0,0,0,0,0,0,0,0,0,0,0,955],
+  [955,0,0,0,0,0,0,0,0,0,0,0,960],
+  [960,0,0,0,0,0,0,0,0,0,0,0,965],
+  [965,0,0,0,0,0,0,0,0,0,0,0,970],
+  [970,0,0,0,0,0,0,0,0,0,0,0,975],
+  [975,0,0,0,0,0,0,0,0,0,0,0,980],
+  [980,0,0,0,0,0,0,0,0,0,0,0,985],
+  [985,0,0,0,0,0,0,0,0,0,0,0,990],
+  [990,0,0,0,0,0,0,0,0,0,0,0,995],
+  [995,0,0,0,0,0,0,0,0,0,0,0,1000],
+  [1000,0,0,0,0,0,0,0,0,0,0,0,1005],
+  [1005,0,0,0,0,0,0,0,0,0,0,0,1010],
+  [1010,0,0,0,0,0,0,0,0,0,0,0,1015],
+  [1015,0,0,0,0,0,0,0,0,0,0,0,1020],
+  [1020,0,0,0,0,0,0,0,0,0,0,0,1025],
+  [1025,0,0,0,0,0,0,0,0,0,0,0,1030],
+  [1030,0,0,0,0,0,0,0,0,0,0,0,1035],
+  [1035,0,0,0,0,0,0,0,0,0,0,0,1040],
+  [1040,0,0,0,0,0,0,0,0,0,0,0,1045],
+  [1045,0,0,0,0,0,0,0,0,0,0,0,1050],
+  [1050,0,0,0,0,0,0,0,0,0,0,0,1055],
+  [1055,0,0,0,0,0,0,0,0,0,0,0,1060],
+  [1060,1040,0,0,0,0,0,0,0,0,0,0,1065],
+  [1065,1110,0,0,0,0,0,0,0,0,0,0,1070],
+  [1070,1180,0,0,0,0,0,0,0,0,0,0,1075],
+  [1075,1250,0,0,0,0,0,0,0,0,0,0,1080],
+  [1080,1320,0,0,0,0,0,0,0,0,0,0,1085],
+  [1085,1390,0,0,0,0,0,0,0,0,0,0,1090],
+  [1090,1460,0,0,0,0,0,0,0,0,0,0,1095],
+  [1095,1530,0,0,0,0,0,0,0,0,0,0,1100],
+  [1100,1600,0,0,0,0,0,0,0,0,0,0,1105],
+  [1105,1670,0,0,0,0,0,0,0,0,0,0,1110],
+  [1110,1740,0,0,0,0,0,0,0,0,0,0,1115],
+  [1115,1810,0,0,0,0,0,0,0,0,0,0,1120],
+  [1120,1880,0,0,0,0,0,0,0,0,0,0,1125],
+  [1125,1950,0,0,0,0,0,0,0,0,0,0,1130],
+  [1130,2020,0,0,0,0,0,0,0,0,0,0,1135],
+  [1135,2090,0,0,0,0,0,0,0,0,0,0,1140],
+  [1140,2160,0,0,0,0,0,0,0,0,0,0,1145],
+  [1145,2230,0,0,0,0,0,0,0,0,0,0,1150],
+  [1150,2300,0,0,0,0,0,0,0,0,0,0,1155],
+  [1155,2370,0,0,0,0,0,0,0,0,0,0,1160],
+  [1160,2440,0,0,0,0,0,0,0,0,0,0,1165],
+  [1165,2500,0,0,0,0,0,0,0,0,0,0,1170],
+  [1170,2570,0,0,0,0,0,0,0,0,0,0,1175],
+  [1175,2640,0,0,0,0,0,0,0,0,0,0,1180],
+  [1180,2710,0,0,0,0,0,0,0,0,0,0,1185],
+  [1185,2780,0,0,0,0,0,0,0,0,0,0,1190],
+  [1190,2850,0,0,0,0,0,0,0,0,0,0,1195],
+  [1195,2920,0,0,0,0,0,0,0,0,0,0,1200],
+  [1200,2990,0,0,0,0,0,0,0,0,0,0,1205],
+  [1205,3060,0,0,0,0,0,0,0,0,0,0,1210],
+  [1210,3130,0,0,0,0,0,0,0,0,0,0,1215],
+  [1215,3200,0,0,0,0,0,0,0,0,0,0,1220],
+  [1220,3270,0,0,0,0,0,0,0,0,0,0,1225],
+  [1225,3340,0,0,0,0,0,0,0,0,0,0,1230],
+  [1230,3410,0,0,0,0,0,0,0,0,0,0,1235],
+  [1235,3480,0,0,0,0,0,0,0,0,0,0,1240],
+  [1240,3550,0,0,0,0,0,0,0,0,0,0,1245],
+  [1245,3620,0,0,0,0,0,0,0,0,0,0,1250],
+  [1250,3700,0,0,0,0,0,0,0,0,0,0,1255],
+  [1255,3810,0,0,0,0,0,0,0,0,0,0,1260],
+  [1260,3910,0,0,0,0,0,0,0,0,0,0,1265],
+  [1265,4010,0,0,0,0,0,0,0,0,0,0,1270],
+  [1270,4120,0,0,0,0,0,0,0,0,0,0,1275],
+  [1275,4220,0,0,0,0,0,0,0,0,0,0,1280],
+  [1280,4320,0,0,0,0,0,0,0,0,0,0,1285],
+  [1285,4430,0,0,0,0,0,0,0,0,0,0,1290],
+  [1290,4530,0,0,0,0,0,0,0,0,0,0,1295],
+  [1295,4630,0,0,0,0,0,0,0,0,0,0,1300],
+  [1300,4740,0,0,0,0,0,0,0,0,0,0,1305],
+  [1305,4840,0,0,0,0,0,0,0,0,0,0,1310],
+  [1310,4940,0,0,0,0,0,0,0,0,0,0,1315],
+  [1315,5050,0,0,0,0,0,0,0,0,0,0,1320],
+  [1320,5150,0,0,0,0,0,0,0,0,0,0,1325],
+  [1325,5250,0,0,0,0,0,0,0,0,0,0,1330],
+  [1330,5360,0,0,0,0,0,0,0,0,0,0,1335],
+  [1335,5460,0,0,0,0,0,0,0,0,0,0,1340],
+  [1340,5560,1060,0,0,0,0,0,0,0,0,0,1345],
+  [1345,5670,1170,0,0,0,0,0,0,0,0,0,1350],
+  [1350,5770,1270,0,0,0,0,0,0,0,0,0,1355],
+  [1355,5870,1370,0,0,0,0,0,0,0,0,0,1360],
+  [1360,5980,1480,0,0,0,0,0,0,0,0,0,1365],
+  [1365,6080,1580,0,0,0,0,0,0,0,0,0,1370],
+  [1370,6180,1680,0,0,0,0,0,0,0,0,0,1375],
+  [1375,6290,1790,0,0,0,0,0,0,0,0,0,1380],
+  [1380,6390,1890,0,0,0,0,0,0,0,0,0,1385],
+  [1385,6490,1990,0,0,0,0,0,0,0,0,0,1390],
+  [1390,6600,2100,0,0,0,0,0,0,0,0,0,1395],
+  [1395,6700,2200,0,0,0,0,0,0,0,0,0,1400],
+  [1400,6800,2300,0,0,0,0,0,0,0,0,0,1405],
+  [1405,6910,2410,0,0,0,0,0,0,0,0,0,1410],
+  [1410,7010,2510,0,0,0,0,0,0,0,0,0,1415],
+  [1415,7110,2610,0,0,0,0,0,0,0,0,0,1420],
+  [1420,7210,2710,0,0,0,0,0,0,0,0,0,1425],
+  [1425,7320,2820,0,0,0,0,0,0,0,0,0,1430],
+  [1430,7420,2920,0,0,0,0,0,0,0,0,0,1435],
+  [1435,7520,3020,0,0,0,0,0,0,0,0,0,1440],
+  [1440,7630,3130,0,0,0,0,0,0,0,0,0,1445],
+  [1445,7730,3230,0,0,0,0,0,0,0,0,0,1450],
+  [1450,7830,3330,0,0,0,0,0,0,0,0,0,1455],
+  [1455,7940,3440,0,0,0,0,0,0,0,0,0,1460],
+  [1460,8040,3540,0,0,0,0,0,0,0,0,0,1465],
+  [1465,8140,3640,0,0,0,0,0,0,0,0,0,1470],
+  [1470,8250,3750,0,0,0,0,0,0,0,0,0,1475],
+  [1475,8350,3850,0,0,0,0,0,0,0,0,0,1480],
+  [1480,8450,3950,0,0,0,0,0,0,0,0,0,1485],
+  [1485,8560,4060,0,0,0,0,0,0,0,0,0,1490],
+  [1490,8660,4160,0,0,0,0,0,0,0,0,0,1495],
+  [1495,8760,4260,0,0,0,0,0,0,0,0,0,1500],
+  [1500,8920,4420,0,0,0,0,0,0,0,0,0,1510],
+  [1510,9120,4620,0,0,0,0,0,0,0,0,0,1520],
+  [1520,9330,4830,0,0,0,0,0,0,0,0,0,1530],
+  [1530,9540,5040,0,0,0,0,0,0,0,0,0,1540],
+  [1540,9740,5240,0,0,0,0,0,0,0,0,0,1550],
+  [1550,9950,5450,0,0,0,0,0,0,0,0,0,1560],
+  [1560,10160,5660,0,0,0,0,0,0,0,0,0,1570],
+  [1570,10360,5860,0,0,0,0,0,0,0,0,0,1580],
+  [1580,10570,6070,0,0,0,0,0,0,0,0,0,1590],
+  [1590,10780,6280,0,0,0,0,0,0,0,0,0,1600],
+  [1600,10980,6480,0,0,0,0,0,0,0,0,0,1610],
+  [1610,11190,6690,0,0,0,0,0,0,0,0,0,1620],
+  [1620,11400,6900,0,0,0,0,0,0,0,0,0,1630],
+  [1630,11600,7100,0,0,0,0,0,0,0,0,0,1640],
+  [1640,11810,7310,0,0,0,0,0,0,0,0,0,1650],
+  [1650,12020,7520,0,0,0,0,0,0,0,0,0,1660],
+  [1660,12220,7720,0,0,0,0,0,0,0,0,0,1670],
+  [1670,12430,7930,0,0,0,0,0,0,0,0,0,1680],
+  [1680,12640,8140,0,0,0,0,0,0,0,0,0,1690],
+  [1690,12840,8340,0,0,0,0,0,0,0,0,0,1700],
+  [1700,13050,8550,0,0,0,0,0,0,0,0,0,1710],
+  [1710,13260,8760,0,0,0,0,0,0,0,0,0,1720],
+  [1720,13460,8960,1040,0,0,0,0,0,0,0,0,1730],
+  [1730,13670,9170,1240,0,0,0,0,0,0,0,0,1740],
+  [1740,13880,9380,1440,0,0,0,0,0,0,0,0,1750],
+  [1750,14080,9580,1640,0,0,0,0,0,0,0,0,1760],
+  [1760,14290,9790,1830,0,0,0,0,0,0,0,0,1770],
+  [1770,14500,10000,2030,0,0,0,0,0,0,0,0,1780],
+  [1780,14700,10200,2230,0,0,0,0,0,0,0,0,1790],
+  [1790,14910,10410,2430,0,0,0,0,0,0,0,0,1800],
+  [1800,15110,10610,2630,0,0,0,0,0,0,0,0,1810],
+  [1810,15320,10820,2830,0,0,0,0,0,0,0,0,1820],
+  [1820,15530,11030,3020,0,0,0,0,0,0,0,0,1830],
+  [1830,15730,11230,3220,0,0,0,0,0,0,0,0,1840],
+  [1840,15940,11440,3420,0,0,0,0,0,0,0,0,1850],
+  [1850,16150,11650,3620,0,0,0,0,0,0,0,0,1860],
+  [1860,16350,11850,3820,0,0,0,0,0,0,0,0,1870],
+  [1870,16560,12060,4020,0,0,0,0,0,0,0,0,1880],
+  [1880,16770,12270,4220,0,0,0,0,0,0,0,0,1890],
+  [1890,16970,12470,4410,1040,0,0,0,0,0,0,0,1900],
+  [1900,17180,12680,4610,1240,0,0,0,0,0,0,0,1910],
+  [1910,17390,12890,4810,1440,0,0,0,0,0,0,0,1920],
+  [1920,17590,13090,5010,1630,0,0,0,0,0,0,0,1930],
+  [1930,17800,13300,5210,1830,0,0,0,0,0,0,0,1940],
+  [1940,18010,13510,5410,2030,0,0,0,0,0,0,0,1950],
+  [1950,18210,13710,5600,2230,0,0,0,0,0,0,0,1960],
+  [1960,18420,13920,5800,2430,0,0,0,0,0,0,0,1970],
+  [1970,18630,14130,6000,2630,0,0,0,0,0,0,0,1980],
+  [1980,18880,14330,6200,2820,0,0,0,0,0,0,0,1990],
+  [1990,19200,14540,6400,3020,0,0,0,0,0,0,0,2000],
+  [2000,19520,14750,6600,3220,0,0,0,0,0,0,0,2010],
+  [2010,19850,14950,6800,3420,0,0,0,0,0,0,0,2020],
+  [2020,20170,15160,6990,3620,0,0,0,0,0,0,0,2030],
+  [2030,20490,15370,7190,3820,0,0,0,0,0,0,0,2040],
+  [2040,20810,15570,7390,4020,0,0,0,0,0,0,0,2050],
+  [2050,21130,15780,7590,4210,0,0,0,0,0,0,0,2060],
+  [2060,21450,15990,7790,4410,1040,0,0,0,0,0,0,2070],
+  [2070,21770,16190,7990,4610,1240,0,0,0,0,0,0,2080],
+  [2080,22090,16400,8180,4810,1430,0,0,0,0,0,0,2090],
+  [2090,22420,16600,8380,5010,1630,0,0,0,0,0,0,2100],
+  [2100,22740,16810,8580,5210,1830,0,0,0,0,0,0,2110],
+  [2110,23060,17020,8780,5400,2030,0,0,0,0,0,0,2120],
+  [2120,23380,17220,8980,5600,2230,0,0,0,0,0,0,2130],
+  [2130,23700,17430,9180,5800,2430,0,0,0,0,0,0,2140],
+  [2140,24020,17640,9380,6000,2630,0,0,0,0,0,0,2150],
+  [2150,24340,17840,9570,6200,2820,0,0,0,0,0,0,2160],
+  [2160,24660,18050,9770,6400,3020,0,0,0,0,0,0,2170],
+  [2170,24990,18260,9970,6600,3220,0,0,0,0,0,0,2180],
+  [2180,25310,18460,10170,6790,3420,0,0,0,0,0,0,2190],
+  [2190,25630,18670,10370,6990,3620,0,0,0,0,0,0,2200],
+  [2200,25950,18950,10570,7190,3820,0,0,0,0,0,0,2210],
+  [2210,26270,19270,10760,7390,4010,0,0,0,0,0,0,2220],
+  [2220,26590,19590,10960,7590,4210,0,0,0,0,0,0,2230],
+  [2230,26910,19910,11160,7790,4410,1040,0,0,0,0,0,2240],
+  [2240,27240,20240,11360,7980,4610,1230,0,0,0,0,0,2250],
+  [2250,27560,20560,11560,8180,4810,1430,0,0,0,0,0,2260],
+  [2260,27880,20880,11760,8380,5010,1630,0,0,0,0,0,2270],
+  [2270,28200,21200,11960,8580,5210,1830,0,0,0,0,0,2280],
+  [2280,28520,21520,12150,8780,5400,2030,0,0,0,0,0,2290],
+  [2290,28840,21840,12350,8980,5600,2230,0,0,0,0,0,2300],
+  [2300,29160,22160,12550,9180,5800,2430,0,0,0,0,0,2310],
+  [2310,29480,22480,12750,9370,6000,2620,0,0,0,0,0,2320],
+  [2320,29810,22810,12950,9570,6200,2820,0,0,0,0,0,2330],
+  [2330,30130,23130,13150,9770,6400,3020,0,0,0,0,0,2340],
+  [2340,30450,23450,13340,9970,6590,3220,0,0,0,0,0,2350],
+  [2350,30770,23770,13540,10170,6790,3420,0,0,0,0,0,2360],
+  [2360,31090,24090,13740,10370,6990,3620,0,0,0,0,0,2370],
+  [2370,31410,24410,13940,10560,7190,3810,0,0,0,0,0,2380],
+  [2380,31730,24730,14140,10760,7390,4010,0,0,0,0,0,2390],
+  [2390,32050,25050,14340,10960,7590,4210,0,0,0,0,0,2400],
+  [2400,32380,25380,14530,11160,7780,4410,1030,0,0,0,0,2410],
+  [2410,32700,25700,14730,11360,7980,4610,1230,0,0,0,0,2420],
+  [2420,33020,26020,14930,11560,8180,4810,1430,0,0,0,0,2430],
+  [2430,33340,26340,15130,11760,8380,5010,1630,0,0,0,0,2440],
+  [2440,33660,26660,15330,11950,8580,5200,1830,0,0,0,0,2450],
+  [2450,33980,26980,15530,12150,8780,5400,2030,0,0,0,0,2460],
+  [2460,34300,27300,15730,12350,8980,5600,2230,0,0,0,0,2470],
+  [2470,34630,27630,15920,12550,9170,5800,2420,0,0,0,0,2480],
+  [2480,34950,27950,16120,12750,9370,6000,2620,0,0,0,0,2490],
+  [2490,35270,28270,16320,12950,9570,6200,2820,0,0,0,0,2500],
+  [2500,35600,28600,16530,13150,9780,6400,3030,0,0,0,0,2510],
+  [2510,35940,28940,16740,13360,9990,6610,3240,0,0,0,0,2520],
+  [2520,36280,29280,16950,13580,10200,6830,3450,0,0,0,0,2530],
+  [2530,36630,29630,17160,13790,10410,7040,3660,0,0,0,0,2540],
+  [2540,36970,29970,17370,14000,10620,7250,3870,0,0,0,0,2550],
+  [2550,37310,30310,17590,14210,10840,7460,4090,0,0,0,0,2560],
+  [2560,37650,30650,17800,14420,11050,7670,4300,0,0,0,0,2570],
+  [2570,38000,31000,18010,14630,11260,7880,4510,1130,0,0,0,2580],
+  [2580,38340,31340,18220,14850,11470,8100,4720,1350,0,0,0,2590],
+  [2590,38830,31680,18430,15060,11680,8310,4930,1560,0,0,0,2600],
+  [2600,39690,32020,18650,15270,11900,8520,5150,1770,0,0,0,2610],
+  [2610,40540,32360,18920,15480,12110,8730,5360,1980,0,0,0,2620],
+  [2620,41400,32710,19250,15690,12320,8940,5570,2190,0,0,0,2630],
+  [2630,42260,33050,19580,15910,12530,9160,5780,2410,0,0,0,2640],
+  [2640,43110,33390,19910,16120,12740,9370,5990,2620,0,0,0,2650],
+  [2650,43970,33730,20240,16330,12960,9580,6210,2830,0,0,0,2660],
+  [2660,44820,34080,20570,16540,13170,9790,6420,3040,0,0,0,2670],
+  [2670,45680,34420,20900,16750,13380,10000,6630,3250,0,0,0,2680],
+  [2680,46540,34760,21230,16970,13590,10220,6840,3470,0,0,0,2690],
+  [2690,47390,35100,21560,17180,13800,10430,7050,3680,0,0,0,2700],
+  [2700,48250,35450,21890,17390,14020,10640,7270,3890,0,0,0,2710],
+  [2710,49100,35790,22220,17600,14230,10850,7480,4100,0,0,0,2720],
+  [2720,49960,36130,22550,17810,14440,11060,7690,4310,0,0,0,2730],
+  [2730,50810,36470,22880,18030,14650,11280,7900,4530,1150,0,0,2740],
+  [2740,51670,36810,23210,18240,14860,11490,8110,4740,1360,0,0,2750],
+  [2750,52530,37160,23540,18450,15070,11700,8320,4950,1570,0,0,2760],
+  [2760,53380,37500,23870,18660,15290,11910,8540,5160,1790,0,0,2770],
+  [2770,54240,37840,24200,18950,15500,12120,8750,5370,2000,0,0,2780],
+  [2780,55090,38180,24520,19270,15710,12340,8960,5590,2210,0,0,2790],
+  [2790,55950,38530,24850,19600,15920,12550,9170,5800,2420,0,0,2800],
+  [2800,56800,39300,25180,19930,16130,12760,9380,6010,2630,0,0,2810],
+  [2810,57660,40160,25510,20260,16350,12970,9600,6220,2850,0,0,2820],
+  [2820,58520,41020,25840,20590,16560,13180,9810,6430,3060,0,0,2830],
+  [2830,59370,41870,26170,20920,16770,13400,10020,6650,3270,0,0,2840],
+  [2840,60230,42730,26500,21250,16980,13610,10230,6860,3480,0,0,2850],
+  [2850,61080,43580,26830,21580,17190,13820,10440,7070,3690,0,0,2860],
+  [2860,61940,44440,27160,21910,17410,14030,10660,7280,3910,0,0,2870],
+  [2870,62790,45290,27490,22240,17620,14240,10870,7490,4120,0,0,2880],
+  [2880,63650,46150,27820,22570,17830,14460,11080,7710,4330,0,0,2890],
+  [2890,64510,47010,28150,22900,18040,14670,11290,7920,4540,1170,0,2900],
+  [2900,65360,47860,28480,23230,18250,14880,11500,8130,4750,1380,0,2910],
+  [2910,66220,48720,28810,23560,18470,15090,11720,8340,4970,1590,0,2920],
+  [2920,67070,49570,29140,23890,18680,15300,11930,8550,5180,1800,0,2930],
+  [2930,67930,50430,29470,24220,18970,15510,12140,8760,5390,2010,0,2940],
+  [2940,68780,51280,29800,24550,19300,15730,12350,8980,5600,2230,0,2950],
+  [2950,69640,52140,30130,24880,19630,15940,12560,9190,5810,2440,0,2960],
+  [2960,70500,53000,30460,25210,19960,16150,12780,9400,6030,2650,0,2970],
+  [2970,71350,53850,30790,25540,20290,16360,12990,9610,6240,2860,0,2980],
+  [2980,72210,54710,31120,25870,20620,16570,13200,9820,6450,3070,0,2990],
+  [2990,73060,55560,31450,26200,20950,16790,13410,10040,6660,3290,0,3000],
+  [3000,74350,56850,31940,26690,21440,17100,13730,10350,6980,3600,0,3020],
+  [3020,76060,58560,32600,27350,22100,17530,14150,10780,7400,4030,0,3040],
+  [3040,77770,60270,33260,28010,22760,17950,14580,11200,7830,4450,1080,3060],
+  [3060,79480,61980,33920,28670,23420,18380,15000,11630,8250,4880,1500,3080],
+  [3080,81190,63690,34580,29330,24080,18830,15430,12050,8680,5300,1930,3100],
+  [3100,82900,65400,35240,29990,24740,19490,15850,12470,9100,5720,2350,3120],
+  [3120,84620,67120,35900,30650,25400,20150,16270,12900,9520,6150,2770,3140],
+  [3140,86330,68830,36560,31310,26060,20810,16700,13320,9950,6570,3200,3160],
+  [3160,88040,70540,37220,31970,26720,21470,17120,13750,10370,7000,3620,3180],
+  [3180,89750,72250,37880,32630,27380,22130,17540,14170,10790,7420,4040,3200],
+  [3200,91460,73960,38540,33290,28040,22790,17970,14590,11220,7840,4470,3220],
+  [3220,93170,75670,40120,33950,28700,23450,18390,15020,11640,8270,4890,3240],
+  [3240,95430,77380,41770,34610,29360,24110,18860,15440,12070,8690,5320,3260],
+  [3260,97880,79100,43420,35270,30020,24770,19520,15870,12490,9120,5740,3280],
+  [3280,100320,80810,45070,35920,30670,25420,20170,16290,12910,9540,6160,3300],
+  [3300,102770,82520,46720,36580,31330,26080,20830,16710,13340,9960,6590,3320],
+  [3320,105210,84230,48370,37240,31990,26740,21490,17140,13760,10390,7010,3340],
+  [3340,107660,85940,49940,37870,32620,27370,22120,17540,14170,10790,7420,3360],
+  [3360,110100,87650,51510,38500,33250,28000,22750,17950,14570,11200,7820,3380],
+  [3380,112550,89370,53070,39950,33880,28630,23380,18350,14970,11600,8220,3400],
+  [3400,114990,91080,54640,41510,34500,29250,24000,18750,15370,12000,8620,3420],
+  [3420,117440,92790,56200,43080,35130,29880,24630,19380,15780,12400,9030,3440],
+  [3440,119880,94880,57770,44640,35750,30500,25250,20000,16180,12800,9430,3460],
+  [3460,122330,97330,59330,46210,36380,31130,25880,20630,16580,13210,9830,3480],
+  [3480,124770,99770,60900,47770,37010,31760,26510,21260,16980,13610,10230,3500],
+  [3500,127220,102220,62460,49340,37630,32380,27130,21880,17390,14010,10640,3520],
+  [3520,129660,104660,64030,50900,38260,33010,27760,22510,17790,14410,11040,3540],
+  [3540,132110,107110,65590,52460,39340,33630,28380,23130,18190,14820,11440,3560],
+  [3560,134550,109550,67150,54030,40900,34260,29010,23760,18590,15220,11840,3580],
+  [3580,137000,112000,68720,55590,42470,34880,29630,24380,19130,15620,12250,3600],
+  [3600,139440,114440,70280,57160,44030,35510,30260,25010,19760,16020,12650,3620],
+  [3620,141890,116890,71850,58720,45600,36140,30890,25640,20390,16420,13050,3640],
+  [3640,144330,119330,73410,60290,47160,36760,31510,26260,21010,16830,13450,3660],
+  [3660,146780,121780,74980,61850,48730,37390,32140,26890,21640,17230,13850,3680],
+  [3680,149220,124220,76540,63420,50290,38010,32760,27510,22260,17630,14260,3700],
+  [3700,151670,126670,78110,64980,51860,38730,33390,28140,22890,18030,14660,3720],
+  [3720,154110,129110,79670,66550,53420,40300,34020,28770,23520,18440,15060,3740],
+  [3740,156560,131560,81230,68110,54980,41860,34640,29390,24140,18890,15460,3760],
+  [3760,163920,136090,84260,71130,58010,44880,35850,30600,25350,20100,16240,3780],
+  [3780,166590,138740,85970,72850,59720,46600,36540,31290,26040,20790,16680,3800],
+  [3800,169260,141400,87680,74560,61430,48310,37220,31970,26720,21470,17120,3820],
+  [3820,171930,144050,89390,76270,63140,50020,37900,32650,27400,22150,17560,3840],
+  [3840,174600,146710,91100,77980,64850,51730,38600,33340,28090,22840,18000,3860],
+  [3860,177270,149360,92820,79690,66570,53440,40320,34020,28770,23520,18440,3880],
+  [3880,179940,152020,94920,81400,68280,55150,42030,34710,29460,24210,18960,3900],
+  [3900,182610,154670,97370,83110,69990,56860,43740,35390,30140,24890,19640,3920],
+  [3920,185280,157330,99810,84830,71700,58580,45450,36080,30830,25580,20330,3940],
+  [3940,187950,159980,102260,86540,73410,60290,47160,36760,31510,26260,21010,3960],
+  [3960,190620,162640,104700,88250,75120,62000,48870,37450,32200,26950,21700,3980],
+  [3980,193290,165290,107150,89960,76840,63710,50590,38130,32880,27630,22380,4000],
+  [4000,195960,167950,109590,91670,78550,65420,52300,39170,33570,28320,23070,4020],
+  [4020,198630,170600,112040,93380,80260,67130,54010,40880,34250,29000,23750,4040],
+  [4040,201300,173260,114480,95730,81970,68840,55720,42590,34930,29680,24430,4060],
+  [4060,203970,175910,116930,98180,83680,70560,57430,44310,35620,30370,25120,4080],
+  [4080,206640,178570,119370,100620,85390,72270,59140,46020,36300,31050,25800,4100],
+  [4100,209310,181220,121820,103070,87100,73980,60850,47730,36990,31740,26490,4120],
+  [4120,211980,183880,124260,105510,88820,75690,62570,49440,37670,32420,27170,4140],
+  [4140,214650,186530,126710,107960,90530,77400,64280,51150,38360,33110,27860,4160],
+  [4160,217320,189190,129150,110400,92240,79110,65990,52860,39740,33790,28540,4180],
+  [4180,219990,191840,131600,112850,94100,80830,67700,54580,41450,34480,29230,4200],
+  [4200,222660,194500,134040,115290,96540,82540,69410,56290,43160,35160,29910,4220],
+  [4220,225330,197150,136490,117740,98990,84250,71120,58000,44870,35850,30600,4240],
+  [4240,228000,199810,138930,120180,101430,85960,72830,59710,46580,36530,31280,4260],
+  [4260,230670,202460,141380,122630,103880,87670,74550,61420,48300,37220,31970,4280],
+  [4280,233340,205120,143820,125070,106320,89380,76260,63130,50010,37900,32650,4300],
+  [4300,236010,207770,146270,127520,108770,91090,77970,64840,51720,38590,33330,4320],
+  [4320,238680,210430,148710,129960,111210,92810,79680,66560,53430,40310,34020,4340],
+  [4340,241350,213080,151160,132410,113660,94910,81390,68270,55140,42020,34700,4360],
+  [4360,244020,215740,153600,134850,116100,97350,83100,69980,56850,43730,35390,4380],
+  [4380,246690,218390,156050,137300,118550,99800,84820,71690,58570,45440,36070,4400],
+  [4400,249360,221050,158490,139740,120990,102240,86530,73400,60280,47150,36760,4420],
+  [4420,252030,223700,160940,142190,123440,104690,88240,75110,61990,48860,37440,4440],
+  [4440,254700,226360,163380,144630,125880,107130,89950,76820,63700,50570,38130,4460],
+  [4460,257370,229010,165830,147080,128330,109580,91660,78540,65410,52290,39160,4480],
+  [4480,260040,231670,168270,149520,130770,112020,93370,80250,67120,54000,40870,4500],
+  [4500,262840,234460,170850,152100,133350,114600,95850,82050,68930,55800,42680,4520],
+  [4520,265650,237250,173430,154680,135930,117180,98430,83860,70730,57610,44480,4540],
+  [4540,268450,240040,176010,157260,138510,119760,101010,85670,72540,59420,46290,4560],
+  [4560,271260,242830,178590,159840,141090,122340,103590,87470,74350,61220,48100,4580],
+  [4580,276560,248120,183670,164920,146170,127420,108670,89920,76150,63030,49900,4600],
+  [4600,279370,250910,186250,167500,148750,130000,111250,92500,77960,64830,51710,4620],
+  [4620,282170,253700,188830,170080,151330,132580,113830,95080,79760,66640,53510,4640],
+  [4640,284980,256490,191410,172660,153910,135160,116410,97660,81570,68450,55320,4660],
+  [4660,287780,259280,193990,175240,156490,137740,118990,100240,83380,70250,57130,4680],
+  [4680,290590,262070,196570,177820,159070,140320,121570,102820,85180,72060,58930,4700],
+  [4700,293390,264860,199150,180400,161650,142900,124150,105400,86990,73860,60740,4720],
+  [4720,296200,267650,201730,182980,164230,145480,126730,107980,89230,75670,62540,4740],
+  [4740,299000,270440,204310,185560,166810,148060,129310,110560,91810,77480,64350,4760],
+  [4760,301810,273230,206890,188140,169390,150640,131890,113140,94390,79280,66160,4780],
+  [4780,304610,276020,209470,190720,171970,153220,134470,115720,96970,81090,67960,4800],
+  [4800,307420,278810,212050,193300,174550,155800,137050,118300,99550,82890,69770,4820],
+  [4820,310220,281600,214630,195880,177130,158380,139630,120880,102130,84700,71570,4840],
+  [4840,313030,284390,217210,198460,179710,160960,142210,123460,104710,86510,73380,4860],
+  [4860,315830,287180,219790,201040,182290,163540,144790,126040,107290,88540,75190,4880],
+  [4880,318640,289970,222370,203620,184870,166120,147370,128620,109870,91120,76990,4900],
+  [4900,321440,292760,224950,206200,187450,168700,149950,131200,112450,93700,78800,4920],
+  [4920,324250,295550,227530,208780,190030,171280,152530,133780,115030,96280,80600,4940],
+  [4940,327050,298340,230110,211360,192610,173860,155110,136360,117610,98860,82410,4960],
+  [4960,329860,301130,232690,213940,195190,176440,157690,138940,120190,101440,84220,4980],
+  [4980,332660,303920,235270,216520,197770,179020,160270,141520,122770,104020,86020,5000],
+  [5000,335470,306710,237850,219100,200350,181600,162850,144100,125350,106600,87850,5020],
+  [5020,338270,309500,240430,221680,202930,184180,165430,146680,127930,109180,90430,5040],
+  [5040,341080,312290,243010,224260,205510,186760,168010,149260,130510,111760,93010,5060],
+  [5060,343880,315080,245590,226840,208090,189340,170590,151840,133090,114340,95590,5080],
+  [5080,346690,317870,248170,229420,210670,191920,173170,154420,135670,116920,98170,5100],
+  [5100,349490,320660,250750,232000,213250,194500,175750,157000,138250,119500,100750,5120],
+  [5120,352300,323450,253330,234580,215830,197080,178330,159580,140830,122080,103330,5140],
+  [5140,355100,326240,255910,237160,218410,199660,180910,162160,143410,124660,105910,5160],
+  [5160,357910,329030,258490,239740,220990,202240,183490,164740,145990,127240,108490,5180],
+  [5180,360710,331820,261070,242320,223570,204820,186070,167320,148570,129820,111070,5200],
+  [5200,363520,334610,263650,244900,226150,207400,188650,169900,151150,132400,113650,5220],
+  [5220,366320,337400,266230,247480,228730,209980,191230,172480,153730,134980,116230,5240],
+  [5240,369130,340190,268810,250060,231310,212560,193810,175060,156310,137560,118810,5260],
+  [5260,371930,342980,271390,252640,233890,215140,196390,177640,158890,140140,121390,5280],
+  [5280,374740,345770,273970,255220,236470,217720,198970,180220,161470,142720,123970,5300],
+  [5300,377540,348560,276550,257800,239050,220300,201550,182800,164050,145300,126550,5320],
+  [5320,380350,351350,279130,260380,241630,222880,204130,185380,166630,147880,129130,5340],
+  [5340,383150,354140,281710,262960,244210,225460,206710,187960,169210,150460,131710,5360],
+  [5360,385960,356930,284290,265540,246790,228040,209290,190540,171790,153040,134290,5380],
+  [5380,388760,359720,286870,268120,249370,230620,211870,193120,174370,155620,136870,5400],
+  [5400,391570,362510,289450,270700,251950,233200,214450,195700,176950,158200,139450,5420],
+  [5420,394370,365300,292030,273280,254530,235780,217030,198280,179530,160780,142030,5440],
+  [5440,397180,368090,294610,275860,257110,238360,219610,200860,182110,163360,144610,5460],
+  [5460,399980,370880,297190,278440,259690,240940,222190,203440,184690,165940,147190,5480],
+  [5480,402790,373670,299770,281020,262270,243520,224770,206020,187270,168520,149770,5500],
+  [5500,405590,376460,302350,283600,264850,246100,227350,208600,189850,171100,152350,5520],
+  [5520,408400,379250,304930,286180,267430,248680,229930,211180,192430,173680,154930,5540],
+  [5540,411200,382040,307510,288760,270010,251260,232510,213760,195010,176260,157510,5560],
+  [5560,414010,384830,310090,291340,272590,253840,235090,216340,197590,178840,160090,5580],
+  [5580,416810,387620,312670,293920,275170,256420,237670,218920,200170,181420,162670,5600],
+  [5600,419620,390410,315250,296500,277750,259000,240250,221500,202750,184000,165250,5620],
+  [5620,422420,393200,317830,299080,280330,261580,242830,224080,205330,186580,167830,5640],
+  [5640,425230,395990,320410,301660,282910,264160,245410,226660,207910,189160,170410,5660],
+  [5660,428030,398780,322990,304240,285490,266740,247990,229240,210490,191740,172990,5680],
+  [5680,430840,401570,325570,306820,288070,269320,250570,231820,213070,194320,175570,5700],
+  [5700,433640,404360,328150,309400,290650,271900,253150,234400,215650,196900,178150,5720],
+  [5720,436450,407150,330730,311980,293230,274480,255730,236980,218230,199480,180730,5740],
+  [5740,439250,409940,333310,314560,295810,277060,258310,239560,220810,202060,183310,5760],
+  [5760,442060,412730,335890,317140,298390,279640,260890,242140,223390,204640,185890,5780],
+  [5780,444860,415520,338470,319720,300970,282220,263470,244720,225970,207220,188470,5800],
+  [5800,447670,418310,341050,322300,303550,284800,266050,247300,228550,209800,191050,5820],
+  [5820,450470,421100,343630,324880,306130,287380,268630,249880,231130,212380,193630,5840],
+  [5840,470380,441000,372100,353350,334600,315850,297100,278350,259600,240850,222100,5860],
+  [5860,475720,446320,377240,358490,339740,320990,302240,283490,264740,245990,227240,5880],
+  [5880,478690,449140,379880,361130,342380,323630,304880,286130,267380,248630,229880,5900],
+  [5900,483220,451960,382520,363770,345020,326270,307520,288770,270020,251270,232520,5920],
+  [5920,487760,454780,385160,366410,347660,328910,310160,291410,272660,253910,235160,5940],
+  [5940,492300,457600,387800,369050,350300,331550,312800,294050,275300,256550,237800,5960],
+  [5960,496830,460420,390440,371690,352940,334190,315440,296690,277940,259190,240440,5980],
+  [5980,501370,463240,393080,374330,355580,336830,318080,299330,280580,261830,243080,6000],
+  [6000,505900,466060,395720,376970,358220,339470,320720,301970,283220,264470,245720,6020],
+  [6020,510440,468880,398360,379610,360860,342110,323360,304610,285860,267110,248360,6040],
+  [6040,514980,471700,401000,382250,363500,344750,326000,307250,288500,269750,251000,6060],
+  [6060,519510,474520,403640,384890,366140,347390,328640,309890,291140,272390,253640,6080],
+  [6080,524050,477340,406280,387530,368780,350030,331280,312530,293780,275030,256280,6100],
+  [6100,528580,481250,408920,390170,371420,352670,333920,315170,296420,277670,258920,6120],
+  [6120,533120,485760,411560,392810,374060,355310,336560,317810,299060,280310,261560,6140],
+  [6140,537660,490280,414200,395450,376700,357950,339200,320450,301700,282950,264200,6160],
+  [6160,542190,494790,416840,398090,379340,360590,341840,323090,304340,285590,266840,6180],
+  [6180,546730,499300,419480,400730,381980,363230,344480,325730,306980,288230,269480,6200],
+  [6200,551260,503810,422120,403370,384620,365870,347120,328370,309620,290870,272120,6220],
+  [6220,555800,508320,424760,406010,387260,368510,349760,331010,312260,293510,274760,6240],
+  [6240,560340,512840,427400,408650,389900,371150,352400,333650,314900,296150,277400,6260],
+  [6260,564870,517350,430040,411290,392540,373790,355040,336290,317540,298790,280040,6280],
+  [6280,569410,521860,432680,413930,395180,376430,357680,338930,320180,301430,282680,6300],
+  [6300,573940,526370,435320,416570,397820,379070,360320,341570,322820,304070,285320,6320],
+  [6320,578480,530880,437960,419210,400460,381710,362960,344210,325460,306710,287960,6340],
+  [6340,583020,535400,440600,421850,403100,384350,365600,346850,328100,309350,290600,6360],
+  [6360,587550,539910,443240,424490,405740,386990,368240,349490,330740,311990,293240,6380],
+  [6380,592090,544420,445880,427130,408380,389630,370880,352130,333380,314630,295880,6400],
+  [6400,596620,548930,448520,429770,411020,392270,373520,354770,336020,317270,298520,6420],
+  [6420,601160,553440,451160,432410,413660,394910,376160,357410,338660,319910,301160,6440],
+  [6440,605700,557960,453800,435050,416300,397550,378800,360050,341300,322550,303800,6460],
+  [6460,610230,562470,456440,437690,418940,400190,381440,362690,343940,325190,306440,6480],
+  [6480,614770,566980,459080,440330,421580,402830,384080,365330,346580,327830,309080,6500],
+  [6500,619300,571490,461720,442970,424220,405470,386720,367970,349220,330470,311720,6520],
+  [6520,623840,576000,464360,445610,426860,408110,389360,370610,351860,333110,314360,6540],
+  [6540,628380,580520,467000,448250,429500,410750,392000,373250,354500,335750,317000,6560],
+  [6560,632910,585030,469640,450890,432140,413390,394640,375890,357140,338390,319640,6580],
+  [6580,637450,589540,472280,453530,434780,416030,397280,378530,359780,341030,322280,6600],
+  [6600,641980,594050,474920,456170,437420,418670,399920,381170,362420,343670,324920,6620],
+  [6620,646520,598560,477560,458810,440060,421310,402560,383810,365060,346310,327560,6640],
+  [6640,651060,603080,481320,461450,442700,423950,405200,386450,367700,348950,330200,6660],
+  [6660,655590,607590,485540,464090,445340,426590,407840,389090,370340,351590,332840,6680],
+  [6680,660130,612100,489760,466730,447980,429230,410480,391730,372980,354230,335480,6700],
+  [6700,664660,616610,493990,469370,450620,431870,413120,394370,375620,356870,338120,6720],
+  [6720,669200,621120,498210,472010,453260,434510,415760,397010,378260,359510,340760,6740],
+  [6740,673740,625640,502440,474650,455900,437150,418400,399650,380900,362150,343400,6760],
+  [6760,678270,630150,506660,477290,458540,439790,421040,402290,383540,364790,346040,6780],
+  [6780,682810,634660,510880,480880,461180,442430,423680,404930,386180,367430,348680,6800],
+  [6800,687340,639170,515110,485110,463820,445070,426320,407570,388820,370070,351320,6820],
+  [6820,691880,643680,519330,489330,466460,447710,428960,410210,391460,372710,353960,6840],
+  [6840,696420,648200,523560,493560,469100,450350,431600,412850,394100,375350,356600,6860],
+  [6860,700950,652710,527780,497780,471740,452990,434240,415490,396740,377990,359240,6880],
+  [6880,705490,657220,532000,502000,474380,455630,436880,418130,399380,380630,361880,6900],
+  [6900,710020,661730,536230,506230,477020,458270,439520,420770,402020,383270,364520,6920],
+  [6920,714560,666240,540450,510450,480450,460910,442160,423410,404660,385910,367160,6940],
+  [6940,719100,670760,544680,514680,484680,463550,444800,426050,407300,388550,369800,6960],
+  [6960,723630,675270,548900,518900,488900,466190,447440,428690,409940,391190,372440,6980],
+  [6980,728170,679780,553120,523120,493120,468830,450080,431330,412580,393830,375080,7000],
+  [7000,732700,684290,557350,527350,497350,471470,452720,433970,415220,396470,377720,7020],
+  [7020,737240,688800,561570,531570,501570,474110,455360,436610,417860,399110,380360,7040],
+  [7040,741780,693320,565800,535800,505800,476750,458000,439250,420500,401750,383000,7060],
+  [7060,746310,697830,570020,540020,510020,480020,460640,441890,423140,404390,385640,7080],
+  [7080,750850,702340,574240,544240,514240,484240,463280,444530,425780,407030,388280,7100],
+  [7100,755380,706850,578470,548470,518470,488470,465920,447170,428420,409670,390920,7120],
+  [7120,759920,711360,582690,552690,522690,492690,468560,449810,431060,412310,393560,7140],
+  [7140,764460,715880,586920,556920,526920,496920,471200,452450,433700,414950,396200,7160],
+  [7160,768990,720390,591140,561140,531140,501140,473840,455090,436340,417590,398840,7180],
+  [7180,773530,724900,595360,565360,535360,505360,476480,457730,438980,420230,401480,7200],
+  [7200,778060,729410,599590,569590,539590,509590,479590,460370,441620,422870,404120,7220],
+  [7220,782600,733920,603810,573810,543810,513810,483810,463010,444260,425510,406760,7240],
+  [7240,787140,738440,608040,578040,548040,518040,488040,465650,446900,428150,409400,7260],
+  [7260,791670,742950,612260,582260,552260,522260,492260,468290,449540,430790,412040,7280],
+  [7280,796210,747460,616480,586480,556480,526480,496480,470930,452180,433430,414680,7300],
+  [7300,800740,751970,620710,590710,560710,530710,500710,473570,454820,436070,417320,7320],
+  [7320,805280,756480,624930,594930,564930,534930,504930,476210,457460,438710,419960,7340],
+  [7340,809820,761000,629160,599160,569160,539160,509160,479160,460100,441350,422600,7360],
+  [7360,814350,765510,633380,603380,573380,543380,513380,483380,462740,443990,425240,7380],
+  [7380,818890,770020,637600,607600,577600,547600,517600,487600,465380,446630,427880,7400],
+  [7400,823420,774530,641830,611830,581830,551830,521830,491830,468020,449270,430520,7420],
+  [7420,827960,779040,646050,616050,586050,556050,526050,496050,470660,451910,433160,7440],
+  [7440,832500,783560,650280,620280,590280,560280,530280,500280,473300,454550,435800,7460],
+  [7460,837030,788070,654500,624500,594500,564500,534500,504500,475940,457190,438440,7480],
+  [7480,841570,792580,658720,628720,598720,568720,538720,508720,478720,459830,441080,7500],
+  [7500,846100,797090,662950,632950,602950,572950,542950,512950,482950,462470,443720,7520],
+  [7520,850640,801600,667170,637170,607170,577170,547170,517170,487170,465110,446360,7540],
+  [7540,855180,806120,671400,641400,611400,581400,551400,521400,491400,467750,449000,7560],
+  [7560,859710,810630,675620,645620,615620,585620,555620,525620,495620,470390,451640,7580],
+  [7580,864250,815140,679840,649840,619840,589840,559840,529840,499840,473030,454280,7600],
+  [7600,868780,819650,684070,654070,624070,594070,564070,534070,504070,475670,456920,7620],
+  [7620,873320,824160,688290,658290,628290,598290,568290,538290,508290,478310,459560,7640],
+  [7640,877860,828680,692520,662520,632520,602520,572520,542520,512520,482520,462200,7660],
+  [7660,882390,833190,696740,666740,636740,606740,576740,546740,516740,486740,464840,7680],
+  [7680,886930,837700,700960,670960,640960,610960,580960,550960,520960,490960,467480,7700],
+  [7700,891460,842210,705190,675190,645190,615190,585190,555190,525190,495190,470120,7720],
+  [7720,896000,846720,709410,679410,649410,619410,589410,559410,529410,499410,472760,7740],
+  [7740,900540,851240,713640,683640,653640,623640,593640,563640,533640,503640,475400,7760],
+  [7760,905070,855750,717860,687860,657860,627860,597860,567860,537860,507860,478040,7780],
+  [7780,909610,860260,722080,692080,662080,632080,602080,572080,542080,512080,482080,7800],
+  [7800,914140,864770,726310,696310,666310,636310,606310,576310,546310,516310,486310,7820],
+  [7820,918680,869280,730530,700530,670530,640530,610530,580530,550530,520530,490530,7840],
+  [7840,923220,873800,734760,704760,674760,644760,614760,584760,554760,524760,494760,7860],
+  [7860,927750,878310,738980,708980,678980,648980,618980,588980,558980,528980,498980,7880],
+  [7880,932290,882820,743200,713200,683200,653200,623200,593200,563200,533200,503200,7900],
+  [7900,936820,887330,747430,717430,687430,657430,627430,597430,567430,537430,507430,7920],
+  [7920,941360,891840,751650,721650,691650,661650,631650,601650,571650,541650,511650,7940],
+  [7940,945900,896360,755880,725880,695880,665880,635880,605880,575880,545880,515880,7960],
+  [7960,950430,900870,760100,730100,700100,670100,640100,610100,580100,550100,520100,7980],
+  [7980,954970,905380,764320,734320,704320,674320,644320,614320,584320,554320,524320,8000],
+  [8000,959500,909890,768550,738550,708550,678550,648550,618550,588550,558550,528550,8020],
+  [8020,964040,914400,772770,742770,712770,682770,652770,622770,592770,562770,532770,8040],
+  [8040,968580,918920,777000,747000,717000,687000,657000,627000,597000,567000,537000,8060],
+  [8060,973110,923430,781220,751220,721220,691220,661220,631220,601220,571220,541220,8080],
+  [8080,977650,927940,785440,755440,725440,695440,665440,635440,605440,575440,545440,8100],
+  [8100,982180,932450,789670,759670,729670,699670,669670,639670,609670,579670,549670,8120],
+  [8120,986720,936960,793890,763890,733890,703890,673890,643890,613890,583890,553890,8140],
+  [8140,991260,941480,798120,768120,738120,708120,678120,648120,618120,588120,558120,8160],
+  [8160,995790,945990,802340,772340,742340,712340,682340,652340,622340,592340,562340,8180],
+  [8180,1000330,950500,806560,776560,746560,716560,686560,656560,626560,596560,566560,8200],
+  [8200,1004860,955010,810790,780790,750790,720790,690790,660790,630790,600790,570790,8220],
+  [8220,1009400,959520,815010,785010,755010,725010,695010,665010,635010,605010,575010,8240],
+  [8240,1013940,964040,819240,789240,759240,729240,699240,669240,639240,609240,579240,8260],
+  [8260,1018470,968550,823460,793460,763460,733460,703460,673460,643460,613460,583460,8280],
+  [8280,1023010,973060,827680,797680,767680,737680,707680,677680,647680,617680,587680,8300],
+  [8300,1027540,977570,831910,801910,771910,741910,711910,681910,651910,621910,591910,8320],
+  [8320,1032080,982080,836130,806130,776130,746130,716130,686130,656130,626130,596130,8340],
+  [8340,1036740,986720,840480,810480,780480,750480,720480,690480,660480,630480,600480,8360],
+  [8360,1041420,991370,844840,814840,784840,754840,724840,694840,664840,634840,604840,8380],
+  [8380,1046100,996030,849210,819210,789210,759210,729210,699210,669210,639210,609210,8400],
+  [8400,1050780,1000680,853580,823580,793580,763580,733580,703580,673580,643580,613580,8420],
+  [8420,1055460,1005340,857950,827950,797950,767950,737950,707950,677950,647950,617950,8440],
+  [8440,1060140,1010000,862320,832320,802320,772320,742320,712320,682320,652320,622320,8460],
+  [8460,1064820,1014650,866680,836680,806680,776680,746680,716680,686680,656680,626680,8480],
+  [8480,1069500,1019310,871050,841050,811050,781050,751050,721050,691050,661050,631050,8500],
+  [8500,1074180,1023960,875420,845420,815420,785420,755420,725420,695420,665420,635420,8520],
+  [8520,1078860,1028620,879790,849790,819790,789790,759790,729790,699790,669790,639790,8540],
+  [8540,1083540,1033280,884160,854160,824160,794160,764160,734160,704160,674160,644160,8560],
+  [8560,1088220,1037930,888520,858520,828520,798520,768520,738520,708520,678520,648520,8580],
+  [8580,1092900,1042590,892890,862890,832890,802890,772890,742890,712890,682890,652890,8600],
+  [8600,1097580,1047240,897260,867260,837260,807260,777260,747260,717260,687260,657260,8620],
+  [8620,1102260,1051900,901630,871630,841630,811630,781630,751630,721630,691630,661630,8640],
+  [8640,1106940,1056560,906000,876000,846000,816000,786000,756000,726000,696000,666000,8660],
+  [8660,1111620,1061210,910360,880360,850360,820360,790360,760360,730360,700360,670360,8680],
+  [8680,1116300,1065870,914730,884730,854730,824730,794730,764730,734730,704730,674730,8700],
+  [8700,1120980,1070520,919100,889100,859100,829100,799100,769100,739100,709100,679100,8720],
+  [8720,1125660,1075180,923470,893470,863470,833470,803470,773470,743470,713470,683470,8740],
+  [8740,1130340,1079840,927840,897840,867840,837840,807840,777840,747840,717840,687840,8760],
+  [8760,1135020,1084490,932200,902200,872200,842200,812200,782200,752200,722200,692200,8780],
+  [8780,1139700,1089150,936570,906570,876570,846570,816570,786570,756570,726570,696570,8800],
+  [8800,1144380,1093800,940940,910940,880940,850940,820940,790940,760940,730940,700940,8820],
+  [8820,1149060,1098460,945310,915310,885310,855310,825310,795310,765310,735310,705310,8840],
+  [8840,1153740,1103120,949680,919680,889680,859680,829680,799680,769680,739680,709680,8860],
+  [8860,1158420,1107770,954040,924040,894040,864040,834040,804040,774040,744040,714040,8880],
+  [8880,1163100,1112430,958410,928410,898410,868410,838410,808410,778410,748410,718410,8900],
+  [8900,1167780,1117080,962780,932780,902780,872780,842780,812780,782780,752780,722780,8920],
+  [8920,1172460,1121740,967150,937150,907150,877150,847150,817150,787150,757150,727150,8940],
+  [8940,1177140,1126400,971520,941520,911520,881520,851520,821520,791520,761520,731520,8960],
+  [8960,1181820,1131050,975880,945880,915880,885880,855880,825880,795880,765880,735880,8980],
+  [8980,1186500,1135710,980250,950250,920250,890250,860250,830250,800250,770250,740250,9000],
+  [9000,1191180,1140360,984620,954620,924620,894620,864620,834620,804620,774620,744620,9020],
+  [9020,1195860,1145020,988990,958990,928990,898990,868990,838990,808990,778990,748990,9040],
+  [9040,1200540,1149680,993360,963360,933360,903360,873360,843360,813360,783360,753360,9060],
+  [9060,1205220,1154330,997720,967720,937720,907720,877720,847720,817720,787720,757720,9080],
+  [9080,1209900,1158990,1002090,972090,942090,912090,882090,852090,822090,792090,762090,9100],
+  [9100,1214580,1163640,1006460,976460,946460,916460,886460,856460,826460,796460,766460,9120],
+  [9120,1219260,1168300,1010830,980830,950830,920830,890830,860830,830830,800830,770830,9140],
+  [9140,1223940,1172960,1015200,985200,955200,925200,895200,865200,835200,805200,775200,9160],
+  [9160,1228620,1177610,1019560,989560,959560,929560,899560,869560,839560,809560,779560,9180],
+  [9180,1233300,1182270,1023930,993930,963930,933930,903930,873930,843930,813930,783930,9200],
+  [9200,1237980,1186920,1028300,998300,968300,938300,908300,878300,848300,818300,788300,9220],
+  [9220,1244640,1191580,1032670,1002670,972670,942670,912670,882670,852670,822670,792670,9240],
+  [9240,1251470,1196240,1037040,1007040,977040,947040,917040,887040,857040,827040,797040,9260],
+  [9260,1258290,1200890,1041400,1011400,981400,951400,921400,891400,861400,831400,801400,9280],
+  [9280,1265120,1205550,1045770,1015770,985770,955770,925770,895770,865770,835770,805770,9300],
+  [9300,1271940,1210200,1050140,1020140,990140,960140,930140,900140,870140,840140,810140,9320],
+  [9320,1278770,1214860,1054510,1024510,994510,964510,934510,904510,874510,844510,814510,9340],
+  [9340,1285590,1219520,1058880,1028880,998880,968880,938880,908880,878880,848880,818880,9360],
+  [9360,1292420,1224170,1063240,1033240,1003240,973240,943240,913240,883240,853240,823240,9380],
+  [9380,1299240,1228830,1067610,1037610,1007610,977610,947610,917610,887610,857610,827610,9400],
+  [9400,1306070,1233480,1071980,1041980,1011980,981980,951980,921980,891980,861980,831980,9420],
+  [9420,1312890,1238140,1076350,1046350,1016350,986350,956350,926350,896350,866350,836350,9440],
+  [9440,1319720,1244840,1080720,1050720,1020720,990720,960720,930720,900720,870720,840720,9460],
+  [9460,1326540,1251630,1085080,1055080,1025080,995080,965080,935080,905080,875080,845080,9480],
+  [9480,1333370,1258420,1089450,1059450,1029450,999450,969450,939450,909450,879450,849450,9500],
+  [9500,1340190,1265210,1093820,1063820,1033820,1003820,973820,943820,913820,883820,853820,9520],
+  [9520,1347020,1272000,1098190,1068190,1038190,1008190,978190,948190,918190,888190,858190,9540],
+  [9540,1353840,1278790,1102560,1072560,1042560,1012560,982560,952560,922560,892560,862560,9560],
+  [9560,1360670,1285580,1106920,1076920,1046920,1016920,986920,956920,926920,896920,866920,9580],
+  [9580,1367490,1292370,1111290,1081290,1051290,1021290,991290,961290,931290,901290,871290,9600],
+  [9600,1374320,1299160,1115660,1085660,1055660,1025660,995660,965660,935660,905660,875660,9620],
+  [9620,1381140,1305950,1120030,1090030,1060030,1030030,1000030,970030,940030,910030,880030,9640],
+  [9640,1387970,1312740,1124400,1094400,1064400,1034400,1004400,974400,944400,914400,884400,9660],
+  [9660,1394790,1319530,1128760,1098760,1068760,1038760,1008760,978760,948760,918760,888760,9680],
+  [9680,1401620,1326320,1133130,1103130,1073130,1043130,1013130,983130,953130,923130,893130,9700],
+  [9700,1408440,1333110,1137500,1107500,1077500,1047500,1017500,987500,957500,927500,897500,9720],
+  [9720,1415270,1339900,1141870,1111870,1081870,1051870,1021870,991870,961870,931870,901870,9740],
+  [9740,1422090,1346690,1146240,1116240,1086240,1056240,1026240,996240,966240,936240,906240,9760],
+  [9760,1428920,1353480,1150600,1120600,1090600,1060600,1030600,1000600,970600,940600,910600,9780],
+  [9780,1435740,1360270,1154970,1124970,1094970,1064970,1034970,1004970,974970,944970,914970,9800],
+  [9800,1442570,1367060,1159340,1129340,1099340,1069340,1039340,1009340,979340,949340,919340,9820],
+  [9820,1449390,1373850,1163710,1133710,1103710,1073710,1043710,1013710,983710,953710,923710,9840],
+  [9840,1456220,1380640,1168080,1138080,1108080,1078080,1048080,1018080,988080,958080,928080,9860],
+  [9860,1463040,1387430,1172440,1142440,1112440,1082440,1052440,1022440,992440,962440,932440,9880],
+  [9880,1469870,1394220,1176810,1146810,1116810,1086810,1056810,1026810,996810,966810,936810,9900],
+  [9900,1476690,1401010,1181180,1151180,1121180,1091180,1061180,1031180,1001180,971180,941180,9920],
+  [9920,1483520,1407800,1185550,1155550,1125550,1095550,1065550,1035550,1005550,975550,945550,9940],
+  [9940,1490340,1414590,1189920,1159920,1129920,1099920,1069920,1039920,1009920,979920,949920,9960],
+  [9960,1497170,1421380,1194280,1164280,1134280,1104280,1074280,1044280,1014280,984280,954280,9980],
+  [9980,1503990,1428170,1198650,1168650,1138650,1108650,1078650,1048650,1018650,988650,958650,10000]
+];
+const PAYROLL_TAX_TEN_MILLION = [1507400,1431570,1200840,1170840,1140840,1110840,1080840,1050840,1020840,990840,960840];
+
+function payrollWithholding(taxableWon, familyCount, childCount, withholdingPercent = 100, withholdingMonth = 12) {
+  if (!Number.isSafeInteger(taxableWon) || taxableWon < 0 ||
+      !Number.isSafeInteger(familyCount) || familyCount < 1 ||
+      !Number.isSafeInteger(childCount) || childCount < 0 || childCount >= familyCount ||
+      !Number.isInteger(withholdingMonth) || withholdingMonth < 1 || withholdingMonth > 12 ||
+      ![80, 100, 120].includes(withholdingPercent)) return null;
+  if (taxableWon < 770000) return {incomeTax:0, localTax:0};
+  let taxes;
+  let extra = 0;
+  if (taxableWon >= 10000000) {
+    taxes = PAYROLL_TAX_TEN_MILLION;
+    if (taxableWon > 87000000) extra = 31034600 + (taxableWon - 87000000) * .45;
+    else if (taxableWon > 45000000) extra = 13394600 + (taxableWon - 45000000) * .42;
+    else if (taxableWon > 30000000) extra = 7394600 + (taxableWon - 30000000) * .4;
+    else if (taxableWon > 28000000) extra = 6610600 + (taxableWon - 28000000) * .98 * .4;
+    else if (taxableWon > 14000000) extra = 1397000 + (taxableWon - 14000000) * .98 * .38;
+    else if (taxableWon > 10000000) extra = 25000 + (taxableWon - 10000000) * .98 * .35;
+  } else {
+    let low = 0;
+    let high = PAYROLL_TAX_ROWS.length - 1;
+    while (low < high) {
+      const mid = Math.ceil((low + high) / 2);
+      if (PAYROLL_TAX_ROWS[mid][0] * 1000 <= taxableWon) low = mid;
+      else high = mid - 1;
+    }
+    taxes = PAYROLL_TAX_ROWS[low].slice(1, -1);
+  }
+  const standardTax = familyCount <= 11 ? taxes[familyCount - 1]
+    : taxes[10] - (taxes[9] - taxes[10]) * (familyCount - 11);
+  // 개정 간이세액표는 2026년 3월 1일 이후 원천징수하는 급여에 적용한다.
+  const [oneChild, twoChildren, additionalChild] = withholdingMonth < 3
+    ? [12500, 29160, 25000] : [20830, 45830, 33330];
+  const childDeduction = childCount === 0 ? 0 : childCount === 1 ? oneChild
+    : twoChildren + (childCount - 2) * additionalChild;
+  const rawIncomeTax = Math.max(0, standardTax + extra - childDeduction) * withholdingPercent / 100;
+  const incomeTax = rawIncomeTax < 1000 ? 0 : Math.floor((rawIncomeTax + 1e-7) / 10) * 10;
+  return {incomeTax, localTax: Math.floor(incomeTax / 100) * 10};
+}
+
+
+</script>
+<script>
+const fixedAllowances = Object.freeze({meal: 160000, transport: 50000, complaints: 50000, duty: 100000});
+function calculate(step, treatment, tenure) {
+  const stepOffset = step - 1;
+  const base = 2217000 + stepOffset * 44500;
+  const fixed = Object.values(fixedAllowances).reduce((sum, amount) => sum + amount, 0);
+  const ratePercent = tenure < 1 ? 0 : Math.min(stepOffset * 5, 50);
+  const bonus = base * 0.6 * 2 / 12;
+  const annualRegular = base * ratePercent * 2 / 100;
+  const extra = tenure >= 20 ? 100000 : tenure >= 15 ? 80000 : tenure >= 10 ? 60000 : tenure >= 5 ? 50000 : 0;
+  const regular = (annualRegular + extra * 2) / 12;
+  const total = base + fixed + treatment + bonus + regular;
+  return {base, fixed, treatment, bonus, regular, ratePercent, extra, total, hourly: Math.round(total / 209)};
+}
+
+function calculateContract(step, treatment) {
+  const stepOffset = step - 1;
+  const base = 2217000 + stepOffset * 44500;
+  const fixed = Object.values(fixedAllowances).reduce((sum, amount) => sum + amount, 0);
+  const bonus = base * 0.6 * 2 / 12;
+  const regular = 0;
+  const ratePercent = 0;
+  const extra = 0;
+  const total = base + fixed + treatment + bonus;
+  return {base, fixed, treatment, bonus, regular, ratePercent, extra, total, hourly: Math.round(total / 209), contract:true};
+}
+
+const get = id => document.getElementById(id);
+const getNumber = id => {
+  const field = get(id);
+  return field.value !== '' && field.validity.valid ? Number(field.value) : null;
+};
+const money = value => value === null ? '입력 필요' : value.toLocaleString('ko-KR', {maximumFractionDigits: 2}) + '원';
+const coreIds = ['weighted', 'leave', 'familyAllowance'];
+const deductionIds = ['pension', 'health', 'care', 'employment', 'adjustment'];
+for (let i = 1; i <= 25; i++) get('step').add(new Option(i + '호봉', i));
+get('step').value = '4';
+for (let i = 0; i <= 25; i++) get('tenure').add(new Option(i === 0 ? '1년 미만' : i === 25 ? '25년 이상' : i + '년', i));
+for (let i = 1; i <= 11; i++) get('dependents').add(new Option(i + '명', i));
+for (let i = 0; i <= 3; i++) get('children').add(new Option(i + '명', i));
+get('tenure').value = '0';
+get('dependents').value = '1';
+get('children').value = '0';
+for (let i = 1; i <= 12; i++) {
+  get('payMonth').add(new Option(i + '월', i));
+}
+get('payMonth').value = String(new Date().getMonth() + 1);
+get('bonusPaid').value = '0';
+// Multiply the typed decimal exactly, then round once to the nearest won.
+function roundedOvertime(hourly, hours) {
+  const input = String(hours);
+  if (!Number.isFinite(Number(input)) || Number(input) < 0) return null;
+  if (Number(input) === 0) return 0;
+  const match = /^\+?(\d*)(?:\.(\d*))?(?:e([+-]?\d+))?$/i.exec(input);
+  if (!match) return null;
+  const [, whole, fraction = '', exponent = '0'] = match;
+  const product = (BigInt(whole + fraction) * BigInt(hourly)).toString();
+  const places = fraction.length - Number(exponent);
+  const end = product.length - places;
+  if (end < 0) return 0;
+  if (end > 16) return null;
+  const won = places <= 0 ? Number(product + '0'.repeat(-places))
+    : Number(product.slice(0, end)) + (product[end] >= '5' ? 1 : 0);
+  return Number.isSafeInteger(won) ? won : null;
+}
+
+function computePayroll(wage, hours, leaveDays, additions, dependents, children, deductionValues, withholdingMonth = 12) {
+  const overtime = roundedOvertime(wage.hourly, hours);
+  const leave = Math.round(wage.hourly * 8 * leaveDays);
+  const monthly = wage.base + wage.fixed + wage.treatment;
+  const gross = overtime === null ? null : additions.reduce((sum, value) => sum + value, monthly + overtime + leave);
+  const nonTaxable = fixedAllowances.meal + Math.min(overtime, 200000);
+  const taxBase = Number.isSafeInteger(gross) ? Math.max(0, gross - nonTaxable) : null;
+  const tax = payrollWithholding(taxBase, dependents, children, 100, withholdingMonth);
+  const income = tax?.incomeTax ?? null;
+  const local = tax?.localTax ?? null;
+  const deductions = income === null ? null : deductionValues.reduce((sum, value) => sum + (value ?? 0), income + local);
+  return {hourly:wage.hourly, overtime, leave, monthly, gross, nonTaxable, taxBase, income, local, deductions, net: deductions === null ? null : gross - deductions};
+}
+const verificationCases = [
+  {name:'10월 사례 A · 4호봉', step:4, tenure:3, treatment:70000, hours:132.25, deductions:[196360,150710,13860,56960,30000], expected:{hourly:14710,overtime:1945398,gross:4725898,taxBase:4365898,income:244020,local:24400,deductions:716310,net:4009588}},
+  {name:'10월 사례 B · 7호봉', step:7, tenure:5, treatment:100000, hours:39.75, deductions:[175030,141300,18560,35150,30000], expected:{hourly:15909,overtime:632383,gross:3576383,taxBase:3216383,income:91460,local:9140,deductions:500640,net:3075743}}
+];
+function verifyPayroll() {
+  const labels = {hourly:'통상시급',overtime:'시간외수당',gross:'세전 총급여',taxBase:'과세 기준액',income:'소득세',local:'지방소득세',deductions:'공제 합계',net:'총 실수령액'};
+  const reports = verificationCases.map(test => {
+    const actual = computePayroll(calculate(test.step,test.treatment,test.tenure),test.hours,0,[],1,0,test.deductions);
+    const issues = Object.entries(test.expected).filter(([key,expected]) => actual[key] !== expected)
+      .map(([key,expected]) => labels[key] + ' ' + money(actual[key]) + ' / 기준 ' + money(expected));
+    return test.name + ' — ' + (issues.length ? issues.join(' · ') : '8개 항목 일치');
+  });
+  get('verifyResult').textContent = reports.join(' | ');
+  return reports;
+}
+get('verifyPayroll').addEventListener('click', verifyPayroll);
+let statementReady = false;
+function render() {
+  const step = Number(get('step').value);
+  const treatment = Number(get('treatment').value);
+  const tenure = Number(get('tenure').value);
+  const isContract = get('contractType').value === '1';
+  const wage = isContract ? calculateContract(step, treatment) : calculate(step, treatment, tenure);
+  const annualLeave = isContract ? 15 : (tenure < 1 ? 11 : Math.min(25, 15 + Math.max(0, Math.floor((tenure - 2) / 2))));
+  get('annualOut').textContent = annualLeave + '일';
+  const invalidInput = coreIds.some(id => !get(id).validity.valid);
+  const hours = get('weighted').value || '0';
+  const dependents = Number(get('dependents').value);
+  const childrenField = get('children');
+  for (const option of childrenField.options) option.disabled = Number(option.value) >= dependents;
+  if (Number(childrenField.value) >= dependents) childrenField.value = String(dependents - 1);
+  const children = Number(childrenField.value);
+  const deductionValues = [30000, ...deductionIds.map(getNumber)];
+  const invalidDeduction = deductionIds.some(id => get(id).validity.badInput || (get(id).value !== '' && getNumber(id) === null));
+  const payMonth = Number(get('payMonth').value);
+  get('taxMonthText').textContent = payMonth + '월';
+  const paidRegular = !isContract && tenure >= 1 && (payMonth === 1 || payMonth === 7)
+    ? wage.base * wage.ratePercent / 100 + wage.extra : 0;
+  const regularText = paidRegular > 0 ? money(paidRegular) : '';
+  get('regularPayment').value = regularText;
+  get('regularPaidOut').textContent = regularText;
+  const paidBonus = get('bonusPaid').value === '1' ? wage.base * 0.6 : 0;
+  const result = computePayroll(wage,hours,getNumber('leave') ?? 0,
+    [paidRegular, paidBonus, getNumber('familyAllowance') ?? 0],
+    dependents,children,deductionValues,payMonth);
+  const invalid = invalidInput || result.taxBase === null;
+  const valid = value => invalid ? null : value;
+  get('netNote').textContent = deductionIds.some(id => get(id).value === '') ? '공제 입력 · 빈칸은 0원' : '공제 수정';
+  const extraMonthlyDisplay = wage.extra * 2 / 12;
+  const regularMonthlyDisplay = wage.regular - extraMonthlyDisplay;
+  const values = {
+    hourlyOut: wage.hourly, hourlyDetailOut: wage.hourly, wageBaseOut: wage.total,
+    baseOut: wage.base, mealOut: fixedAllowances.meal, transportOut: fixedAllowances.transport, treatmentOut: wage.treatment,
+    complaintsOut: fixedAllowances.complaints, dutyOut: fixedAllowances.duty, bonusMonthlyOut: wage.bonus,
+    regularMonthlyOut: regularMonthlyDisplay, extraMonthlyOut: extraMonthlyDisplay,
+    familyOut: getNumber("familyAllowance"), monthlyOut: result.monthly,
+    otOut: valid(result.overtime), leaveOut: valid(result.leave), bonusPaidOut: paidBonus, grossOut: valid(result.gross),
+    nonTaxableOut: valid(result.nonTaxable), taxBaseOut: valid(result.taxBase), incomeOut: valid(result.income), localOut: valid(result.local),
+    deductionOut: invalidDeduction ? null : valid(result.deductions), netOut: invalidDeduction ? null : valid(result.net)
+  };
+  get('hoursOut').textContent = invalid ? '입력 확인' : hours + '시간';
+  for (const [id, amount] of Object.entries(values)) get(id).textContent = money(amount);
+  statementReady = !invalid && !invalidDeduction && Number.isSafeInteger(result.net);
+  get('statementError').textContent = statementReady ? '' : '급여와 공제 입력값을 확인해 주세요.';
+  if (statementReady) {
+    const treatment = wage.treatment;
+    const separate = treatment + result.leave;
+    const items = {
+      ...fixedAllowances, base: wage.base, treatment, bonus: paidBonus,
+      family: getNumber('familyAllowance') || 0, overtime: result.overtime,
+      regular: paidRegular, leave: result.leave, pension: getNumber('pension') || 0,
+      health: getNumber('health') || 0, care: getNumber('care') || 0,
+      employment: getNumber('employment') || 0, union: deductionValues[0],
+      adjustment: getNumber('adjustment') || 0, income: result.income, local: result.local,
+      gross: result.gross, deductions: result.deductions, net: result.net,
+      separate, deposit: result.net - separate, hourly: wage.hourly
+    };
+    for (const [key, value] of Object.entries(items)) {
+      const blank = (key === 'regular' || key === 'family' || key === 'adjustment') && value === 0;
+      get('slip-' + key).textContent = blank ? '' : value.toLocaleString('ko-KR');
+    }
+    get('slip-month').textContent = payMonth + '월';
+    get('slip-step').textContent = get('step').value + '호봉';
+    get('slip-leave-days').textContent = (getNumber('leave') || 0) + '일';
+    get('slip-hours').textContent = hours;
+  }
+}
+for (const id of ['step', 'tenure', 'contractType', 'treatment', 'dependents', 'children', 'payMonth', 'bonusPaid', ...coreIds, ...deductionIds]) get(id).addEventListener('input', render);
+let activePage = 'pay';
+const pageHashes = {pay: '', tax: '#tax', slip: '#payslip'};
+function showPage(page, scroll = true, updateAddress = true) {
+  if (page === 'slip') {
+    render();
+    if (!statementReady) {
+      if (!updateAddress) window.history.replaceState(null, '', '#tax');
+      showPage('tax');
+      get('statementError').focus();
+      return;
+    }
+  }
+  if (updateAddress && window.location.hash !== pageHashes[page]) {
+    window.history.pushState(null, '', pageHashes[page] || (window.location.pathname + window.location.search));
+  }
+  if (page === activePage) return;
+  activePage = page;
+  get('payPage').hidden = page !== 'pay';
+  get('slipPage').hidden = page !== 'slip';
+  get('resultDock').hidden = page === 'slip';
+  get('slipTab').setAttribute('aria-pressed', String(page === 'slip'));
+  get('taxPage').hidden = page !== 'tax';
+  get('payTab').setAttribute('aria-pressed', String(page === 'pay'));
+  get('taxTab').setAttribute('aria-pressed', String(page === 'tax'));
+  if (scroll) window.scrollTo(0, 0);
+  if (page === 'slip') get('slipTitle').focus({preventScroll:true});
+}
+get('payTab').addEventListener('click', () => showPage('pay'));
+get('completePayroll').addEventListener('click', () => showPage('slip'));
+get('slipTab').addEventListener('click', () => showPage('slip'));
+get('editSlip').addEventListener('click', () => showPage('tax'));
+get('printSlip').addEventListener('click', () => window.print());
+get('taxTab').addEventListener('click', () => showPage('tax'));
+get('nextPayPage').addEventListener('click', () => showPage('tax'));
+const swipePages = ['pay', 'tax', 'slip'];
+let swipeStart = null;
+get('payPages').addEventListener('touchstart', event => {
+  const touch = event.touches[0];
+  swipeStart = event.touches.length === 1 && !event.target.closest('input,select,button,a,summary') ? [touch.clientX,touch.clientY] : null;
+}, {passive:true});
+get('payPages').addEventListener('touchcancel', () => { swipeStart = null; }, {passive:true});
+get('payPages').addEventListener('touchend', event => {
+  if (!swipeStart) return;
+  const [x,y] = swipeStart;
+  swipeStart = null;
+  const touch = event.changedTouches[0];
+  const dx = touch.clientX - x;
+  if (event.touches.length || Math.abs(dx) < 65 || Math.abs(dx) < Math.abs(touch.clientY-y)*1.5) return;
+  const next = swipePages[swipePages.indexOf(activePage) + (dx < 0 ? 1 : -1)];
+  if (next) showPage(next);
+}, {passive:true});
+get('netNote').addEventListener('click', () => {
+  showPage('tax', false, false);
+  get('personalDeductions').open = true;
+});
+function openPageFromAddress() {
+  const hash = window.location.hash;
+  const deductions = hash === '#personalDeductions';
+  const page = hash === pageHashes.slip ? 'slip' : hash === pageHashes.tax || deductions ? 'tax' : 'pay';
+  showPage(page, true, false);
+  if (deductions) {
+    get('personalDeductions').open = true;
+    get('personalDeductions').scrollIntoView();
+  }
+}
+window.addEventListener('hashchange', openPageFromAddress);
+render();
+openPageFromAddress();
+</script><script>
+// 부가 기능: 모바일 입력 자동저장 + 선택적 시간대별 내역 (기존 계산 엔진은 수정하지 않음)
+(()=>{
+  'use strict';
+  const storageKey = 'asan-payroll-2026-project-v1';
+  const inputs = ['step','tenure','contractType','treatment','weighted','familyAllowance','payMonth',
+    'bonusPaid','leave','dependents','children','pension','health','care','employment','adjustment',
+    'slipName','slipNumber','slipPosition','slipDate',
+    ...Array.from({length:7},(_,i)=>'detailHours'+i)];
+  const hourIds = Array.from({length:7},(_,i)=>'detailHours'+i);
+  const ratios = [1.5,0.5,0.5,1.5,2,2.0,2.5];
+  const $ = id => document.getElementById(id);
+  let store = null;
+  try {
+    const key = storageKey+'-check';
+    localStorage.setItem(key,'ok');
+    if (localStorage.getItem(key)==='ok') { localStorage.removeItem(key); store=localStorage; }
+  } catch(_) { /* 일부 file:// 앱에서는 저장이 허용되지 않음 */ }
+  function status(message){$('draftStatus').textContent=message;}
+  function save(){
+    if(!store)return;
+    try {
+      const values={};
+      for(const id of inputs) values[id]=$(id).value;
+      store.setItem(storageKey,JSON.stringify({version:1,values}));
+      status('이 기기에 입력값 자동저장됨');
+    } catch(_) {status('브라우저 저장 제한 · 입력값은 이번 화면에서만 유지');}
+  }
+  function restore(){
+    if(!store){status('브라우저 저장 제한 · 종료 시 입력값이 사라질 수 있음');return;}
+    try {
+      const raw=store.getItem(storageKey);
+      if(raw){
+        const data=JSON.parse(raw);
+        if(data && data.version===1 && data.values && typeof data.values==='object'){
+          for(const id of inputs){
+            const v=data.values[id];
+            if(typeof v!=='string')continue;
+            const el=$(id);
+            if(el.tagName==='SELECT' && ![...el.options].some(x=>x.value===v))continue;
+            el.value=v;
+          }
+          render(); // 지급월·가족·공제 금액을 기존 엔진으로 다시 연결
+          status('저장된 입력값 복원됨 · 이 기기에 자동저장');
+          return;
+        }
+      }
+      status('이 기기에 입력값 자동저장 사용 가능');
+    }catch(_){status('저장된 값을 읽지 못함 · 현재 입력으로 진행 가능');}
+  }
+  const textNum = n => (Math.round((n+Number.EPSILON)*1e6)/1e6).toLocaleString('ko-KR',{maximumFractionDigits:6});
+  function updateHoursDetail(){
+    let active=false, invalid=false, sum=0, weighted=0;
+    for(let i=0;i<7;i++){
+      const el=$(hourIds[i]);
+      const provided=el.value!=='';
+      if(provided)active=true;
+      if(provided && (!el.validity.valid || !Number.isFinite(Number(el.value))))invalid=true;
+      const n=provided && el.validity.valid ? Number(el.value) : 0;
+      sum+=n;weighted+=n*ratios[i];
+      $('slip-hour-input-'+i).textContent=provided ? textNum(n) : '';
+    }
+    const note=$('hoursFeedback');
+    const slipNote=$('slip-hours-note');
+    if(invalid || !Number.isFinite(weighted) || !Number.isFinite(sum)){
+      $('hoursWeightedPreview').textContent='입력값 확인 필요';
+      $('slip-plain-hours').textContent='';
+      note.textContent='세부시간의 음수·잘못된 입력을 확인해 주세요.';
+      slipNote.textContent='세부시간 입력값을 확인해 주세요.';
+      $('applyDetailHours').disabled=true;
+      return;
+    }
+    $('applyDetailHours').disabled=!active;
+    $('slip-plain-hours').textContent=active ? textNum(sum) : '';
+    $('hoursWeightedPreview').textContent='환산 합계: '+textNum(weighted)+'시간';
+    const currentField=$('weighted');
+    const current=Number(currentField.value||0);
+    const matches=currentField.validity.valid && Math.abs(current-weighted)<0.000001;
+    const msg=active
+      ? matches ? '세부시간 합계와 계산용 환산시간이 일치합니다.' : '⚠ 계산용 환산시간과 다릅니다. ‘환산시간 적용’을 누르세요.'
+      : '';
+    note.textContent=msg;
+    slipNote.textContent=active ? '시간대별 입력값 기준 · '+msg : '시간대별 시간은 선택 입력입니다. 비중 합에는 계산용 환산시간을 표시합니다.';
+  }
+  for(const id of inputs){
+    $(id).addEventListener('input',()=>{if(id==='weighted'||hourIds.includes(id))updateHoursDetail();save();});
+    $(id).addEventListener('change',()=>{if(id==='weighted'||hourIds.includes(id))updateHoursDetail();save();});
+  }
+  $('applyDetailHours').addEventListener('click',()=>{
+    const values=hourIds.map(id=>{const el=$(id);return el.value!=='' && el.validity.valid ? Number(el.value) : 0;});
+    if(!values.some((_,i)=>$(hourIds[i]).value!==''))return;
+    if(hourIds.some(id=>!$(id).validity.valid))return;
+    const total=values.reduce((s,n,i)=>s+n*ratios[i],0);
+    if(!Number.isFinite(total))return;
+    // 기본 계산의 환산시간 입력창에 값만 반영; 계산식은 기존 render()가 담당.
+    $('weighted').value=String(Math.round((total+Number.EPSILON)*1e6)/1e6);
+    $('weighted').dispatchEvent(new Event('input',{bubbles:true}));
+    updateHoursDetail();save();
+  });
+  $('clearDetailHours').addEventListener('click',()=>{
+    for(const id of hourIds)$(id).value='';
+    updateHoursDetail();save();
+  });
+  $('clearDraft').addEventListener('click',()=>{
+    if(!window.confirm('저장된 입력값과 현재 작성 중인 내용을 모두 초기화할까요?'))return;
+    if(store)try{store.removeItem(storageKey)}catch(_){}
+    const defaults={step:'4',tenure:'0',contractType:'0',treatment:'70000',weighted:'',familyAllowance:'0',
+      payMonth:String(new Date().getMonth()+1),bonusPaid:'0',leave:'',dependents:'1',children:'0',
+      pension:'',health:'',care:'',employment:'',adjustment:'',slipName:'',slipNumber:'',slipPosition:'',slipDate:''};
+    for(const id of inputs)$(id).value=defaults[id]??'';
+    render();updateHoursDetail();
+    status(store?'입력값 초기화됨 · 이후 변경 시 다시 자동저장':'입력값 초기화됨 · 저장 기능 이용 불가');
+    showPage('pay');
+  });
+  restore();updateHoursDetail();
+})();
+</script></body></html>

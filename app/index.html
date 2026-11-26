@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, viewport-fit=cover">
+<title>아산 교통약자 이동지원센터 노동조합</title>
+<meta name="description" content="아산시 교통약자이동지원센터 노동조합 공식 앱 — 배차표·근무표, 우리 조합 소식, 익명 건의함, 급여 계산기, 조합원 명단·1:1 톡.">
+
+<!-- 아이폰 홈 화면 앱(standalone) -->
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="default">
+<meta name="apple-mobile-web-app-title" content="아산교통약자노조">
+<meta name="format-detection" content="telephone=no">
+<meta name="theme-color" content="#DCE7FA">
+<link rel="manifest" href="manifest.webmanifest">
+<link rel="apple-touch-icon" sizes="180x180" href="icons/apple-touch-icon.png">
+<link rel="apple-touch-icon" href="icons/apple-touch-icon.png">
+<link rel="icon" type="image/png" sizes="192x192" href="icons/icon-192.png">
+<link rel="icon" type="image/png" sizes="512x512" href="icons/icon-512.png">
+
+<!-- 카카오톡·메신저 링크 미리보기 -->
+<meta property="og:title" content="아산 교통약자 이동지원센터 노동조합 공식 앱">
+<meta property="og:description" content="사파리로 열고 「홈 화면에 추가」만 누르면 앱처럼 설치됩니다. 배차표·근무표, 조합 소식, 익명 건의함, 급여 계산기.">
+<meta property="og:image" content="https://chlrhkdwns12-boop.github.io/asan-union-download/icon.png">
+<meta property="og:url" content="https://chlrhkdwns12-boop.github.io/asan-union-download/app/">
+<meta property="og:type" content="website">
+<meta name="twitter:card" content="summary_large_image">
+
+<link rel="stylesheet" href="styles.css">
+</head>
+<body>
+<div class="aurora" aria-hidden="true"><span class="a1"></span><span class="a2"></span><span class="a3"></span><span class="a4"></span><span class="a5"></span></div>
+
+<div id="app" class="app">
+  <header class="topbar" id="topbar">
+    <a class="brand" href="#/">
+      <span class="brand-icon"><img src="icons/icon-192.png" alt=""></span>
+      <span class="brand-text">
+        <strong>아산시 교통약자이동지원센터</strong>
+        <small>노동조합 공식 앱</small>
+      </span>
+    </a>
+    <div class="top-actions">
+      <button class="round" id="btnShare" aria-label="공유"><svg viewBox="0 0 24 24"><path d="M12 16V4m0 0 4 4m-4-4L8 8M5 14v5a1 1 0 0 0 1 1h12a1 1 0 0 0 1-1v-5"/></svg></button>
+      <button class="round" id="btnRefresh" aria-label="새로고침"><svg viewBox="0 0 24 24"><path d="M20 12a8 8 0 1 1-2.3-5.6M20 4v4h-4"/></svg></button>
+      <button class="round me" id="btnMe" aria-label="내 정보">조</button>
+    </div>
+  </header>
+
+  <main id="view" class="view" tabindex="-1"></main>
+
+  <nav class="tabbar" id="tabbar">
+    <a href="#/" data-tab="home"><svg viewBox="0 0 24 24"><path d="M4 11.5 12 4l8 7.5V20a1 1 0 0 1-1 1h-4v-6H9v6H5a1 1 0 0 1-1-1z"/></svg><span>홈</span></a>
+    <a href="#/payroll" data-tab="payroll"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="8.2"/><path d="M8.4 9.2h7.2M8.4 12h7.2M12 12v5.2m-2.2 0h4.4"/></svg><span>급여 계산기</span></a>
+    <a href="#/write" data-tab="write"><svg viewBox="0 0 24 24"><path d="M4 20h4L19 9a2.5 2.5 0 0 0-3.5-3.5L4.5 16.5z"/></svg><span>건의하기</span></a>
+    <a href="#/account" data-tab="account"><svg viewBox="0 0 24 24"><circle cx="12" cy="8.2" r="3.6"/><path d="M4.8 20c.6-3.9 3.6-6 7.2-6s6.6 2.1 7.2 6"/></svg><span>내 정보</span></a>
+  </nav>
+</div>
+
+<!-- 설치 안내(사파이·크롬) -->
+<div class="install-banner" id="installBanner" hidden>
+  <div class="ib-icon">□↑</div>
+  <div class="ib-text" id="installText"></div>
+  <button class="ib-close" id="installClose" aria-label="닫기">✕</button>
+</div>
+
+<!-- 카카오톡 안내 -->
+<div class="kt-notice" id="ktNotice" hidden>
+  <strong>카카오톡 안에서는 설치가 안 돼요</strong>
+  <p>오른쪽 위 <b>⋯</b> → <b>다른 브라우저로 열기</b>에서 <b>Safari</b>를 고르면 홈 화면에 추가할 수 있어요.</p>
+  <div class="kt-actions">
+    <button class="btn ghost" id="ktCopy">주소 복사</button>
+    <button class="btn" id="ktOpen">Safari로 열기</button>
+  </div>
+</div>
+
+<div class="sheet-wrap" id="sheetWrap" hidden>
+  <div class="sheet-backdrop" id="sheetBackdrop"></div>
+  <div class="sheet" id="sheet" role="dialog" aria-modal="true"></div>
+</div>
+
+<div class="zoom" id="zoom" hidden>
+  <div class="zoom-stage" id="zoomStage"><img class="zoom-img" id="zoomImg" alt=""></div>
+  <div class="zoom-bar">
+    <button id="zoomPrev" aria-label="이전">◀</button>
+    <span id="zoomLabel"></span>
+    <button id="zoomNext" aria-label="다음">▶</button>
+    <button id="zoomClose" aria-label="닫기">✕</button>
+  </div>
+</div>
+
+<div class="toast" id="toast" hidden></div>
+
+<script src="config.js"></script>
+<script src="vendor/firebase-app-compat.js"></script>
+<script src="vendor/firebase-auth-compat.js"></script>
+<script src="vendor/firebase-firestore-compat.js"></script>
+<script src="app.js"></script>
+</body>
+</html>

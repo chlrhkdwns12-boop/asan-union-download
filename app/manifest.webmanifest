@@ -1,0 +1,26 @@
+{
+  "name": "아산 교통약자 이동지원센터 노동조합",
+  "short_name": "아산교통약자노조",
+  "description": "배차표·근무표, 우리 조합 소식, 익명 건의함, 급여 계산기, 조합원 명단·1:1 톡을 한 곳에서.",
+  "lang": "ko",
+  "dir": "ltr",
+  "start_url": "./?src=homescreen",
+  "scope": "./",
+  "id": "./",
+  "display": "standalone",
+  "display_override": ["standalone", "fullscreen", "minimal-ui"],
+  "orientation": "portrait",
+  "background_color": "#DCE7FA",
+  "theme_color": "#DCE7FA",
+  "categories": ["productivity", "social"],
+  "icons": [
+    { "src": "icons/icon-192.png", "sizes": "192x192", "type": "image/png", "purpose": "any" },
+    { "src": "icons/icon-512.png", "sizes": "512x512", "type": "image/png", "purpose": "any" },
+    { "src": "icons/icon-192-maskable.png", "sizes": "192x192", "type": "image/png", "purpose": "maskable" },
+    { "src": "icons/icon-512-maskable.png", "sizes": "512x512", "type": "image/png", "purpose": "maskable" }
+  ],
+  "shortcuts": [
+    { "name": "급여 계산기", "url": "./?go=payroll", "icons": [{ "src": "icons/icon-192.png", "sizes": "192x192" }] },
+    { "name": "건의하기", "url": "./?go=write", "icons": [{ "src": "icons/icon-192.png", "sizes": "192x192" }] }
+  ]
+}
