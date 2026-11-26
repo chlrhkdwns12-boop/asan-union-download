@@ -4,7 +4,7 @@
  *  · 화면 요청은 네트워크 먼저 → 3초 안에 못 받으면 담아 둔 사본(지하철·엘리베이터에서도 열린다).
  *  · Firebase·중계 서버(다른 주소)는 건드리지 않는다 — 데이터는 SDK 가 스스로 캐시한다.
  */
-const VERSION = 'asan-union-pwa-v1.0.0';
+const VERSION = 'asan-union-pwa-v1.0.1';
 const SHELL = [
   './',
   './index.html',

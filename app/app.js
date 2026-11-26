@@ -1767,14 +1767,15 @@
     if (isKakaoTalk()) {
       $('#ktNotice').hidden = false;
       $('#ktCopy').addEventListener('click', async () => {
-        try { await navigator.clipboard.writeText(CFG.shareUrl); toast('주소를 복사했어요. Safari 주소창에 붙여 넣어 주세요.'); }
-        catch (error) { toast(CFG.shareUrl, 5000); }
+        try {
+          await navigator.clipboard.writeText(CFG.shareUrl);
+          toast('주소를 복사했어요! Safari를 열어 주소창에 붙여 넣어 주세요.', 4000);
+        } catch (error) {
+          try { window.prompt('아래 주소를 복사해서 Safari에 붙여 넣어 주세요.', CFG.shareUrl); }
+          catch (_) { toast(CFG.shareUrl, 5000); }
+        }
       });
-      $('#ktOpen').addEventListener('click', () => {
-        // 카카오톡 인앱브라우저에서 사파리로 넘기는 표준 우회
-        location.href = CFG.shareUrl.replace(/^https?:\/\//, 'x-web-search://?') || CFG.shareUrl;
-        setTimeout(() => { toast('안 열리면 오른쪽 위 ⋯ → 다른 브라우저로 열기를 눌러 주세요.', 4200); }, 600);
-      });
+      $('#ktClose').addEventListener('click', () => { $('#ktNotice').hidden = true; });
       return;
     }
 
