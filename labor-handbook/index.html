@@ -290,6 +290,10 @@
   .toast.on{opacity:1; transform:translate(-50%,0)}
 
   /* 좁은 화면·낮은 화면 */
+  @media (min-width:760px){
+    .chips{max-width:790px; padding:9px 0}
+    .chip{font-size:12px; padding:7px 11px}
+  }
   @media (max-height:640px){
     h1{font-size:16.5px}
     .chips{padding-top:6px; padding-bottom:6px}
