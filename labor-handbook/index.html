@@ -622,7 +622,7 @@
       if (im && im.complete && im.naturalWidth){
         if (rec.back){
           q.save();
-          q.globalAlpha = 0.05;
+          q.globalAlpha = 0.042;
           try { q.filter = "blur(1.2px)"; } catch(e){}
           q.translate(c.width, 0); q.scale(-1, 1);
           q.drawImage(im, 0, 0, c.width, c.height);
@@ -646,6 +646,13 @@
           q.drawImage(im, 0, 0, c.width, c.height);
         }
         rec.ready = true;
+        /* 이 쪽의 평균색 — 말림 띠의 종이 면을 칠할 때 쓴다 */
+        try {
+          var tc = document.createElement("canvas"); tc.width = 1; tc.height = 1;
+          var tq = tc.getContext("2d"); tq.drawImage(c, 0, 0, 1, 1);
+          var dd = tq.getImageData(0, 0, 1, 1).data;
+          rec.avg = "rgb(" + dd[0] + "," + dd[1] + "," + dd[2] + ")";
+        } catch(e2){}
       } else {
         if (!rec.back){ q.fillStyle = "#FBF7EE"; q.fillRect(0, 0, c.width, c.height); }
         if (!rec.pending){
@@ -754,12 +761,12 @@
       var bL = layer(st.back, true);
       if (fL){
         g.save();
-        polyPath(halfPlane(A, N, -1));
+        polyPath(halfPlane(A, N, 1));   /* 아직 넘어가지 않은 종이 = 접힘선 안쪽 */
         g.clip();
         drawPage(fL);
         /* 평면부에도 접힘선 쪽 접촉 음영 */
-        var cg = g.createLinearGradient(A[0], A[1], A[0]-N[0]*Math.max(10, W*0.06), A[1]-N[1]*Math.max(10, W*0.06));
-        cg.addColorStop(0, "rgba(40,32,20,0.22)");
+        var cg = g.createLinearGradient(A[0], A[1], A[0]-N[0]*Math.max(12, W*0.10), A[1]-N[1]*Math.max(12, W*0.10));
+        cg.addColorStop(0, "rgba(40,32,20,0.13)");
         cg.addColorStop(1, "rgba(40,32,20,0)");
         g.fillStyle = cg;
         g.fillRect(0, 0, W, H);
@@ -771,6 +778,23 @@
       var arc = R * phi;
       var tSplit = R * Math.PI * 0.5;
       var NS = W > 460 ? 108 : 84;
+
+      /* 3a) 날개 바탕 — 접힘부는 앞면 색, 90°를 지나면 되접힌 뒷면 종이색.
+             띠마다 따로 칠하면 세로 줄무늬가 생기므로 한 번에 칠한다. */
+      var fadeFlap = clamp((1 - (st.p || 0)) / 0.16, 0, 1);  /* 넘김 끝에서 다음 쪽으로 자연히 풀린다 */
+      g.save();
+      polyPath(halfPlane(A, N, -1));
+      g.clip();
+      g.globalAlpha = fadeFlap;
+      var pArc = clamp(arc / Math.max(1, L), 0.001, 0.999);
+      var bg = g.createLinearGradient(A[0], A[1], A[0] + N[0]*L, A[1] + N[1]*L);
+      bg.addColorStop(0, (fL && fL.avg) || "#FBF7EE");
+      bg.addColorStop(pArc, (fL && fL.avg) || "#FBF7EE");
+      bg.addColorStop(Math.min(0.9995, pArc + 0.004), "#FDF8EE");
+      bg.addColorStop(1, "#FDF8EE");
+      g.fillStyle = bg;
+      g.fillRect(0, 0, W, H);
+      g.restore();
 
       /* 가장자리(절단면) 궤적을 먼저 구해 두고 그림자 → 날개 → 하이라이트 순으로 */
       var edges = [];
@@ -832,6 +856,7 @@
         var ang = (tm <= arc) ? tm/R : phi;
         var isFront = Math.cos(ang) >= 0;
         var s0 = sectionAt(t0, R, phi), s1 = sectionAt(t1, R, phi);
+        if (isFront) return;              /* 앞면 띠는 바탕색으로 이미 칠했다 */
 
         g.save();
         polyPath(band(A, N, T2, t0, t1, W*2.2));
@@ -845,23 +870,9 @@
         g.translate(N[0]*c0, N[1]*c0);
         g.transform(m11, m21, m12, m22, 0, 0);
         g.translate(-A[0], -A[1]);
-        var lay = isFront ? fL : bL;
-        drawPage(lay);
-        g.restore();
-
-        var tA = toneAtT(Math.max(t0, 0.01)), tB = toneAtT(t1);
-        if (Math.abs(tA - tB) < 0.006 && Math.abs(tA - 1) < 0.006) return;
-        var gx0 = A[0]+N[0]*s0.p, gy0 = A[1]+N[1]*s0.p;
-        var gx1 = A[0]+N[0]*s1.p, gy1 = A[1]+N[1]*s1.p;
-        if (Math.abs(gx1-gx0) + Math.abs(gy1-gy0) < 0.15){ gx1 = gx0 + N[0]*0.7; gy1 = gy0 + N[1]*0.7; }
-        g.save();
-        polyPath(band(A, N, T2, t0, t1, W*2.2));
-        g.clip();
-        var gg = g.createLinearGradient(gx0, gy0, gx1, gy1);
-        gg.addColorStop(0, shadeCss(tA));
-        gg.addColorStop(1, shadeCss(tB));
-        g.fillStyle = gg;
-        g.fillRect(0, 0, W, H);
+        /* 앞면은 바탕색만: 눌린 그림을 띠마다 그리면 이음매가 줄무늬로 보인다.
+           뒤집혀 올라온 뒷면의 비침만 그린다. */
+        if (Math.abs(kk2) > 0.45) drawPage(bL);
         g.restore();
       }
 
@@ -875,13 +886,27 @@
         }
       }
 
+      /* 3b) 날개 음영 — 접힘축 방향 하나의 그라디언트 (띠 이음매 없이 매끄럽게) */
+      g.save();
+      polyPath(halfPlane(A, N, -1));
+      g.clip();
+      g.globalAlpha = fadeFlap;
+      var NSG = 40;
+      var sg = g.createLinearGradient(A[0], A[1], A[0] + N[0]*L, A[1] + N[1]*L);
+      for (var sgI = 0; sgI <= NSG; sgI++){
+        sg.addColorStop(sgI / NSG, shadeCss(toneAtT(Math.max(0.01, L*sgI/NSG))));
+      }
+      g.fillStyle = sg;
+      g.fillRect(0, 0, W, H);
+      g.restore();
+
       /* 종이 두께 : 잘린 가장자리 */
       g.save();
       g.lineJoin = "round"; g.lineCap = "round";
       g.strokeStyle = "rgba(92,76,48,0.26)";
       g.lineWidth = 3.4; strokeAll(edges, 0, 0);
-      g.strokeStyle = "rgba(255,253,246,0.95)";
-      g.lineWidth = 1.6; strokeAll(edges, N[0]*-0.5, N[1]*-0.5);
+      g.strokeStyle = "rgba(255,253,246,0.40)";
+      g.lineWidth = 1.1; strokeAll(edges, N[0]*-0.4, N[1]*-0.4);
       g.restore();
     }
 
@@ -927,7 +952,7 @@
     if (v2 < 0 || v2 >= viewCount()) return null;
 
     var o = { dir: dir, p: 0, vel: 0, target: 0, mirror: dir < 0,
-              front: 0, back: 0, N: N || diagonalN(dir), sm: 0 };
+              front: 0, back: 0, N: N || spineN(dir), sm: 0 };
     o.sm = sMaxFor(o.N, dir);
 
     if (mode === "spread"){
@@ -957,10 +982,10 @@
     return o;
   }
 
-  function diagonalN(dir){
-    /* 책등 쪽(안쪽) 대각선 : 한쪽 보기/펼침 모두 같은 날개 좌표계 */
-    var d = Math.hypot(W, H);
-    return [W/d, H/d];
+  function spineN(dir){
+    /* 접힘선의 법선은 언제나 가로축 하나 — 접힘선은 책등과 나란한 세로 직선.
+       기울기 0° : 버튼·스와이프·모서리 당김 어느 쪽이든 좌우로만 반듯하게 말린다. */
+    return [1, 0];
   }
   function sMaxFor(N, dir){
     /* 모서리(W,H)에서 -N 방향으로 쪽 경계까지 */
@@ -975,7 +1000,7 @@
   }
 
   /* 시각 파라미터 (검증용으로 바꿔 볼 수 있음) */
-  var CFG = { phiMin: 0.70, phiMax: 0.98, phiExp: 0.35, rFrac: 0.05, rMax: 30,
+  var CFG = { phiMin: 0.52, phiMax: 0.84, phiExp: 0.35, rFrac: 0.125, rMax: 52,
               lx: -0.42, ly: -0.52, lz: 0.82 };
 
   /* ── 그리기 ── */
@@ -1023,7 +1048,7 @@
       if (bi >= 0 && bi < PN) profF[bi] += 1;
     }
     var meanZ = cnt ? acc/cnt : 0;
-    var inten = clamp(0.20 + 0.62 * (meanZ / (0.42*W)), 0, 0.52) * clamp(p*6, 0, 1);
+    var inten = clamp(0.12 + 0.34 * (meanZ / (0.42*W)), 0, 0.28) * clamp(p*6, 0, 1);
 
     /* 누적 → 알파, 부드럽게 (박스 블러 3회) */
     for (i3=0;i3<PN;i3++) profF[i3] = 1 - Math.exp(-profF[i3]*0.95);
@@ -1037,7 +1062,7 @@
 
     R3.draw({
       A: A, N: T.N, R: R, phi: phi, L: L,
-      mirror: T.mirror, front: T.front, back: T.back,
+      mirror: T.mirror, front: T.front, back: T.back, p: p,
       fade: fade,
       sh: { bins: profB, int: inten }
     });
@@ -1217,14 +1242,9 @@
   }
 
   function foldNormal(dir, dx, dy){
-    var vx = -dx, vy = -dy;             /* 접힘축 → 손가락 반대 = 모서리 쪽 */
-    var m = Math.hypot(vx, vy) || 1;
-    vx /= m; vy /= m;
-    var dg = diagonalN(dir);            /* 책 안쪽 대각선 = 모서리 방향 */
-    var nx = 0.5*vx + 0.5*dg[0];
-    var ny = 0.5*vy + 0.5*dg[1];
-    var nn = Math.hypot(nx, ny) || 1;
-    return [nx/nn, ny/nn];
+    /* 손가락이 어디로 끌려도 접힘선은 세로 고정.
+       모서리를 비스듬히 당기거나 세로로 흔들어도 45°로 삐딱해지지 않고 좌우로만 말린다. */
+    return [1, 0];
   }
 
   function onUp(e){
